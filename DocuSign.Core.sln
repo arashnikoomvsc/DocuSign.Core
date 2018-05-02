@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2020
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DocuSign.Core", "DocuSign.Core.csproj", "{A2463409-E4BF-40A8-BB5C-E3FC49F27BEF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A2463409-E4BF-40A8-BB5C-E3FC49F27BEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2463409-E4BF-40A8-BB5C-E3FC49F27BEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2463409-E4BF-40A8-BB5C-E3FC49F27BEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2463409-E4BF-40A8-BB5C-E3FC49F27BEF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {511531B2-C5B1-4733-8F8B-FDD33701241B}
+	EndGlobalSection
+EndGlobal
