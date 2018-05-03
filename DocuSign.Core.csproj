@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <AssemblyName>DocuSignCore</AssemblyName>
     <RootNamespace>DocuSign.Core</RootNamespace>
@@ -10,6 +10,8 @@
     <Authors>Arash Nikoo</Authors>
     <Company>MVSC</Company>
     <Product>DocuSign.Core</Product>
+    <ApplicationIcon />
+    <StartupObject />
   </PropertyGroup>
 
   <ItemGroup>
