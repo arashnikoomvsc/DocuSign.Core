@@ -14,6 +14,7 @@
     <RepositoryUrl>https://github.com/arashnikoomvsc/DocuSign.Core</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
     <Description>DocuSign REST API Client Library for .NET Core 2.0</Description>
+    <PackageTags>docusign dotnet dotnetcore core esign</PackageTags>
     <ApplicationIcon />
     <StartupObject />
     <AssemblyVersion>1.1.0.0</AssemblyVersion>
