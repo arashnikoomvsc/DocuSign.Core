@@ -5,6 +5,11 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <AssemblyName>DocuSignCore</AssemblyName>
     <RootNamespace>DocuSign.Core</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>DocuSign.Core</PackageId>
+    <Authors>Arash Nikoo</Authors>
+    <Company>MVSC</Company>
+    <Product>DocuSign.Core</Product>
   </PropertyGroup>
 
   <ItemGroup>
