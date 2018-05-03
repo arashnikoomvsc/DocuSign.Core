@@ -5,6 +5,14 @@ DocuSign REST API Client Library (Generated from Swagger documentation) for .NET
 Visual Studio 2017
 .NET Core 2.0
 
+# Installation
+```
+PM> Install-Package DocuSign.Core
+```
+Or
+```
+dotnet add package DocuSign.Core
+```
 # Usage Example
 ```csharp
 string username = "[YOUR EMAIL]";
