@@ -2,8 +2,8 @@
 DocuSign REST API Client Library (Generated from Swagger documentation) for .NET Core 2.0
 
 # Requirements
-Visual Studio 2017
-.NET Core 2.0
+- Visual Studio 2017
+- .NET Core 2.0
 
 # Installation
 ```
