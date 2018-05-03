@@ -76,7 +76,7 @@ envDef.Recipients = new EnvelopeRecipients();
 envDef.Recipients.Signers = new List<Signer>();
 envDef.Recipients.Signers.Add(signer);
 
+// Create envelope
 EnvelopesApi envelopesApi = new EnvelopesApi();
-
 EnvelopeSummary envelopeSummary = envelopesApi.EnvelopesPostEnvelopes(accountId, null, null, null, envDef);
 ```
