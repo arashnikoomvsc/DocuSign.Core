@@ -13,6 +13,7 @@
     <PackageProjectUrl>https://github.com/arashnikoomvsc/DocuSign.Core</PackageProjectUrl>
     <RepositoryUrl>https://github.com/arashnikoomvsc/DocuSign.Core</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
+    <Description>DocuSign REST API Client Library for .NET Core 2.0</Description>
     <ApplicationIcon />
     <StartupObject />
   </PropertyGroup>
