@@ -10,6 +10,9 @@
     <Authors>Arash Nikoo</Authors>
     <Company>MVSC</Company>
     <Product>DocuSign.Core</Product>
+    <PackageProjectUrl>https://github.com/arashnikoomvsc/DocuSign.Core</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/arashnikoomvsc/DocuSign.Core</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
     <ApplicationIcon />
     <StartupObject />
   </PropertyGroup>
