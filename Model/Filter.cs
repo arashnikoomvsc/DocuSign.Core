@@ -42,7 +42,7 @@ namespace DocuSign.Core.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Filter" /> class.
         /// </summary>
-        /// <param name="ActionRequired">Access token information..</param>
+        /// <param name="ActionRequired">Action required..</param>
         /// <param name="Expires">.</param>
         /// <param name="FolderIds">.</param>
         /// <param name="FromDateTime">.</param>
@@ -51,8 +51,8 @@ namespace DocuSign.Core.Model
         /// <param name="OrderBy">.</param>
         /// <param name="SearchTarget">.</param>
         /// <param name="SearchText">.</param>
-        /// <param name="Status">Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later..</param>
-        /// <param name="ToDateTime">Must be set to \&quot;bearer\&quot;..</param>
+        /// <param name="Status">Filter status..</param>
+        /// <param name="ToDateTime">Latest date to filter..</param>
         public Filter(string ActionRequired = null, string Expires = null, string FolderIds = null, string FromDateTime = null, string IsTemplate = null, string Order = null, string OrderBy = null, string SearchTarget = null, string SearchText = null, string Status = null, string ToDateTime = null)
         {
             this.ActionRequired = ActionRequired;
@@ -69,9 +69,9 @@ namespace DocuSign.Core.Model
         }
         
         /// <summary>
-        /// Access token information.
+        /// Action required.
         /// </summary>
-        /// <value>Access token information.</value>
+        /// <value>Action required.</value>
         [DataMember(Name="actionRequired", EmitDefaultValue=false)]
         public string ActionRequired { get; set; }
         /// <summary>
@@ -123,15 +123,15 @@ namespace DocuSign.Core.Model
         [DataMember(Name="searchText", EmitDefaultValue=false)]
         public string SearchText { get; set; }
         /// <summary>
-        /// Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later.
+        /// Filter status.
         /// </summary>
-        /// <value>Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later.</value>
+        /// <value>Filter status.</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
         /// <summary>
-        /// Must be set to \&quot;bearer\&quot;.
+        /// Latest date to filter.
         /// </summary>
-        /// <value>Must be set to \&quot;bearer\&quot;.</value>
+        /// <value>Latest date to filter.</value>
         [DataMember(Name="toDateTime", EmitDefaultValue=false)]
         public string ToDateTime { get; set; }
         /// <summary>

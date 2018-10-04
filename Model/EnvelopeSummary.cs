@@ -43,7 +43,7 @@ namespace DocuSign.Core.Model
         /// Initializes a new instance of the <see cref="EnvelopeSummary" /> class.
         /// </summary>
         /// <param name="EnvelopeId">The envelope ID of the envelope status that failed to post..</param>
-        /// <param name="Status">Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later..</param>
+        /// <param name="Status">Indicates the envelope status. Valid values are:   * completed - The envelope has been completed and all tags have been signed. * created - The envelope is created as a draft. It can be modified and sent later. * declined - The envelope has been declined by the recipients. * delivered - The envelope has been delivered to the recipients. * sent - The envelope is sent to the recipients. * signed - The envelope has been signed by the recipients. * voided - The envelope is no longer valid and recipients cannot access or sign the envelope. .</param>
         /// <param name="StatusDateTime">The DateTime that the envelope changed status (i.e. was created or sent.).</param>
         /// <param name="Uri">.</param>
         public EnvelopeSummary(string EnvelopeId = null, string Status = null, string StatusDateTime = null, string Uri = null)
@@ -61,9 +61,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="envelopeId", EmitDefaultValue=false)]
         public string EnvelopeId { get; set; }
         /// <summary>
-        /// Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later.
+        /// Indicates the envelope status. Valid values are:   * completed - The envelope has been completed and all tags have been signed. * created - The envelope is created as a draft. It can be modified and sent later. * declined - The envelope has been declined by the recipients. * delivered - The envelope has been delivered to the recipients. * sent - The envelope is sent to the recipients. * signed - The envelope has been signed by the recipients. * voided - The envelope is no longer valid and recipients cannot access or sign the envelope. 
         /// </summary>
-        /// <value>Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later.</value>
+        /// <value>Indicates the envelope status. Valid values are:   * completed - The envelope has been completed and all tags have been signed. * created - The envelope is created as a draft. It can be modified and sent later. * declined - The envelope has been declined by the recipients. * delivered - The envelope has been delivered to the recipients. * sent - The envelope is sent to the recipients. * signed - The envelope has been signed by the recipients. * voided - The envelope is no longer valid and recipients cannot access or sign the envelope. </value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
         /// <summary>

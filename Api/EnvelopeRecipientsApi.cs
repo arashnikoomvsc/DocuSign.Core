@@ -90,33 +90,31 @@ namespace DocuSign.Core.Api
         /// Gets the status of recipients for an envelope.
         /// </summary>
         /// <remarks>
-        /// Retrieves the status of all recipients in a single envelope and identifies the current recipient in the routing list.   The &#x60;currentRoutingOrder&#x60; property of the response contains the &#x60;routingOrder&#x60; value of the current recipient indicating that the envelope has been sent to the recipient, but the recipient has not completed their actions.
+        /// Retrieves the status of all recipients in a single envelope and identifies the current recipient in the routing list. This method can also be used to retrieve the tab values.  The &#x60;currentRoutingOrder&#x60; property of the response contains the &#x60;routingOrder&#x60; value of the current recipient indicating that the envelope has been sent to the recipient, but the recipient has not completed their actions.
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="envelopeId">The envelope&#39;s GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec </param>
-        /// <param name="includeAnchorTabLocations"> When set to **true** and &#x60;include_tabs&#x60; is set to **true**, all tabs with anchor tab properties are included in the response.  (optional)</param>
+        /// <param name="includeAnchorTabLocations"> When set to **true** and &#x60;include_tabs&#x60; value is set to **true**, all tabs with anchor tab properties are included in the response.  (optional)</param>
         /// <param name="includeExtended"> When set to **true**, the extended properties are included in the response.  (optional)</param>
-        /// <param name="includeMetadata">Reserved for DocuSign.  (optional)</param>
         /// <param name="includeTabs">When set to **true**, the tab information associated with the recipient is included in the response. (optional)</param>
         /// <returns>EnvelopeRecipients</returns>
-        EnvelopeRecipients RecipientsGetRecipients (string accountId, string envelopeId, string includeAnchorTabLocations = null, string includeExtended = null, string includeMetadata = null, string includeTabs = null);
+        EnvelopeRecipients RecipientsGetRecipients (string accountId, string envelopeId, string includeAnchorTabLocations = null, string includeExtended = null, string includeTabs = null);
 
         /// <summary>
         /// Gets the status of recipients for an envelope.
         /// </summary>
         /// <remarks>
-        /// Retrieves the status of all recipients in a single envelope and identifies the current recipient in the routing list.   The &#x60;currentRoutingOrder&#x60; property of the response contains the &#x60;routingOrder&#x60; value of the current recipient indicating that the envelope has been sent to the recipient, but the recipient has not completed their actions.
+        /// Retrieves the status of all recipients in a single envelope and identifies the current recipient in the routing list. This method can also be used to retrieve the tab values.  The &#x60;currentRoutingOrder&#x60; property of the response contains the &#x60;routingOrder&#x60; value of the current recipient indicating that the envelope has been sent to the recipient, but the recipient has not completed their actions.
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="envelopeId">The envelope&#39;s GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec </param>
-        /// <param name="includeAnchorTabLocations"> When set to **true** and &#x60;include_tabs&#x60; is set to **true**, all tabs with anchor tab properties are included in the response.  (optional)</param>
+        /// <param name="includeAnchorTabLocations"> When set to **true** and &#x60;include_tabs&#x60; value is set to **true**, all tabs with anchor tab properties are included in the response.  (optional)</param>
         /// <param name="includeExtended"> When set to **true**, the extended properties are included in the response.  (optional)</param>
-        /// <param name="includeMetadata">Reserved for DocuSign.  (optional)</param>
         /// <param name="includeTabs">When set to **true**, the tab information associated with the recipient is included in the response. (optional)</param>
         /// <returns>ApiResponse of EnvelopeRecipients</returns>
-        ApiResponse<EnvelopeRecipients> RecipientsGetRecipientsWithHttpInfo (string accountId, string envelopeId, string includeAnchorTabLocations = null, string includeExtended = null, string includeMetadata = null, string includeTabs = null);
+        ApiResponse<EnvelopeRecipients> RecipientsGetRecipientsWithHttpInfo (string accountId, string envelopeId, string includeAnchorTabLocations = null, string includeExtended = null, string includeTabs = null);
         /// <summary>
         /// Adds one or more recipients to an envelope.
         /// </summary>
@@ -148,7 +146,7 @@ namespace DocuSign.Core.Api
         /// Updates recipients in a draft envelope or corrects recipient information for an in process envelope.
         /// </summary>
         /// <remarks>
-        /// Updates recipients in a draft envelope or corrects recipient information for an in process envelope.   For draft envelopes, you can edit the following properties: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, &#x60;deliveryMethod&#x60;, &#x60;accessCode&#x60;, and &#x60;requireIdLookup&#x60;.  Once an envelope has been sent, you can only edit: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;signerName&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, and &#x60;deliveryMethod&#x60;. You can also select to resend an envelope by using the &#x60;resend_envelope&#x60; option.  If you send information for a recipient that does not already exist in a draft envelope, the recipient is added to the envelope (similar to the POST).
+        /// Updates recipients in a draft envelope or corrects recipient information for an in process envelope.   For draft envelopes, you can edit the following properties: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, &#x60;deliveryMethod&#x60;, &#x60;accessCode&#x60;, and &#x60;requireIdLookup&#x60;.  Once an envelope has been sent, you can only edit: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;signerName&#x60;, &#x60;signingGroupId&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, and &#x60;deliveryMethod&#x60;. You can also select to resend an envelope by using the &#x60;resend_envelope&#x60; option.  If you send information for a recipient that does not already exist in a draft envelope, the recipient is added to the envelope (similar to the POST).
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -162,7 +160,7 @@ namespace DocuSign.Core.Api
         /// Updates recipients in a draft envelope or corrects recipient information for an in process envelope.
         /// </summary>
         /// <remarks>
-        /// Updates recipients in a draft envelope or corrects recipient information for an in process envelope.   For draft envelopes, you can edit the following properties: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, &#x60;deliveryMethod&#x60;, &#x60;accessCode&#x60;, and &#x60;requireIdLookup&#x60;.  Once an envelope has been sent, you can only edit: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;signerName&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, and &#x60;deliveryMethod&#x60;. You can also select to resend an envelope by using the &#x60;resend_envelope&#x60; option.  If you send information for a recipient that does not already exist in a draft envelope, the recipient is added to the envelope (similar to the POST).
+        /// Updates recipients in a draft envelope or corrects recipient information for an in process envelope.   For draft envelopes, you can edit the following properties: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, &#x60;deliveryMethod&#x60;, &#x60;accessCode&#x60;, and &#x60;requireIdLookup&#x60;.  Once an envelope has been sent, you can only edit: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;signerName&#x60;, &#x60;signingGroupId&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, and &#x60;deliveryMethod&#x60;. You can also select to resend an envelope by using the &#x60;resend_envelope&#x60; option.  If you send information for a recipient that does not already exist in a draft envelope, the recipient is added to the envelope (similar to the POST).
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -227,33 +225,31 @@ namespace DocuSign.Core.Api
         /// Gets the status of recipients for an envelope.
         /// </summary>
         /// <remarks>
-        /// Retrieves the status of all recipients in a single envelope and identifies the current recipient in the routing list.   The &#x60;currentRoutingOrder&#x60; property of the response contains the &#x60;routingOrder&#x60; value of the current recipient indicating that the envelope has been sent to the recipient, but the recipient has not completed their actions.
+        /// Retrieves the status of all recipients in a single envelope and identifies the current recipient in the routing list. This method can also be used to retrieve the tab values.  The &#x60;currentRoutingOrder&#x60; property of the response contains the &#x60;routingOrder&#x60; value of the current recipient indicating that the envelope has been sent to the recipient, but the recipient has not completed their actions.
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="envelopeId">The envelope&#39;s GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec </param>
-        /// <param name="includeAnchorTabLocations"> When set to **true** and &#x60;include_tabs&#x60; is set to **true**, all tabs with anchor tab properties are included in the response.  (optional)</param>
+        /// <param name="includeAnchorTabLocations"> When set to **true** and &#x60;include_tabs&#x60; value is set to **true**, all tabs with anchor tab properties are included in the response.  (optional)</param>
         /// <param name="includeExtended"> When set to **true**, the extended properties are included in the response.  (optional)</param>
-        /// <param name="includeMetadata">Reserved for DocuSign.  (optional)</param>
         /// <param name="includeTabs">When set to **true**, the tab information associated with the recipient is included in the response. (optional)</param>
         /// <returns>Task of EnvelopeRecipients</returns>
-        System.Threading.Tasks.Task<EnvelopeRecipients> RecipientsGetRecipientsAsync (string accountId, string envelopeId, string includeAnchorTabLocations = null, string includeExtended = null, string includeMetadata = null, string includeTabs = null);
+        System.Threading.Tasks.Task<EnvelopeRecipients> RecipientsGetRecipientsAsync (string accountId, string envelopeId, string includeAnchorTabLocations = null, string includeExtended = null, string includeTabs = null);
 
         /// <summary>
         /// Gets the status of recipients for an envelope.
         /// </summary>
         /// <remarks>
-        /// Retrieves the status of all recipients in a single envelope and identifies the current recipient in the routing list.   The &#x60;currentRoutingOrder&#x60; property of the response contains the &#x60;routingOrder&#x60; value of the current recipient indicating that the envelope has been sent to the recipient, but the recipient has not completed their actions.
+        /// Retrieves the status of all recipients in a single envelope and identifies the current recipient in the routing list. This method can also be used to retrieve the tab values.  The &#x60;currentRoutingOrder&#x60; property of the response contains the &#x60;routingOrder&#x60; value of the current recipient indicating that the envelope has been sent to the recipient, but the recipient has not completed their actions.
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="envelopeId">The envelope&#39;s GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec </param>
-        /// <param name="includeAnchorTabLocations"> When set to **true** and &#x60;include_tabs&#x60; is set to **true**, all tabs with anchor tab properties are included in the response.  (optional)</param>
+        /// <param name="includeAnchorTabLocations"> When set to **true** and &#x60;include_tabs&#x60; value is set to **true**, all tabs with anchor tab properties are included in the response.  (optional)</param>
         /// <param name="includeExtended"> When set to **true**, the extended properties are included in the response.  (optional)</param>
-        /// <param name="includeMetadata">Reserved for DocuSign.  (optional)</param>
         /// <param name="includeTabs">When set to **true**, the tab information associated with the recipient is included in the response. (optional)</param>
         /// <returns>Task of ApiResponse (EnvelopeRecipients)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EnvelopeRecipients>> RecipientsGetRecipientsAsyncWithHttpInfo (string accountId, string envelopeId, string includeAnchorTabLocations = null, string includeExtended = null, string includeMetadata = null, string includeTabs = null);
+        System.Threading.Tasks.Task<ApiResponse<EnvelopeRecipients>> RecipientsGetRecipientsAsyncWithHttpInfo (string accountId, string envelopeId, string includeAnchorTabLocations = null, string includeExtended = null, string includeTabs = null);
         /// <summary>
         /// Adds one or more recipients to an envelope.
         /// </summary>
@@ -285,7 +281,7 @@ namespace DocuSign.Core.Api
         /// Updates recipients in a draft envelope or corrects recipient information for an in process envelope.
         /// </summary>
         /// <remarks>
-        /// Updates recipients in a draft envelope or corrects recipient information for an in process envelope.   For draft envelopes, you can edit the following properties: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, &#x60;deliveryMethod&#x60;, &#x60;accessCode&#x60;, and &#x60;requireIdLookup&#x60;.  Once an envelope has been sent, you can only edit: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;signerName&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, and &#x60;deliveryMethod&#x60;. You can also select to resend an envelope by using the &#x60;resend_envelope&#x60; option.  If you send information for a recipient that does not already exist in a draft envelope, the recipient is added to the envelope (similar to the POST).
+        /// Updates recipients in a draft envelope or corrects recipient information for an in process envelope.   For draft envelopes, you can edit the following properties: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, &#x60;deliveryMethod&#x60;, &#x60;accessCode&#x60;, and &#x60;requireIdLookup&#x60;.  Once an envelope has been sent, you can only edit: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;signerName&#x60;, &#x60;signingGroupId&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, and &#x60;deliveryMethod&#x60;. You can also select to resend an envelope by using the &#x60;resend_envelope&#x60; option.  If you send information for a recipient that does not already exist in a draft envelope, the recipient is added to the envelope (similar to the POST).
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -299,7 +295,7 @@ namespace DocuSign.Core.Api
         /// Updates recipients in a draft envelope or corrects recipient information for an in process envelope.
         /// </summary>
         /// <remarks>
-        /// Updates recipients in a draft envelope or corrects recipient information for an in process envelope.   For draft envelopes, you can edit the following properties: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, &#x60;deliveryMethod&#x60;, &#x60;accessCode&#x60;, and &#x60;requireIdLookup&#x60;.  Once an envelope has been sent, you can only edit: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;signerName&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, and &#x60;deliveryMethod&#x60;. You can also select to resend an envelope by using the &#x60;resend_envelope&#x60; option.  If you send information for a recipient that does not already exist in a draft envelope, the recipient is added to the envelope (similar to the POST).
+        /// Updates recipients in a draft envelope or corrects recipient information for an in process envelope.   For draft envelopes, you can edit the following properties: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, &#x60;deliveryMethod&#x60;, &#x60;accessCode&#x60;, and &#x60;requireIdLookup&#x60;.  Once an envelope has been sent, you can only edit: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;signerName&#x60;, &#x60;signingGroupId&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, and &#x60;deliveryMethod&#x60;. You can also select to resend an envelope by using the &#x60;resend_envelope&#x60; option.  If you send information for a recipient that does not already exist in a draft envelope, the recipient is added to the envelope (similar to the POST).
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -759,34 +755,32 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Gets the status of recipients for an envelope. Retrieves the status of all recipients in a single envelope and identifies the current recipient in the routing list.   The &#x60;currentRoutingOrder&#x60; property of the response contains the &#x60;routingOrder&#x60; value of the current recipient indicating that the envelope has been sent to the recipient, but the recipient has not completed their actions.
+        /// Gets the status of recipients for an envelope. Retrieves the status of all recipients in a single envelope and identifies the current recipient in the routing list. This method can also be used to retrieve the tab values.  The &#x60;currentRoutingOrder&#x60; property of the response contains the &#x60;routingOrder&#x60; value of the current recipient indicating that the envelope has been sent to the recipient, but the recipient has not completed their actions.
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="envelopeId">The envelope&#39;s GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec </param>
-        /// <param name="includeAnchorTabLocations"> When set to **true** and &#x60;include_tabs&#x60; is set to **true**, all tabs with anchor tab properties are included in the response.  (optional)</param>
+        /// <param name="includeAnchorTabLocations"> When set to **true** and &#x60;include_tabs&#x60; value is set to **true**, all tabs with anchor tab properties are included in the response.  (optional)</param>
         /// <param name="includeExtended"> When set to **true**, the extended properties are included in the response.  (optional)</param>
-        /// <param name="includeMetadata">Reserved for DocuSign.  (optional)</param>
         /// <param name="includeTabs">When set to **true**, the tab information associated with the recipient is included in the response. (optional)</param>
         /// <returns>EnvelopeRecipients</returns>
-        public EnvelopeRecipients RecipientsGetRecipients (string accountId, string envelopeId, string includeAnchorTabLocations = null, string includeExtended = null, string includeMetadata = null, string includeTabs = null)
+        public EnvelopeRecipients RecipientsGetRecipients (string accountId, string envelopeId, string includeAnchorTabLocations = null, string includeExtended = null, string includeTabs = null)
         {
-             ApiResponse<EnvelopeRecipients> localVarResponse = RecipientsGetRecipientsWithHttpInfo(accountId, envelopeId, includeAnchorTabLocations, includeExtended, includeMetadata, includeTabs);
+             ApiResponse<EnvelopeRecipients> localVarResponse = RecipientsGetRecipientsWithHttpInfo(accountId, envelopeId, includeAnchorTabLocations, includeExtended, includeTabs);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Gets the status of recipients for an envelope. Retrieves the status of all recipients in a single envelope and identifies the current recipient in the routing list.   The &#x60;currentRoutingOrder&#x60; property of the response contains the &#x60;routingOrder&#x60; value of the current recipient indicating that the envelope has been sent to the recipient, but the recipient has not completed their actions.
+        /// Gets the status of recipients for an envelope. Retrieves the status of all recipients in a single envelope and identifies the current recipient in the routing list. This method can also be used to retrieve the tab values.  The &#x60;currentRoutingOrder&#x60; property of the response contains the &#x60;routingOrder&#x60; value of the current recipient indicating that the envelope has been sent to the recipient, but the recipient has not completed their actions.
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="envelopeId">The envelope&#39;s GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec </param>
-        /// <param name="includeAnchorTabLocations"> When set to **true** and &#x60;include_tabs&#x60; is set to **true**, all tabs with anchor tab properties are included in the response.  (optional)</param>
+        /// <param name="includeAnchorTabLocations"> When set to **true** and &#x60;include_tabs&#x60; value is set to **true**, all tabs with anchor tab properties are included in the response.  (optional)</param>
         /// <param name="includeExtended"> When set to **true**, the extended properties are included in the response.  (optional)</param>
-        /// <param name="includeMetadata">Reserved for DocuSign.  (optional)</param>
         /// <param name="includeTabs">When set to **true**, the tab information associated with the recipient is included in the response. (optional)</param>
         /// <returns>ApiResponse of EnvelopeRecipients</returns>
-        public ApiResponse< EnvelopeRecipients > RecipientsGetRecipientsWithHttpInfo (string accountId, string envelopeId, string includeAnchorTabLocations = null, string includeExtended = null, string includeMetadata = null, string includeTabs = null)
+        public ApiResponse< EnvelopeRecipients > RecipientsGetRecipientsWithHttpInfo (string accountId, string envelopeId, string includeAnchorTabLocations = null, string includeExtended = null, string includeTabs = null)
         {
             // verify the required parameter 'accountId' is set
             if (accountId == null)
@@ -823,7 +817,6 @@ namespace DocuSign.Core.Api
             if (envelopeId != null) localVarPathParams.Add("envelopeId", Configuration.ApiClient.ParameterToString(envelopeId)); // path parameter
             if (includeAnchorTabLocations != null) localVarQueryParams.Add("include_anchor_tab_locations", Configuration.ApiClient.ParameterToString(includeAnchorTabLocations)); // query parameter
             if (includeExtended != null) localVarQueryParams.Add("include_extended", Configuration.ApiClient.ParameterToString(includeExtended)); // query parameter
-            if (includeMetadata != null) localVarQueryParams.Add("include_metadata", Configuration.ApiClient.ParameterToString(includeMetadata)); // query parameter
             if (includeTabs != null) localVarQueryParams.Add("include_tabs", Configuration.ApiClient.ParameterToString(includeTabs)); // query parameter
 
 
@@ -847,35 +840,33 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Gets the status of recipients for an envelope. Retrieves the status of all recipients in a single envelope and identifies the current recipient in the routing list.   The &#x60;currentRoutingOrder&#x60; property of the response contains the &#x60;routingOrder&#x60; value of the current recipient indicating that the envelope has been sent to the recipient, but the recipient has not completed their actions.
+        /// Gets the status of recipients for an envelope. Retrieves the status of all recipients in a single envelope and identifies the current recipient in the routing list. This method can also be used to retrieve the tab values.  The &#x60;currentRoutingOrder&#x60; property of the response contains the &#x60;routingOrder&#x60; value of the current recipient indicating that the envelope has been sent to the recipient, but the recipient has not completed their actions.
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="envelopeId">The envelope&#39;s GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec </param>
-        /// <param name="includeAnchorTabLocations"> When set to **true** and &#x60;include_tabs&#x60; is set to **true**, all tabs with anchor tab properties are included in the response.  (optional)</param>
+        /// <param name="includeAnchorTabLocations"> When set to **true** and &#x60;include_tabs&#x60; value is set to **true**, all tabs with anchor tab properties are included in the response.  (optional)</param>
         /// <param name="includeExtended"> When set to **true**, the extended properties are included in the response.  (optional)</param>
-        /// <param name="includeMetadata">Reserved for DocuSign.  (optional)</param>
         /// <param name="includeTabs">When set to **true**, the tab information associated with the recipient is included in the response. (optional)</param>
         /// <returns>Task of EnvelopeRecipients</returns>
-        public async System.Threading.Tasks.Task<EnvelopeRecipients> RecipientsGetRecipientsAsync (string accountId, string envelopeId, string includeAnchorTabLocations = null, string includeExtended = null, string includeMetadata = null, string includeTabs = null)
+        public async System.Threading.Tasks.Task<EnvelopeRecipients> RecipientsGetRecipientsAsync (string accountId, string envelopeId, string includeAnchorTabLocations = null, string includeExtended = null, string includeTabs = null)
         {
-             ApiResponse<EnvelopeRecipients> localVarResponse = await RecipientsGetRecipientsAsyncWithHttpInfo(accountId, envelopeId, includeAnchorTabLocations, includeExtended, includeMetadata, includeTabs);
+             ApiResponse<EnvelopeRecipients> localVarResponse = await RecipientsGetRecipientsAsyncWithHttpInfo(accountId, envelopeId, includeAnchorTabLocations, includeExtended, includeTabs);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Gets the status of recipients for an envelope. Retrieves the status of all recipients in a single envelope and identifies the current recipient in the routing list.   The &#x60;currentRoutingOrder&#x60; property of the response contains the &#x60;routingOrder&#x60; value of the current recipient indicating that the envelope has been sent to the recipient, but the recipient has not completed their actions.
+        /// Gets the status of recipients for an envelope. Retrieves the status of all recipients in a single envelope and identifies the current recipient in the routing list. This method can also be used to retrieve the tab values.  The &#x60;currentRoutingOrder&#x60; property of the response contains the &#x60;routingOrder&#x60; value of the current recipient indicating that the envelope has been sent to the recipient, but the recipient has not completed their actions.
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="envelopeId">The envelope&#39;s GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec </param>
-        /// <param name="includeAnchorTabLocations"> When set to **true** and &#x60;include_tabs&#x60; is set to **true**, all tabs with anchor tab properties are included in the response.  (optional)</param>
+        /// <param name="includeAnchorTabLocations"> When set to **true** and &#x60;include_tabs&#x60; value is set to **true**, all tabs with anchor tab properties are included in the response.  (optional)</param>
         /// <param name="includeExtended"> When set to **true**, the extended properties are included in the response.  (optional)</param>
-        /// <param name="includeMetadata">Reserved for DocuSign.  (optional)</param>
         /// <param name="includeTabs">When set to **true**, the tab information associated with the recipient is included in the response. (optional)</param>
         /// <returns>Task of ApiResponse (EnvelopeRecipients)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<EnvelopeRecipients>> RecipientsGetRecipientsAsyncWithHttpInfo (string accountId, string envelopeId, string includeAnchorTabLocations = null, string includeExtended = null, string includeMetadata = null, string includeTabs = null)
+        public async System.Threading.Tasks.Task<ApiResponse<EnvelopeRecipients>> RecipientsGetRecipientsAsyncWithHttpInfo (string accountId, string envelopeId, string includeAnchorTabLocations = null, string includeExtended = null, string includeTabs = null)
         {
             // verify the required parameter 'accountId' is set
             if (accountId == null)
@@ -912,7 +903,6 @@ namespace DocuSign.Core.Api
             if (envelopeId != null) localVarPathParams.Add("envelopeId", Configuration.ApiClient.ParameterToString(envelopeId)); // path parameter
             if (includeAnchorTabLocations != null) localVarQueryParams.Add("include_anchor_tab_locations", Configuration.ApiClient.ParameterToString(includeAnchorTabLocations)); // query parameter
             if (includeExtended != null) localVarQueryParams.Add("include_extended", Configuration.ApiClient.ParameterToString(includeExtended)); // query parameter
-            if (includeMetadata != null) localVarQueryParams.Add("include_metadata", Configuration.ApiClient.ParameterToString(includeMetadata)); // query parameter
             if (includeTabs != null) localVarQueryParams.Add("include_tabs", Configuration.ApiClient.ParameterToString(includeTabs)); // query parameter
 
 
@@ -1115,7 +1105,7 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Updates recipients in a draft envelope or corrects recipient information for an in process envelope. Updates recipients in a draft envelope or corrects recipient information for an in process envelope.   For draft envelopes, you can edit the following properties: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, &#x60;deliveryMethod&#x60;, &#x60;accessCode&#x60;, and &#x60;requireIdLookup&#x60;.  Once an envelope has been sent, you can only edit: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;signerName&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, and &#x60;deliveryMethod&#x60;. You can also select to resend an envelope by using the &#x60;resend_envelope&#x60; option.  If you send information for a recipient that does not already exist in a draft envelope, the recipient is added to the envelope (similar to the POST).
+        /// Updates recipients in a draft envelope or corrects recipient information for an in process envelope. Updates recipients in a draft envelope or corrects recipient information for an in process envelope.   For draft envelopes, you can edit the following properties: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, &#x60;deliveryMethod&#x60;, &#x60;accessCode&#x60;, and &#x60;requireIdLookup&#x60;.  Once an envelope has been sent, you can only edit: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;signerName&#x60;, &#x60;signingGroupId&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, and &#x60;deliveryMethod&#x60;. You can also select to resend an envelope by using the &#x60;resend_envelope&#x60; option.  If you send information for a recipient that does not already exist in a draft envelope, the recipient is added to the envelope (similar to the POST).
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -1130,7 +1120,7 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Updates recipients in a draft envelope or corrects recipient information for an in process envelope. Updates recipients in a draft envelope or corrects recipient information for an in process envelope.   For draft envelopes, you can edit the following properties: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, &#x60;deliveryMethod&#x60;, &#x60;accessCode&#x60;, and &#x60;requireIdLookup&#x60;.  Once an envelope has been sent, you can only edit: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;signerName&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, and &#x60;deliveryMethod&#x60;. You can also select to resend an envelope by using the &#x60;resend_envelope&#x60; option.  If you send information for a recipient that does not already exist in a draft envelope, the recipient is added to the envelope (similar to the POST).
+        /// Updates recipients in a draft envelope or corrects recipient information for an in process envelope. Updates recipients in a draft envelope or corrects recipient information for an in process envelope.   For draft envelopes, you can edit the following properties: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, &#x60;deliveryMethod&#x60;, &#x60;accessCode&#x60;, and &#x60;requireIdLookup&#x60;.  Once an envelope has been sent, you can only edit: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;signerName&#x60;, &#x60;signingGroupId&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, and &#x60;deliveryMethod&#x60;. You can also select to resend an envelope by using the &#x60;resend_envelope&#x60; option.  If you send information for a recipient that does not already exist in a draft envelope, the recipient is added to the envelope (similar to the POST).
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -1204,7 +1194,7 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Updates recipients in a draft envelope or corrects recipient information for an in process envelope. Updates recipients in a draft envelope or corrects recipient information for an in process envelope.   For draft envelopes, you can edit the following properties: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, &#x60;deliveryMethod&#x60;, &#x60;accessCode&#x60;, and &#x60;requireIdLookup&#x60;.  Once an envelope has been sent, you can only edit: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;signerName&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, and &#x60;deliveryMethod&#x60;. You can also select to resend an envelope by using the &#x60;resend_envelope&#x60; option.  If you send information for a recipient that does not already exist in a draft envelope, the recipient is added to the envelope (similar to the POST).
+        /// Updates recipients in a draft envelope or corrects recipient information for an in process envelope. Updates recipients in a draft envelope or corrects recipient information for an in process envelope.   For draft envelopes, you can edit the following properties: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, &#x60;deliveryMethod&#x60;, &#x60;accessCode&#x60;, and &#x60;requireIdLookup&#x60;.  Once an envelope has been sent, you can only edit: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;signerName&#x60;, &#x60;signingGroupId&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, and &#x60;deliveryMethod&#x60;. You can also select to resend an envelope by using the &#x60;resend_envelope&#x60; option.  If you send information for a recipient that does not already exist in a draft envelope, the recipient is added to the envelope (similar to the POST).
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -1220,7 +1210,7 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Updates recipients in a draft envelope or corrects recipient information for an in process envelope. Updates recipients in a draft envelope or corrects recipient information for an in process envelope.   For draft envelopes, you can edit the following properties: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, &#x60;deliveryMethod&#x60;, &#x60;accessCode&#x60;, and &#x60;requireIdLookup&#x60;.  Once an envelope has been sent, you can only edit: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;signerName&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, and &#x60;deliveryMethod&#x60;. You can also select to resend an envelope by using the &#x60;resend_envelope&#x60; option.  If you send information for a recipient that does not already exist in a draft envelope, the recipient is added to the envelope (similar to the POST).
+        /// Updates recipients in a draft envelope or corrects recipient information for an in process envelope. Updates recipients in a draft envelope or corrects recipient information for an in process envelope.   For draft envelopes, you can edit the following properties: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, &#x60;deliveryMethod&#x60;, &#x60;accessCode&#x60;, and &#x60;requireIdLookup&#x60;.  Once an envelope has been sent, you can only edit: &#x60;email&#x60;, &#x60;userName&#x60;, &#x60;signerName&#x60;, &#x60;signingGroupId&#x60;, &#x60;routingOrder&#x60;, &#x60;faxNumber&#x60;, and &#x60;deliveryMethod&#x60;. You can also select to resend an envelope by using the &#x60;resend_envelope&#x60; option.  If you send information for a recipient that does not already exist in a draft envelope, the recipient is added to the envelope (similar to the POST).
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>

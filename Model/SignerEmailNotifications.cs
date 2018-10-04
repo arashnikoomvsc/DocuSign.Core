@@ -45,6 +45,8 @@ namespace DocuSign.Core.Model
         /// <param name="AgentNotification">When set to **true**, the user receives agent notification emails..</param>
         /// <param name="CarbonCopyNotification">When set to **true**, the user receives notifications of carbon copy deliveries..</param>
         /// <param name="CertifiedDeliveryNotification">When set to **true**, the user receives notifications of certified deliveries..</param>
+        /// <param name="CommentsOnlyPrivateAndMention">.</param>
+        /// <param name="CommentsReceiveAll">.</param>
         /// <param name="DocumentMarkupActivation">When set to **true**, the user receives notification that document markup has been activated..</param>
         /// <param name="EnvelopeActivation">When set to **true**, the user receives notification that the envelope has been activated..</param>
         /// <param name="EnvelopeComplete">When set to **true**, the user receives notification that the envelope has been completed..</param>
@@ -56,11 +58,13 @@ namespace DocuSign.Core.Model
         /// <param name="PurgeDocuments">When set to **true**, the user receives notification of document purges..</param>
         /// <param name="ReassignedSigner">When set to **true**, the user receives notification that the envelope has been reassigned..</param>
         /// <param name="WhenSigningGroupMember">.</param>
-        public SignerEmailNotifications(string AgentNotification = null, string CarbonCopyNotification = null, string CertifiedDeliveryNotification = null, string DocumentMarkupActivation = null, string EnvelopeActivation = null, string EnvelopeComplete = null, string EnvelopeCorrected = null, string EnvelopeDeclined = null, string EnvelopeVoided = null, string FaxReceived = null, string OfflineSigningFailed = null, string PurgeDocuments = null, string ReassignedSigner = null, string WhenSigningGroupMember = null)
+        public SignerEmailNotifications(string AgentNotification = null, string CarbonCopyNotification = null, string CertifiedDeliveryNotification = null, string CommentsOnlyPrivateAndMention = null, string CommentsReceiveAll = null, string DocumentMarkupActivation = null, string EnvelopeActivation = null, string EnvelopeComplete = null, string EnvelopeCorrected = null, string EnvelopeDeclined = null, string EnvelopeVoided = null, string FaxReceived = null, string OfflineSigningFailed = null, string PurgeDocuments = null, string ReassignedSigner = null, string WhenSigningGroupMember = null)
         {
             this.AgentNotification = AgentNotification;
             this.CarbonCopyNotification = CarbonCopyNotification;
             this.CertifiedDeliveryNotification = CertifiedDeliveryNotification;
+            this.CommentsOnlyPrivateAndMention = CommentsOnlyPrivateAndMention;
+            this.CommentsReceiveAll = CommentsReceiveAll;
             this.DocumentMarkupActivation = DocumentMarkupActivation;
             this.EnvelopeActivation = EnvelopeActivation;
             this.EnvelopeComplete = EnvelopeComplete;
@@ -92,6 +96,18 @@ namespace DocuSign.Core.Model
         /// <value>When set to **true**, the user receives notifications of certified deliveries.</value>
         [DataMember(Name="certifiedDeliveryNotification", EmitDefaultValue=false)]
         public string CertifiedDeliveryNotification { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <value></value>
+        [DataMember(Name="commentsOnlyPrivateAndMention", EmitDefaultValue=false)]
+        public string CommentsOnlyPrivateAndMention { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <value></value>
+        [DataMember(Name="commentsReceiveAll", EmitDefaultValue=false)]
+        public string CommentsReceiveAll { get; set; }
         /// <summary>
         /// When set to **true**, the user receives notification that document markup has been activated.
         /// </summary>
@@ -169,6 +185,8 @@ namespace DocuSign.Core.Model
             sb.Append("  AgentNotification: ").Append(AgentNotification).Append("\n");
             sb.Append("  CarbonCopyNotification: ").Append(CarbonCopyNotification).Append("\n");
             sb.Append("  CertifiedDeliveryNotification: ").Append(CertifiedDeliveryNotification).Append("\n");
+            sb.Append("  CommentsOnlyPrivateAndMention: ").Append(CommentsOnlyPrivateAndMention).Append("\n");
+            sb.Append("  CommentsReceiveAll: ").Append(CommentsReceiveAll).Append("\n");
             sb.Append("  DocumentMarkupActivation: ").Append(DocumentMarkupActivation).Append("\n");
             sb.Append("  EnvelopeActivation: ").Append(EnvelopeActivation).Append("\n");
             sb.Append("  EnvelopeComplete: ").Append(EnvelopeComplete).Append("\n");
@@ -230,6 +248,16 @@ namespace DocuSign.Core.Model
                     this.CertifiedDeliveryNotification == other.CertifiedDeliveryNotification ||
                     this.CertifiedDeliveryNotification != null &&
                     this.CertifiedDeliveryNotification.Equals(other.CertifiedDeliveryNotification)
+                ) && 
+                (
+                    this.CommentsOnlyPrivateAndMention == other.CommentsOnlyPrivateAndMention ||
+                    this.CommentsOnlyPrivateAndMention != null &&
+                    this.CommentsOnlyPrivateAndMention.Equals(other.CommentsOnlyPrivateAndMention)
+                ) && 
+                (
+                    this.CommentsReceiveAll == other.CommentsReceiveAll ||
+                    this.CommentsReceiveAll != null &&
+                    this.CommentsReceiveAll.Equals(other.CommentsReceiveAll)
                 ) && 
                 (
                     this.DocumentMarkupActivation == other.DocumentMarkupActivation ||
@@ -305,6 +333,10 @@ namespace DocuSign.Core.Model
                     hash = hash * 59 + this.CarbonCopyNotification.GetHashCode();
                 if (this.CertifiedDeliveryNotification != null)
                     hash = hash * 59 + this.CertifiedDeliveryNotification.GetHashCode();
+                if (this.CommentsOnlyPrivateAndMention != null)
+                    hash = hash * 59 + this.CommentsOnlyPrivateAndMention.GetHashCode();
+                if (this.CommentsReceiveAll != null)
+                    hash = hash * 59 + this.CommentsReceiveAll.GetHashCode();
                 if (this.DocumentMarkupActivation != null)
                     hash = hash * 59 + this.DocumentMarkupActivation.GetHashCode();
                 if (this.EnvelopeActivation != null)

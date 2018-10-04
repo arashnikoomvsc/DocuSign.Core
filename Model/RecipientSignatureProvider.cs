@@ -42,14 +42,22 @@ namespace DocuSign.Core.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RecipientSignatureProvider" /> class.
         /// </summary>
+        /// <param name="SealName">.</param>
         /// <param name="SignatureProviderName">The name of an Electronic or Standards Based Signature (digital signature) provider for the signer to use. [The current provider list.](../../../../guide/appendix/standards_based_signatures.html#signature-provider-options).</param>
         /// <param name="SignatureProviderOptions">Option settings for the signature provider..</param>
-        public RecipientSignatureProvider(string SignatureProviderName = null, RecipientSignatureProviderOptions SignatureProviderOptions = null)
+        public RecipientSignatureProvider(string SealName = null, string SignatureProviderName = null, RecipientSignatureProviderOptions SignatureProviderOptions = null)
         {
+            this.SealName = SealName;
             this.SignatureProviderName = SignatureProviderName;
             this.SignatureProviderOptions = SignatureProviderOptions;
         }
         
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <value></value>
+        [DataMember(Name="sealName", EmitDefaultValue=false)]
+        public string SealName { get; set; }
         /// <summary>
         /// The name of an Electronic or Standards Based Signature (digital signature) provider for the signer to use. [The current provider list.](../../../../guide/appendix/standards_based_signatures.html#signature-provider-options)
         /// </summary>
@@ -70,6 +78,7 @@ namespace DocuSign.Core.Model
         {
             var sb = new StringBuilder();
             sb.Append("class RecipientSignatureProvider {\n");
+            sb.Append("  SealName: ").Append(SealName).Append("\n");
             sb.Append("  SignatureProviderName: ").Append(SignatureProviderName).Append("\n");
             sb.Append("  SignatureProviderOptions: ").Append(SignatureProviderOptions).Append("\n");
             sb.Append("}\n");
@@ -109,6 +118,11 @@ namespace DocuSign.Core.Model
 
             return 
                 (
+                    this.SealName == other.SealName ||
+                    this.SealName != null &&
+                    this.SealName.Equals(other.SealName)
+                ) && 
+                (
                     this.SignatureProviderName == other.SignatureProviderName ||
                     this.SignatureProviderName != null &&
                     this.SignatureProviderName.Equals(other.SignatureProviderName)
@@ -131,6 +145,8 @@ namespace DocuSign.Core.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.SealName != null)
+                    hash = hash * 59 + this.SealName.GetHashCode();
                 if (this.SignatureProviderName != null)
                     hash = hash * 59 + this.SignatureProviderName.GetHashCode();
                 if (this.SignatureProviderOptions != null)

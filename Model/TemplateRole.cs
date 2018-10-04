@@ -53,7 +53,7 @@ namespace DocuSign.Core.Model
         /// <param name="RecipientSignatureProviders">The default signature provider is the DocuSign Electronic signature system. This parameter is used to specify one or more Standards Based Signature (digital signature) providers for the signer to use. [More information](../../../../guide/appendix/standards_based_signatures.html).</param>
         /// <param name="RoleName">Optional element. Specifies the role name associated with the recipient.&lt;br/&gt;&lt;br/&gt;This is required when working with template recipients..</param>
         /// <param name="RoutingOrder">Specifies the routing order of the recipient in the envelope. .</param>
-        /// <param name="SigningGroupId">When set to **true** and the feature is enabled in the sender&#39;s account, the signing recipient is required to draw signatures and initials at each signature/initial tab ( instead of adopting a signature/initial style or only drawing a signature/initial once)..</param>
+        /// <param name="SigningGroupId">.</param>
         /// <param name="Tabs">.</param>
         public TemplateRole(string AccessCode = null, string ClientUserId = null, string DefaultRecipient = null, string Email = null, RecipientEmailNotification EmailNotification = null, string EmbeddedRecipientStartURL = null, string InPersonSignerName = null, string Name = null, List<RecipientSignatureProvider> RecipientSignatureProviders = null, string RoleName = null, string RoutingOrder = null, string SigningGroupId = null, EnvelopeRecipientTabs Tabs = null)
         {
@@ -139,9 +139,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="routingOrder", EmitDefaultValue=false)]
         public string RoutingOrder { get; set; }
         /// <summary>
-        /// When set to **true** and the feature is enabled in the sender&#39;s account, the signing recipient is required to draw signatures and initials at each signature/initial tab ( instead of adopting a signature/initial style or only drawing a signature/initial once).
+        /// 
         /// </summary>
-        /// <value>When set to **true** and the feature is enabled in the sender&#39;s account, the signing recipient is required to draw signatures and initials at each signature/initial tab ( instead of adopting a signature/initial style or only drawing a signature/initial once).</value>
+        /// <value></value>
         [DataMember(Name="signingGroupId", EmitDefaultValue=false)]
         public string SigningGroupId { get; set; }
         /// <summary>

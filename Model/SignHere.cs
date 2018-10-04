@@ -34,7 +34,7 @@ using Newtonsoft.Json.Converters;
 namespace DocuSign.Core.Model
 {
     /// <summary>
-    /// 
+    /// A tab that allows the recipient to sign a document. May be optional. 
     /// </summary>
     [DataContract]
     public partial class SignHere :  IEquatable<SignHere>
@@ -46,7 +46,7 @@ namespace DocuSign.Core.Model
         /// <param name="AnchorHorizontalAlignment">Reserved for DocuSign. &lt;!- - Specifies the alignment of anchor tabs with anchor strings. Possible values are **left** or **right**. The default value is **left**. - -&gt; .</param>
         /// <param name="AnchorIgnoreIfNotPresent">When set to **true**, this tab is ignored if anchorString is not found in the document..</param>
         /// <param name="AnchorMatchWholeWord">Reserved for DocuSign. &lt;!- - When set to **true**, the anchor string in this tab matches whole words only (strings embedded in other strings are ignored.) The default value is **true**. - -&gt; .</param>
-        /// <param name="AnchorString">Anchor text information for a radio button..</param>
+        /// <param name="AnchorString">Specifies the anchor string..</param>
         /// <param name="AnchorUnits">Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches..</param>
         /// <param name="AnchorXOffset">Specifies the X axis location of the tab, in achorUnits, relative to the anchorString..</param>
         /// <param name="AnchorYOffset">Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString..</param>
@@ -63,15 +63,15 @@ namespace DocuSign.Core.Model
         /// <param name="ScaleValue">.</param>
         /// <param name="StampType">.</param>
         /// <param name="StampTypeMetadata">.</param>
-        /// <param name="Status">Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later..</param>
-        /// <param name="TabId">The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call].     .</param>
+        /// <param name="Status">Tab status &lt;!- - todo - -&gt; .</param>
+        /// <param name="TabId">The unique identifier for the tab..</param>
         /// <param name="TabLabel">The label string associated with the tab. The string may be the empty string. If no value is provided, the tab type is used as the value.  Maximum of 500 characters. .</param>
-        /// <param name="TabOrder">.</param>
+        /// <param name="TabOrder">A positive integer that sets the order the tab is navigated to during signing.  Tabs on a page are navigated to in ascending order, starting with the lowest number and moving to the highest. If two or more tabs have the same &#x60;tabOrder&#x60; value, the normal auto-navigation setting behavior for the envelope is used..</param>
         /// <param name="TemplateLocked">When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. .</param>
         /// <param name="TemplateRequired">When set to **true**, the sender may not remove the recipient. Used only when working with template recipients..</param>
         /// <param name="XPosition">This indicates the horizontal offset of the object on the page. DocuSign uses 72 DPI when determining position. Required. May be zero. .</param>
-        /// <param name="YPosition">This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position..</param>
-        public SignHere(string AnchorCaseSensitive = null, string AnchorHorizontalAlignment = null, string AnchorIgnoreIfNotPresent = null, string AnchorMatchWholeWord = null, string AnchorString = null, string AnchorUnits = null, string AnchorXOffset = null, string AnchorYOffset = null, string ConditionalParentLabel = null, string ConditionalParentValue = null, string CustomTabId = null, string DocumentId = null, ErrorDetails ErrorDetails = null, MergeField MergeField = null, string Name = null, string Optional = null, string PageNumber = null, string RecipientId = null, decimal? ScaleValue = null, string StampType = null, PropertyMetadata StampTypeMetadata = null, string Status = null, string TabId = null, string TabLabel = null, string TabOrder = null, string TemplateLocked = null, string TemplateRequired = null, string XPosition = null, string YPosition = null)
+        /// <param name="YPosition">This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position. Required. May be zero.  &lt;div class&#x3D;\&quot;highlight highlight-attention\&quot;&gt; &lt;p markdown&#x3D;\&quot;1\&quot;&gt; The &#x60;signHere&#x60; tab appears 21 points *lower* than the value you provide here. To align the tab as expected, subtract 21 from the expected y-value. &lt;/p&gt; &lt;p&gt; See [Sign Here Tab Alignment](http://localhost:4000/esign/restapi/Envelopes/EnvelopeRecipientTabs/#sign-here-tab-alignment) &lt;/p&gt; &lt;/div&gt; .</param>
+        public SignHere(string AnchorCaseSensitive = null, string AnchorHorizontalAlignment = null, string AnchorIgnoreIfNotPresent = null, string AnchorMatchWholeWord = null, string AnchorString = null, string AnchorUnits = null, string AnchorXOffset = null, string AnchorYOffset = null, string ConditionalParentLabel = null, string ConditionalParentValue = null, string CustomTabId = null, string DocumentId = null, ErrorDetails ErrorDetails = null, MergeField MergeField = null, string Name = null, string Optional = null, string PageNumber = null, string RecipientId = null, float? ScaleValue = null, string StampType = null, PropertyMetadata StampTypeMetadata = null, string Status = null, string TabId = null, string TabLabel = null, string TabOrder = null, string TemplateLocked = null, string TemplateRequired = null, string XPosition = null, string YPosition = null)
         {
             this.AnchorCaseSensitive = AnchorCaseSensitive;
             this.AnchorHorizontalAlignment = AnchorHorizontalAlignment;
@@ -129,9 +129,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="anchorMatchWholeWord", EmitDefaultValue=false)]
         public string AnchorMatchWholeWord { get; set; }
         /// <summary>
-        /// Anchor text information for a radio button.
+        /// Specifies the anchor string.
         /// </summary>
-        /// <value>Anchor text information for a radio button.</value>
+        /// <value>Specifies the anchor string.</value>
         [DataMember(Name="anchorString", EmitDefaultValue=false)]
         public string AnchorString { get; set; }
         /// <summary>
@@ -217,7 +217,7 @@ namespace DocuSign.Core.Model
         /// </summary>
         /// <value></value>
         [DataMember(Name="scaleValue", EmitDefaultValue=false)]
-        public decimal? ScaleValue { get; set; }
+        public float? ScaleValue { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -231,15 +231,15 @@ namespace DocuSign.Core.Model
         [DataMember(Name="stampTypeMetadata", EmitDefaultValue=false)]
         public PropertyMetadata StampTypeMetadata { get; set; }
         /// <summary>
-        /// Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later.
+        /// Tab status &lt;!- - todo - -&gt; 
         /// </summary>
-        /// <value>Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later.</value>
+        /// <value>Tab status &lt;!- - todo - -&gt; </value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
         /// <summary>
-        /// The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call].     
+        /// The unique identifier for the tab.
         /// </summary>
-        /// <value>The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call].     </value>
+        /// <value>The unique identifier for the tab.</value>
         [DataMember(Name="tabId", EmitDefaultValue=false)]
         public string TabId { get; set; }
         /// <summary>
@@ -249,9 +249,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="tabLabel", EmitDefaultValue=false)]
         public string TabLabel { get; set; }
         /// <summary>
-        /// 
+        /// A positive integer that sets the order the tab is navigated to during signing.  Tabs on a page are navigated to in ascending order, starting with the lowest number and moving to the highest. If two or more tabs have the same &#x60;tabOrder&#x60; value, the normal auto-navigation setting behavior for the envelope is used.
         /// </summary>
-        /// <value></value>
+        /// <value>A positive integer that sets the order the tab is navigated to during signing.  Tabs on a page are navigated to in ascending order, starting with the lowest number and moving to the highest. If two or more tabs have the same &#x60;tabOrder&#x60; value, the normal auto-navigation setting behavior for the envelope is used.</value>
         [DataMember(Name="tabOrder", EmitDefaultValue=false)]
         public string TabOrder { get; set; }
         /// <summary>
@@ -273,9 +273,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="xPosition", EmitDefaultValue=false)]
         public string XPosition { get; set; }
         /// <summary>
-        /// This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.
+        /// This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position. Required. May be zero.  &lt;div class&#x3D;\&quot;highlight highlight-attention\&quot;&gt; &lt;p markdown&#x3D;\&quot;1\&quot;&gt; The &#x60;signHere&#x60; tab appears 21 points *lower* than the value you provide here. To align the tab as expected, subtract 21 from the expected y-value. &lt;/p&gt; &lt;p&gt; See [Sign Here Tab Alignment](http://localhost:4000/esign/restapi/Envelopes/EnvelopeRecipientTabs/#sign-here-tab-alignment) &lt;/p&gt; &lt;/div&gt; 
         /// </summary>
-        /// <value>This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position.</value>
+        /// <value>This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position. Required. May be zero.  &lt;div class&#x3D;\&quot;highlight highlight-attention\&quot;&gt; &lt;p markdown&#x3D;\&quot;1\&quot;&gt; The &#x60;signHere&#x60; tab appears 21 points *lower* than the value you provide here. To align the tab as expected, subtract 21 from the expected y-value. &lt;/p&gt; &lt;p&gt; See [Sign Here Tab Alignment](http://localhost:4000/esign/restapi/Envelopes/EnvelopeRecipientTabs/#sign-here-tab-alignment) &lt;/p&gt; &lt;/div&gt; </value>
         [DataMember(Name="yPosition", EmitDefaultValue=false)]
         public string YPosition { get; set; }
         /// <summary>

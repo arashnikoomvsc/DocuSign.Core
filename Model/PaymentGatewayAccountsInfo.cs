@@ -34,7 +34,7 @@ using Newtonsoft.Json.Converters;
 namespace DocuSign.Core.Model
 {
     /// <summary>
-    /// 
+    /// Holds information about connected payment accounts.
     /// </summary>
     [DataContract]
     public partial class PaymentGatewayAccountsInfo :  IEquatable<PaymentGatewayAccountsInfo>
@@ -42,16 +42,16 @@ namespace DocuSign.Core.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentGatewayAccountsInfo" /> class.
         /// </summary>
-        /// <param name="PaymentGatewayAccounts">.</param>
+        /// <param name="PaymentGatewayAccounts">A list of payment gateway accounts..</param>
         public PaymentGatewayAccountsInfo(List<PaymentGatewayAccounts> PaymentGatewayAccounts = null)
         {
             this.PaymentGatewayAccounts = PaymentGatewayAccounts;
         }
         
         /// <summary>
-        /// 
+        /// A list of payment gateway accounts.
         /// </summary>
-        /// <value></value>
+        /// <value>A list of payment gateway accounts.</value>
         [DataMember(Name="paymentGatewayAccounts", EmitDefaultValue=false)]
         public List<PaymentGatewayAccounts> PaymentGatewayAccounts { get; set; }
         /// <summary>

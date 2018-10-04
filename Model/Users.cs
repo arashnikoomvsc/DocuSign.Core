@@ -42,41 +42,42 @@ namespace DocuSign.Core.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Users" /> class.
         /// </summary>
-        /// <param name="AccountManagementGranular">.</param>
+        /// <param name="AccountManagementGranular">Describes which account management capabilities a user has..</param>
         /// <param name="ActivationAccessCode">The activation code the new user must enter when activating their account..</param>
         /// <param name="CreatedDateTime">Indicates the date and time the item was created..</param>
         /// <param name="CustomSettings">The name/value pair information for the user custom setting..</param>
-        /// <param name="Email">.</param>
+        /// <param name="Email">The user&#39;s email address..</param>
         /// <param name="EnableConnectForUser">Specifies whether the user is enabled for updates from DocuSign Connect. Valid values: true or false..</param>
         /// <param name="ErrorDetails">.</param>
         /// <param name="FirstName">The user&#39;s first name.  Maximum Length: 50 characters..</param>
         /// <param name="ForgottenPasswordInfo">A complex element that has up to four Question/Answer pairs for forgotten password information..</param>
         /// <param name="GroupList">A list of the group information for groups to add the user to. Group information can be found by calling [ML:GET group information]. The only required parameter is groupId.   The parameters are:  * groupId - The DocuSign group ID for the group. * groupName - The name of the group * permissionProfileId - The ID of the permission profile associated with the group. * groupType - The group type. .</param>
-        /// <param name="HomeAddress">Specifies the email for the signing host. It is a Required element for In Person Signers recipient Type.  Maximum Length: 100 characters..</param>
+        /// <param name="HomeAddress">The user&#39;s physical home address..</param>
         /// <param name="InitialsImageUri">Contains the URI for an endpoint that you can use to retrieve the initials image..</param>
         /// <param name="IsAdmin">Determines if the feature set is actively set as part of the plan..</param>
-        /// <param name="LastLogin">Shows the date-time when the user last logged on to the system..</param>
+        /// <param name="LastLogin">The date-time when the user last logged on to the system..</param>
         /// <param name="LastName">The user&#39;s last name.  Maximum Length: 50 characters..</param>
         /// <param name="LoginStatus">Shows the current status of the user&#39;s password. Possible values are:   * password_reset * password_active * password_expired * password_locked * password_reset_failed  .</param>
-        /// <param name="MiddleName">The user&#39;s middle name.  Maximum Length: 50 characters..</param>
+        /// <param name="MiddleName">The user&#39;s middle name.  Limit: 50 characters..</param>
         /// <param name="Password">.</param>
-        /// <param name="PasswordExpiration">.</param>
+        /// <param name="PasswordExpiration">If password expiration is enabled, the date-time when the user&#39;s password expires..</param>
         /// <param name="PermissionProfileId">.</param>
         /// <param name="PermissionProfileName">.</param>
         /// <param name="ProfileImageUri">.</param>
+        /// <param name="SendActivationEmail">.</param>
         /// <param name="SendActivationOnInvalidLogin">When set to **true**, specifies that an additional activation email is sent to the user if they fail a log on before activating their account. .</param>
         /// <param name="SignatureImageUri">Contains the URI for an endpoint that you can use to retrieve the signature image..</param>
-        /// <param name="SuffixName">The suffix for the user&#39;s name.   Maximum Length: 50 characters. .</param>
-        /// <param name="Title">The title of the user..</param>
+        /// <param name="SuffixName">The suffix for the user&#39;s name, such as Jr, IV, PhD, etc.  Limit: 50 characters. .</param>
+        /// <param name="Title">Salutation for the user, such as Ms, Dr, Capt., etc.  Limit: 10 characters..</param>
         /// <param name="Uri">.</param>
         /// <param name="UserId">The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing..</param>
-        /// <param name="UserName">.</param>
-        /// <param name="UserProfileLastModifiedDate">.</param>
-        /// <param name="UserSettings"> The name/value pair information for user settings. These determine the actions that a user can take in the account. The &#x60;[ML:userSettings]&#x60; are listed and described below..</param>
-        /// <param name="UserStatus">.</param>
+        /// <param name="UserName">The user&#39;s full name. &lt;!- - &#x60;title&#x60; + &#x60;firstName&#x60; + &#x60;middleName&#x60; + &#x60;lastName&#x60; + &#x60;suffixName&#x60; - -&gt;.</param>
+        /// <param name="UserProfileLastModifiedDate">The date-time when the user&#39;s profile was last modified..</param>
+        /// <param name="UserSettings">The collection of settings that  describes the actions a user can perform. See [User Settings][] for a list of available settings.   [user settings]: /esign/restapi/Users/Users/create/#user-settings.</param>
+        /// <param name="UserStatus">Status of the user&#39;s account. One of:  * ActivationRequired * ActivationSent * Active * Closed * Disabled .</param>
         /// <param name="UserType">.</param>
-        /// <param name="WorkAddress">.</param>
-        public Users(UserAccountManagementGranularInformation AccountManagementGranular = null, string ActivationAccessCode = null, string CreatedDateTime = null, List<NameValue> CustomSettings = null, string Email = null, string EnableConnectForUser = null, ErrorDetails ErrorDetails = null, string FirstName = null, ForgottenPasswordInformation ForgottenPasswordInfo = null, List<Group> GroupList = null, AddressInformationV2 HomeAddress = null, string InitialsImageUri = null, string IsAdmin = null, string LastLogin = null, string LastName = null, string LoginStatus = null, string MiddleName = null, string Password = null, string PasswordExpiration = null, string PermissionProfileId = null, string PermissionProfileName = null, string ProfileImageUri = null, string SendActivationOnInvalidLogin = null, string SignatureImageUri = null, string SuffixName = null, string Title = null, string Uri = null, string UserId = null, string UserName = null, string UserProfileLastModifiedDate = null, List<NameValue> UserSettings = null, string UserStatus = null, string UserType = null, AddressInformationV2 WorkAddress = null)
+        /// <param name="WorkAddress">The user&#39;s physical work address..</param>
+        public Users(UserAccountManagementGranularInformation AccountManagementGranular = null, string ActivationAccessCode = null, string CreatedDateTime = null, List<NameValue> CustomSettings = null, string Email = null, string EnableConnectForUser = null, ErrorDetails ErrorDetails = null, string FirstName = null, ForgottenPasswordInformation ForgottenPasswordInfo = null, List<Group> GroupList = null, AddressInformationV2 HomeAddress = null, string InitialsImageUri = null, string IsAdmin = null, string LastLogin = null, string LastName = null, string LoginStatus = null, string MiddleName = null, string Password = null, string PasswordExpiration = null, string PermissionProfileId = null, string PermissionProfileName = null, string ProfileImageUri = null, string SendActivationEmail = null, string SendActivationOnInvalidLogin = null, string SignatureImageUri = null, string SuffixName = null, string Title = null, string Uri = null, string UserId = null, string UserName = null, string UserProfileLastModifiedDate = null, List<NameValue> UserSettings = null, string UserStatus = null, string UserType = null, AddressInformationV2 WorkAddress = null)
         {
             this.AccountManagementGranular = AccountManagementGranular;
             this.ActivationAccessCode = ActivationAccessCode;
@@ -100,6 +101,7 @@ namespace DocuSign.Core.Model
             this.PermissionProfileId = PermissionProfileId;
             this.PermissionProfileName = PermissionProfileName;
             this.ProfileImageUri = ProfileImageUri;
+            this.SendActivationEmail = SendActivationEmail;
             this.SendActivationOnInvalidLogin = SendActivationOnInvalidLogin;
             this.SignatureImageUri = SignatureImageUri;
             this.SuffixName = SuffixName;
@@ -115,9 +117,9 @@ namespace DocuSign.Core.Model
         }
         
         /// <summary>
-        /// 
+        /// Describes which account management capabilities a user has.
         /// </summary>
-        /// <value></value>
+        /// <value>Describes which account management capabilities a user has.</value>
         [DataMember(Name="accountManagementGranular", EmitDefaultValue=false)]
         public UserAccountManagementGranularInformation AccountManagementGranular { get; set; }
         /// <summary>
@@ -139,9 +141,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="customSettings", EmitDefaultValue=false)]
         public List<NameValue> CustomSettings { get; set; }
         /// <summary>
-        /// 
+        /// The user&#39;s email address.
         /// </summary>
-        /// <value></value>
+        /// <value>The user&#39;s email address.</value>
         [DataMember(Name="email", EmitDefaultValue=false)]
         public string Email { get; set; }
         /// <summary>
@@ -175,9 +177,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="groupList", EmitDefaultValue=false)]
         public List<Group> GroupList { get; set; }
         /// <summary>
-        /// Specifies the email for the signing host. It is a Required element for In Person Signers recipient Type.  Maximum Length: 100 characters.
+        /// The user&#39;s physical home address.
         /// </summary>
-        /// <value>Specifies the email for the signing host. It is a Required element for In Person Signers recipient Type.  Maximum Length: 100 characters.</value>
+        /// <value>The user&#39;s physical home address.</value>
         [DataMember(Name="homeAddress", EmitDefaultValue=false)]
         public AddressInformationV2 HomeAddress { get; set; }
         /// <summary>
@@ -193,9 +195,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="isAdmin", EmitDefaultValue=false)]
         public string IsAdmin { get; set; }
         /// <summary>
-        /// Shows the date-time when the user last logged on to the system.
+        /// The date-time when the user last logged on to the system.
         /// </summary>
-        /// <value>Shows the date-time when the user last logged on to the system.</value>
+        /// <value>The date-time when the user last logged on to the system.</value>
         [DataMember(Name="lastLogin", EmitDefaultValue=false)]
         public string LastLogin { get; set; }
         /// <summary>
@@ -211,9 +213,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="loginStatus", EmitDefaultValue=false)]
         public string LoginStatus { get; set; }
         /// <summary>
-        /// The user&#39;s middle name.  Maximum Length: 50 characters.
+        /// The user&#39;s middle name.  Limit: 50 characters.
         /// </summary>
-        /// <value>The user&#39;s middle name.  Maximum Length: 50 characters.</value>
+        /// <value>The user&#39;s middle name.  Limit: 50 characters.</value>
         [DataMember(Name="middleName", EmitDefaultValue=false)]
         public string MiddleName { get; set; }
         /// <summary>
@@ -223,9 +225,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="password", EmitDefaultValue=false)]
         public string Password { get; set; }
         /// <summary>
-        /// 
+        /// If password expiration is enabled, the date-time when the user&#39;s password expires.
         /// </summary>
-        /// <value></value>
+        /// <value>If password expiration is enabled, the date-time when the user&#39;s password expires.</value>
         [DataMember(Name="passwordExpiration", EmitDefaultValue=false)]
         public string PasswordExpiration { get; set; }
         /// <summary>
@@ -247,6 +249,12 @@ namespace DocuSign.Core.Model
         [DataMember(Name="profileImageUri", EmitDefaultValue=false)]
         public string ProfileImageUri { get; set; }
         /// <summary>
+        /// 
+        /// </summary>
+        /// <value></value>
+        [DataMember(Name="sendActivationEmail", EmitDefaultValue=false)]
+        public string SendActivationEmail { get; set; }
+        /// <summary>
         /// When set to **true**, specifies that an additional activation email is sent to the user if they fail a log on before activating their account. 
         /// </summary>
         /// <value>When set to **true**, specifies that an additional activation email is sent to the user if they fail a log on before activating their account. </value>
@@ -259,15 +267,15 @@ namespace DocuSign.Core.Model
         [DataMember(Name="signatureImageUri", EmitDefaultValue=false)]
         public string SignatureImageUri { get; set; }
         /// <summary>
-        /// The suffix for the user&#39;s name.   Maximum Length: 50 characters. 
+        /// The suffix for the user&#39;s name, such as Jr, IV, PhD, etc.  Limit: 50 characters. 
         /// </summary>
-        /// <value>The suffix for the user&#39;s name.   Maximum Length: 50 characters. </value>
+        /// <value>The suffix for the user&#39;s name, such as Jr, IV, PhD, etc.  Limit: 50 characters. </value>
         [DataMember(Name="suffixName", EmitDefaultValue=false)]
         public string SuffixName { get; set; }
         /// <summary>
-        /// The title of the user.
+        /// Salutation for the user, such as Ms, Dr, Capt., etc.  Limit: 10 characters.
         /// </summary>
-        /// <value>The title of the user.</value>
+        /// <value>Salutation for the user, such as Ms, Dr, Capt., etc.  Limit: 10 characters.</value>
         [DataMember(Name="title", EmitDefaultValue=false)]
         public string Title { get; set; }
         /// <summary>
@@ -283,27 +291,27 @@ namespace DocuSign.Core.Model
         [DataMember(Name="userId", EmitDefaultValue=false)]
         public string UserId { get; set; }
         /// <summary>
-        /// 
+        /// The user&#39;s full name. &lt;!- - &#x60;title&#x60; + &#x60;firstName&#x60; + &#x60;middleName&#x60; + &#x60;lastName&#x60; + &#x60;suffixName&#x60; - -&gt;
         /// </summary>
-        /// <value></value>
+        /// <value>The user&#39;s full name. &lt;!- - &#x60;title&#x60; + &#x60;firstName&#x60; + &#x60;middleName&#x60; + &#x60;lastName&#x60; + &#x60;suffixName&#x60; - -&gt;</value>
         [DataMember(Name="userName", EmitDefaultValue=false)]
         public string UserName { get; set; }
         /// <summary>
-        /// 
+        /// The date-time when the user&#39;s profile was last modified.
         /// </summary>
-        /// <value></value>
+        /// <value>The date-time when the user&#39;s profile was last modified.</value>
         [DataMember(Name="userProfileLastModifiedDate", EmitDefaultValue=false)]
         public string UserProfileLastModifiedDate { get; set; }
         /// <summary>
-        ///  The name/value pair information for user settings. These determine the actions that a user can take in the account. The &#x60;[ML:userSettings]&#x60; are listed and described below.
+        /// The collection of settings that  describes the actions a user can perform. See [User Settings][] for a list of available settings.   [user settings]: /esign/restapi/Users/Users/create/#user-settings
         /// </summary>
-        /// <value> The name/value pair information for user settings. These determine the actions that a user can take in the account. The &#x60;[ML:userSettings]&#x60; are listed and described below.</value>
+        /// <value>The collection of settings that  describes the actions a user can perform. See [User Settings][] for a list of available settings.   [user settings]: /esign/restapi/Users/Users/create/#user-settings</value>
         [DataMember(Name="userSettings", EmitDefaultValue=false)]
         public List<NameValue> UserSettings { get; set; }
         /// <summary>
-        /// 
+        /// Status of the user&#39;s account. One of:  * ActivationRequired * ActivationSent * Active * Closed * Disabled 
         /// </summary>
-        /// <value></value>
+        /// <value>Status of the user&#39;s account. One of:  * ActivationRequired * ActivationSent * Active * Closed * Disabled </value>
         [DataMember(Name="userStatus", EmitDefaultValue=false)]
         public string UserStatus { get; set; }
         /// <summary>
@@ -313,9 +321,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="userType", EmitDefaultValue=false)]
         public string UserType { get; set; }
         /// <summary>
-        /// 
+        /// The user&#39;s physical work address.
         /// </summary>
-        /// <value></value>
+        /// <value>The user&#39;s physical work address.</value>
         [DataMember(Name="workAddress", EmitDefaultValue=false)]
         public AddressInformationV2 WorkAddress { get; set; }
         /// <summary>
@@ -348,6 +356,7 @@ namespace DocuSign.Core.Model
             sb.Append("  PermissionProfileId: ").Append(PermissionProfileId).Append("\n");
             sb.Append("  PermissionProfileName: ").Append(PermissionProfileName).Append("\n");
             sb.Append("  ProfileImageUri: ").Append(ProfileImageUri).Append("\n");
+            sb.Append("  SendActivationEmail: ").Append(SendActivationEmail).Append("\n");
             sb.Append("  SendActivationOnInvalidLogin: ").Append(SendActivationOnInvalidLogin).Append("\n");
             sb.Append("  SignatureImageUri: ").Append(SignatureImageUri).Append("\n");
             sb.Append("  SuffixName: ").Append(SuffixName).Append("\n");
@@ -507,6 +516,11 @@ namespace DocuSign.Core.Model
                     this.ProfileImageUri.Equals(other.ProfileImageUri)
                 ) && 
                 (
+                    this.SendActivationEmail == other.SendActivationEmail ||
+                    this.SendActivationEmail != null &&
+                    this.SendActivationEmail.Equals(other.SendActivationEmail)
+                ) && 
+                (
                     this.SendActivationOnInvalidLogin == other.SendActivationOnInvalidLogin ||
                     this.SendActivationOnInvalidLogin != null &&
                     this.SendActivationOnInvalidLogin.Equals(other.SendActivationOnInvalidLogin)
@@ -623,6 +637,8 @@ namespace DocuSign.Core.Model
                     hash = hash * 59 + this.PermissionProfileName.GetHashCode();
                 if (this.ProfileImageUri != null)
                     hash = hash * 59 + this.ProfileImageUri.GetHashCode();
+                if (this.SendActivationEmail != null)
+                    hash = hash * 59 + this.SendActivationEmail.GetHashCode();
                 if (this.SendActivationOnInvalidLogin != null)
                     hash = hash * 59 + this.SendActivationOnInvalidLogin.GetHashCode();
                 if (this.SignatureImageUri != null)

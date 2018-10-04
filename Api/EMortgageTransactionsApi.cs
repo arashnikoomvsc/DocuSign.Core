@@ -40,7 +40,7 @@ namespace DocuSign.Core.Api
         /// Starts a new eMortgage Transaction
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deprecated: This method will be removed in a future release
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -52,7 +52,7 @@ namespace DocuSign.Core.Api
         /// Starts a new eMortgage Transaction
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deprecated: This method will be removed in a future release
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -65,7 +65,7 @@ namespace DocuSign.Core.Api
         /// Starts a new eMortgage Transaction
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deprecated: This method will be removed in a future release
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -77,7 +77,7 @@ namespace DocuSign.Core.Api
         /// Starts a new eMortgage Transaction
         /// </summary>
         /// <remarks>
-        /// 
+        /// Deprecated: This method will be removed in a future release
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -197,7 +197,7 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Starts a new eMortgage Transaction 
+        /// Starts a new eMortgage Transaction Deprecated: This method will be removed in a future release
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -210,7 +210,7 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Starts a new eMortgage Transaction 
+        /// Starts a new eMortgage Transaction Deprecated: This method will be removed in a future release
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -277,7 +277,7 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Starts a new eMortgage Transaction 
+        /// Starts a new eMortgage Transaction Deprecated: This method will be removed in a future release
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -291,7 +291,7 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Starts a new eMortgage Transaction 
+        /// Starts a new eMortgage Transaction Deprecated: This method will be removed in a future release
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>

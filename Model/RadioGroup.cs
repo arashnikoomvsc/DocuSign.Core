@@ -34,7 +34,7 @@ using Newtonsoft.Json.Converters;
 namespace DocuSign.Core.Model
 {
     /// <summary>
-    /// 
+    /// This group tab is used to place radio buttons on a document. The &#x60;radios&#x60; property contains a list of [&#x60;radio&#x60;](/esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/radio) objects  associated with the group. Only one radio button can be selected in a group. 
     /// </summary>
     [DataContract]
     public partial class RadioGroup :  IEquatable<RadioGroup>
@@ -45,13 +45,15 @@ namespace DocuSign.Core.Model
         /// <param name="ConditionalParentLabel">For conditional fields this is the TabLabel of the parent tab that controls this tab&#39;s visibility..</param>
         /// <param name="ConditionalParentValue">For conditional fields, this is the value of the parent tab that controls the tab&#39;s visibility.  If the parent tab is a Checkbox, Radio button, Optional Signature, or Optional Initial use \&quot;on\&quot; as the value to show that the parent tab is active. .</param>
         /// <param name="DocumentId">Specifies the document ID number that the tab is placed on. This must refer to an existing Document&#39;s ID attribute..</param>
-        /// <param name="GroupName">The name of the group..</param>
+        /// <param name="GroupName">The name of the group. The search_text provided in the call automatically performs a wild card search on group_name..</param>
         /// <param name="Radios">Specifies the locations and status for radio buttons that are grouped together..</param>
         /// <param name="RecipientId">Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document..</param>
         /// <param name="RequireAll">When set to **true** and shared is true, information must be entered in this field to complete the envelope. .</param>
         /// <param name="RequireInitialOnSharedChange">Optional element for field markup. When set to **true**, the signer is required to initial when they modify a shared field..</param>
         /// <param name="Shared">When set to **true**, this custom tab is shared..</param>
-        public RadioGroup(string ConditionalParentLabel = null, string ConditionalParentValue = null, string DocumentId = null, string GroupName = null, List<Radio> Radios = null, string RecipientId = null, string RequireAll = null, string RequireInitialOnSharedChange = null, string Shared = null)
+        /// <param name="TemplateLocked">When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. .</param>
+        /// <param name="TemplateRequired">When set to **true**, the sender may not remove the recipient. Used only when working with template recipients..</param>
+        public RadioGroup(string ConditionalParentLabel = null, string ConditionalParentValue = null, string DocumentId = null, string GroupName = null, List<Radio> Radios = null, string RecipientId = null, string RequireAll = null, string RequireInitialOnSharedChange = null, string Shared = null, string TemplateLocked = null, string TemplateRequired = null)
         {
             this.ConditionalParentLabel = ConditionalParentLabel;
             this.ConditionalParentValue = ConditionalParentValue;
@@ -62,6 +64,8 @@ namespace DocuSign.Core.Model
             this.RequireAll = RequireAll;
             this.RequireInitialOnSharedChange = RequireInitialOnSharedChange;
             this.Shared = Shared;
+            this.TemplateLocked = TemplateLocked;
+            this.TemplateRequired = TemplateRequired;
         }
         
         /// <summary>
@@ -83,9 +87,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="documentId", EmitDefaultValue=false)]
         public string DocumentId { get; set; }
         /// <summary>
-        /// The name of the group.
+        /// The name of the group. The search_text provided in the call automatically performs a wild card search on group_name.
         /// </summary>
-        /// <value>The name of the group.</value>
+        /// <value>The name of the group. The search_text provided in the call automatically performs a wild card search on group_name.</value>
         [DataMember(Name="groupName", EmitDefaultValue=false)]
         public string GroupName { get; set; }
         /// <summary>
@@ -119,6 +123,18 @@ namespace DocuSign.Core.Model
         [DataMember(Name="shared", EmitDefaultValue=false)]
         public string Shared { get; set; }
         /// <summary>
+        /// When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
+        /// </summary>
+        /// <value>When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. </value>
+        [DataMember(Name="templateLocked", EmitDefaultValue=false)]
+        public string TemplateLocked { get; set; }
+        /// <summary>
+        /// When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.
+        /// </summary>
+        /// <value>When set to **true**, the sender may not remove the recipient. Used only when working with template recipients.</value>
+        [DataMember(Name="templateRequired", EmitDefaultValue=false)]
+        public string TemplateRequired { get; set; }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -135,6 +151,8 @@ namespace DocuSign.Core.Model
             sb.Append("  RequireAll: ").Append(RequireAll).Append("\n");
             sb.Append("  RequireInitialOnSharedChange: ").Append(RequireInitialOnSharedChange).Append("\n");
             sb.Append("  Shared: ").Append(Shared).Append("\n");
+            sb.Append("  TemplateLocked: ").Append(TemplateLocked).Append("\n");
+            sb.Append("  TemplateRequired: ").Append(TemplateRequired).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -215,6 +233,16 @@ namespace DocuSign.Core.Model
                     this.Shared == other.Shared ||
                     this.Shared != null &&
                     this.Shared.Equals(other.Shared)
+                ) && 
+                (
+                    this.TemplateLocked == other.TemplateLocked ||
+                    this.TemplateLocked != null &&
+                    this.TemplateLocked.Equals(other.TemplateLocked)
+                ) && 
+                (
+                    this.TemplateRequired == other.TemplateRequired ||
+                    this.TemplateRequired != null &&
+                    this.TemplateRequired.Equals(other.TemplateRequired)
                 );
         }
 
@@ -247,6 +275,10 @@ namespace DocuSign.Core.Model
                     hash = hash * 59 + this.RequireInitialOnSharedChange.GetHashCode();
                 if (this.Shared != null)
                     hash = hash * 59 + this.Shared.GetHashCode();
+                if (this.TemplateLocked != null)
+                    hash = hash * 59 + this.TemplateLocked.GetHashCode();
+                if (this.TemplateRequired != null)
+                    hash = hash * 59 + this.TemplateRequired.GetHashCode();
                 return hash;
             }
         }

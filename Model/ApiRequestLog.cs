@@ -45,7 +45,7 @@ namespace DocuSign.Core.Model
         /// <param name="CreatedDateTime">Indicates the date and time the item was created..</param>
         /// <param name="Description">A sender-defined description of the line item. .</param>
         /// <param name="RequestLogId">.</param>
-        /// <param name="Status">Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later..</param>
+        /// <param name="Status">Item status. &lt;!- - TODO - -&gt;.</param>
         public ApiRequestLog(string CreatedDateTime = null, string Description = null, string RequestLogId = null, string Status = null)
         {
             this.CreatedDateTime = CreatedDateTime;
@@ -73,9 +73,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="requestLogId", EmitDefaultValue=false)]
         public string RequestLogId { get; set; }
         /// <summary>
-        /// Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later.
+        /// Item status. &lt;!- - TODO - -&gt;
         /// </summary>
-        /// <value>Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later.</value>
+        /// <value>Item status. &lt;!- - TODO - -&gt;</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
         /// <summary>

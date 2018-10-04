@@ -48,7 +48,7 @@ namespace DocuSign.Core.Model
         /// <param name="ListItems">.</param>
         /// <param name="Name">.</param>
         /// <param name="Required">When set to **true**, the signer is required to fill out this tab.</param>
-        /// <param name="Show">A boolean indicating if the value should be displayed..</param>
+        /// <param name="Show">A boolean indicating if the value should be displayed.  If this value is set to **true**, the custom field is displayed at the top of the certificate of completion. If this value is left blank/ or set to **false**, then it does not appear in the certificate of completion. .</param>
         /// <param name="Value">Specifies the value of the tab. .</param>
         public CustomField(string CustomFieldType = null, ErrorDetails ErrorDetails = null, string FieldId = null, List<string> ListItems = null, string Name = null, string Required = null, string Show = null, string Value = null)
         {
@@ -99,9 +99,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="required", EmitDefaultValue=false)]
         public string Required { get; set; }
         /// <summary>
-        /// A boolean indicating if the value should be displayed.
+        /// A boolean indicating if the value should be displayed.  If this value is set to **true**, the custom field is displayed at the top of the certificate of completion. If this value is left blank/ or set to **false**, then it does not appear in the certificate of completion. 
         /// </summary>
-        /// <value>A boolean indicating if the value should be displayed.</value>
+        /// <value>A boolean indicating if the value should be displayed.  If this value is set to **true**, the custom field is displayed at the top of the certificate of completion. If this value is left blank/ or set to **false**, then it does not appear in the certificate of completion. </value>
         [DataMember(Name="show", EmitDefaultValue=false)]
         public string Show { get; set; }
         /// <summary>

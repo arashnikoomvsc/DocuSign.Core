@@ -154,9 +154,10 @@ namespace DocuSign.Core.Api
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="templateId">The ID of the template being accessed.</param>
         /// <param name="applyDocumentFields">When **true**, document fields can be added or modified while adding or modifying envelope documents.  (optional)</param>
+        /// <param name="persistTabs"> (optional)</param>
         /// <param name="envelopeDefinition"> (optional)</param>
         /// <returns>TemplateDocuments</returns>
-        TemplateDocuments DocumentsPutTemplateDocuments (string accountId, string templateId, string applyDocumentFields = null, EnvelopeDefinition envelopeDefinition = null);
+        TemplateDocuments DocumentsPutTemplateDocuments (string accountId, string templateId, string applyDocumentFields = null, string persistTabs = null, EnvelopeDefinition envelopeDefinition = null);
 
         /// <summary>
         /// Adds documents to a template document.
@@ -168,9 +169,10 @@ namespace DocuSign.Core.Api
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="templateId">The ID of the template being accessed.</param>
         /// <param name="applyDocumentFields">When **true**, document fields can be added or modified while adding or modifying envelope documents.  (optional)</param>
+        /// <param name="persistTabs"> (optional)</param>
         /// <param name="envelopeDefinition"> (optional)</param>
         /// <returns>ApiResponse of TemplateDocuments</returns>
-        ApiResponse<TemplateDocuments> DocumentsPutTemplateDocumentsWithHttpInfo (string accountId, string templateId, string applyDocumentFields = null, EnvelopeDefinition envelopeDefinition = null);
+        ApiResponse<TemplateDocuments> DocumentsPutTemplateDocumentsWithHttpInfo (string accountId, string templateId, string applyDocumentFields = null, string persistTabs = null, EnvelopeDefinition envelopeDefinition = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -291,9 +293,10 @@ namespace DocuSign.Core.Api
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="templateId">The ID of the template being accessed.</param>
         /// <param name="applyDocumentFields">When **true**, document fields can be added or modified while adding or modifying envelope documents.  (optional)</param>
+        /// <param name="persistTabs"> (optional)</param>
         /// <param name="envelopeDefinition"> (optional)</param>
         /// <returns>Task of TemplateDocuments</returns>
-        System.Threading.Tasks.Task<TemplateDocuments> DocumentsPutTemplateDocumentsAsync (string accountId, string templateId, string applyDocumentFields = null, EnvelopeDefinition envelopeDefinition = null);
+        System.Threading.Tasks.Task<TemplateDocuments> DocumentsPutTemplateDocumentsAsync (string accountId, string templateId, string applyDocumentFields = null, string persistTabs = null, EnvelopeDefinition envelopeDefinition = null);
 
         /// <summary>
         /// Adds documents to a template document.
@@ -305,9 +308,10 @@ namespace DocuSign.Core.Api
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="templateId">The ID of the template being accessed.</param>
         /// <param name="applyDocumentFields">When **true**, document fields can be added or modified while adding or modifying envelope documents.  (optional)</param>
+        /// <param name="persistTabs"> (optional)</param>
         /// <param name="envelopeDefinition"> (optional)</param>
         /// <returns>Task of ApiResponse (TemplateDocuments)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TemplateDocuments>> DocumentsPutTemplateDocumentsAsyncWithHttpInfo (string accountId, string templateId, string applyDocumentFields = null, EnvelopeDefinition envelopeDefinition = null);
+        System.Threading.Tasks.Task<ApiResponse<TemplateDocuments>> DocumentsPutTemplateDocumentsAsyncWithHttpInfo (string accountId, string templateId, string applyDocumentFields = null, string persistTabs = null, EnvelopeDefinition envelopeDefinition = null);
         #endregion Asynchronous Operations
     }
 
@@ -1127,11 +1131,12 @@ namespace DocuSign.Core.Api
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="templateId">The ID of the template being accessed.</param>
         /// <param name="applyDocumentFields">When **true**, document fields can be added or modified while adding or modifying envelope documents.  (optional)</param>
+        /// <param name="persistTabs"> (optional)</param>
         /// <param name="envelopeDefinition"> (optional)</param>
         /// <returns>TemplateDocuments</returns>
-        public TemplateDocuments DocumentsPutTemplateDocuments (string accountId, string templateId, string applyDocumentFields = null, EnvelopeDefinition envelopeDefinition = null)
+        public TemplateDocuments DocumentsPutTemplateDocuments (string accountId, string templateId, string applyDocumentFields = null, string persistTabs = null, EnvelopeDefinition envelopeDefinition = null)
         {
-             ApiResponse<TemplateDocuments> localVarResponse = DocumentsPutTemplateDocumentsWithHttpInfo(accountId, templateId, applyDocumentFields, envelopeDefinition);
+             ApiResponse<TemplateDocuments> localVarResponse = DocumentsPutTemplateDocumentsWithHttpInfo(accountId, templateId, applyDocumentFields, persistTabs, envelopeDefinition);
              return localVarResponse.Data;
         }
 
@@ -1142,9 +1147,10 @@ namespace DocuSign.Core.Api
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="templateId">The ID of the template being accessed.</param>
         /// <param name="applyDocumentFields">When **true**, document fields can be added or modified while adding or modifying envelope documents.  (optional)</param>
+        /// <param name="persistTabs"> (optional)</param>
         /// <param name="envelopeDefinition"> (optional)</param>
         /// <returns>ApiResponse of TemplateDocuments</returns>
-        public ApiResponse< TemplateDocuments > DocumentsPutTemplateDocumentsWithHttpInfo (string accountId, string templateId, string applyDocumentFields = null, EnvelopeDefinition envelopeDefinition = null)
+        public ApiResponse< TemplateDocuments > DocumentsPutTemplateDocumentsWithHttpInfo (string accountId, string templateId, string applyDocumentFields = null, string persistTabs = null, EnvelopeDefinition envelopeDefinition = null)
         {
             // verify the required parameter 'accountId' is set
             if (accountId == null)
@@ -1180,6 +1186,7 @@ namespace DocuSign.Core.Api
             if (accountId != null) localVarPathParams.Add("accountId", Configuration.ApiClient.ParameterToString(accountId)); // path parameter
             if (templateId != null) localVarPathParams.Add("templateId", Configuration.ApiClient.ParameterToString(templateId)); // path parameter
             if (applyDocumentFields != null) localVarQueryParams.Add("apply_document_fields", Configuration.ApiClient.ParameterToString(applyDocumentFields)); // query parameter
+            if (persistTabs != null) localVarQueryParams.Add("persist_tabs", Configuration.ApiClient.ParameterToString(persistTabs)); // query parameter
             if (envelopeDefinition != null && envelopeDefinition.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(envelopeDefinition); // http body (model) parameter
@@ -1216,11 +1223,12 @@ namespace DocuSign.Core.Api
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="templateId">The ID of the template being accessed.</param>
         /// <param name="applyDocumentFields">When **true**, document fields can be added or modified while adding or modifying envelope documents.  (optional)</param>
+        /// <param name="persistTabs"> (optional)</param>
         /// <param name="envelopeDefinition"> (optional)</param>
         /// <returns>Task of TemplateDocuments</returns>
-        public async System.Threading.Tasks.Task<TemplateDocuments> DocumentsPutTemplateDocumentsAsync (string accountId, string templateId, string applyDocumentFields = null, EnvelopeDefinition envelopeDefinition = null)
+        public async System.Threading.Tasks.Task<TemplateDocuments> DocumentsPutTemplateDocumentsAsync (string accountId, string templateId, string applyDocumentFields = null, string persistTabs = null, EnvelopeDefinition envelopeDefinition = null)
         {
-             ApiResponse<TemplateDocuments> localVarResponse = await DocumentsPutTemplateDocumentsAsyncWithHttpInfo(accountId, templateId, applyDocumentFields, envelopeDefinition);
+             ApiResponse<TemplateDocuments> localVarResponse = await DocumentsPutTemplateDocumentsAsyncWithHttpInfo(accountId, templateId, applyDocumentFields, persistTabs, envelopeDefinition);
              return localVarResponse.Data;
 
         }
@@ -1232,9 +1240,10 @@ namespace DocuSign.Core.Api
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="templateId">The ID of the template being accessed.</param>
         /// <param name="applyDocumentFields">When **true**, document fields can be added or modified while adding or modifying envelope documents.  (optional)</param>
+        /// <param name="persistTabs"> (optional)</param>
         /// <param name="envelopeDefinition"> (optional)</param>
         /// <returns>Task of ApiResponse (TemplateDocuments)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TemplateDocuments>> DocumentsPutTemplateDocumentsAsyncWithHttpInfo (string accountId, string templateId, string applyDocumentFields = null, EnvelopeDefinition envelopeDefinition = null)
+        public async System.Threading.Tasks.Task<ApiResponse<TemplateDocuments>> DocumentsPutTemplateDocumentsAsyncWithHttpInfo (string accountId, string templateId, string applyDocumentFields = null, string persistTabs = null, EnvelopeDefinition envelopeDefinition = null)
         {
             // verify the required parameter 'accountId' is set
             if (accountId == null)
@@ -1270,6 +1279,7 @@ namespace DocuSign.Core.Api
             if (accountId != null) localVarPathParams.Add("accountId", Configuration.ApiClient.ParameterToString(accountId)); // path parameter
             if (templateId != null) localVarPathParams.Add("templateId", Configuration.ApiClient.ParameterToString(templateId)); // path parameter
             if (applyDocumentFields != null) localVarQueryParams.Add("apply_document_fields", Configuration.ApiClient.ParameterToString(applyDocumentFields)); // query parameter
+            if (persistTabs != null) localVarQueryParams.Add("persist_tabs", Configuration.ApiClient.ParameterToString(persistTabs)); // query parameter
             if (envelopeDefinition != null && envelopeDefinition.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(envelopeDefinition); // http body (model) parameter

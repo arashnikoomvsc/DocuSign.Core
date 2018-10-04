@@ -43,15 +43,19 @@ namespace DocuSign.Core.Model
         /// Initializes a new instance of the <see cref="SenderEmailNotifications" /> class.
         /// </summary>
         /// <param name="ChangedSigner">When set to **true**, the sender receives notification if the signer changes..</param>
+        /// <param name="CommentsOnlyPrivateAndMention">.</param>
+        /// <param name="CommentsReceiveAll">.</param>
         /// <param name="DeliveryFailed">When set to **true**, the sender receives notification if the delivery of the envelope fails..</param>
         /// <param name="EnvelopeComplete">When set to **true**, the user receives notification that the envelope has been completed..</param>
         /// <param name="OfflineSigningFailed">When set to **true**, the user receives notification if the offline signing failed..</param>
         /// <param name="RecipientViewed">When set to **true**, the sender receives notification that the recipient viewed the enveloper..</param>
         /// <param name="SenderEnvelopeDeclined">.</param>
         /// <param name="WithdrawnConsent">When set to **true**, the user receives notification if consent is withdrawn..</param>
-        public SenderEmailNotifications(string ChangedSigner = null, string DeliveryFailed = null, string EnvelopeComplete = null, string OfflineSigningFailed = null, string RecipientViewed = null, string SenderEnvelopeDeclined = null, string WithdrawnConsent = null)
+        public SenderEmailNotifications(string ChangedSigner = null, string CommentsOnlyPrivateAndMention = null, string CommentsReceiveAll = null, string DeliveryFailed = null, string EnvelopeComplete = null, string OfflineSigningFailed = null, string RecipientViewed = null, string SenderEnvelopeDeclined = null, string WithdrawnConsent = null)
         {
             this.ChangedSigner = ChangedSigner;
+            this.CommentsOnlyPrivateAndMention = CommentsOnlyPrivateAndMention;
+            this.CommentsReceiveAll = CommentsReceiveAll;
             this.DeliveryFailed = DeliveryFailed;
             this.EnvelopeComplete = EnvelopeComplete;
             this.OfflineSigningFailed = OfflineSigningFailed;
@@ -66,6 +70,18 @@ namespace DocuSign.Core.Model
         /// <value>When set to **true**, the sender receives notification if the signer changes.</value>
         [DataMember(Name="changedSigner", EmitDefaultValue=false)]
         public string ChangedSigner { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <value></value>
+        [DataMember(Name="commentsOnlyPrivateAndMention", EmitDefaultValue=false)]
+        public string CommentsOnlyPrivateAndMention { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <value></value>
+        [DataMember(Name="commentsReceiveAll", EmitDefaultValue=false)]
+        public string CommentsReceiveAll { get; set; }
         /// <summary>
         /// When set to **true**, the sender receives notification if the delivery of the envelope fails.
         /// </summary>
@@ -111,6 +127,8 @@ namespace DocuSign.Core.Model
             var sb = new StringBuilder();
             sb.Append("class SenderEmailNotifications {\n");
             sb.Append("  ChangedSigner: ").Append(ChangedSigner).Append("\n");
+            sb.Append("  CommentsOnlyPrivateAndMention: ").Append(CommentsOnlyPrivateAndMention).Append("\n");
+            sb.Append("  CommentsReceiveAll: ").Append(CommentsReceiveAll).Append("\n");
             sb.Append("  DeliveryFailed: ").Append(DeliveryFailed).Append("\n");
             sb.Append("  EnvelopeComplete: ").Append(EnvelopeComplete).Append("\n");
             sb.Append("  OfflineSigningFailed: ").Append(OfflineSigningFailed).Append("\n");
@@ -159,6 +177,16 @@ namespace DocuSign.Core.Model
                     this.ChangedSigner.Equals(other.ChangedSigner)
                 ) && 
                 (
+                    this.CommentsOnlyPrivateAndMention == other.CommentsOnlyPrivateAndMention ||
+                    this.CommentsOnlyPrivateAndMention != null &&
+                    this.CommentsOnlyPrivateAndMention.Equals(other.CommentsOnlyPrivateAndMention)
+                ) && 
+                (
+                    this.CommentsReceiveAll == other.CommentsReceiveAll ||
+                    this.CommentsReceiveAll != null &&
+                    this.CommentsReceiveAll.Equals(other.CommentsReceiveAll)
+                ) && 
+                (
                     this.DeliveryFailed == other.DeliveryFailed ||
                     this.DeliveryFailed != null &&
                     this.DeliveryFailed.Equals(other.DeliveryFailed)
@@ -203,6 +231,10 @@ namespace DocuSign.Core.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.ChangedSigner != null)
                     hash = hash * 59 + this.ChangedSigner.GetHashCode();
+                if (this.CommentsOnlyPrivateAndMention != null)
+                    hash = hash * 59 + this.CommentsOnlyPrivateAndMention.GetHashCode();
+                if (this.CommentsReceiveAll != null)
+                    hash = hash * 59 + this.CommentsReceiveAll.GetHashCode();
                 if (this.DeliveryFailed != null)
                     hash = hash * 59 + this.DeliveryFailed.GetHashCode();
                 if (this.EnvelopeComplete != null)

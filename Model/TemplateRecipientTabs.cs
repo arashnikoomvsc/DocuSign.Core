@@ -42,32 +42,33 @@ namespace DocuSign.Core.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TemplateRecipientTabs" /> class.
         /// </summary>
-        /// <param name="ApproveTabs">A tab that allows the recipient to approve documents without placing a signature or initials on the document. If the recipient clicks the Approve tab during the signing process, the recipient is considered to have signed the document. No information is shown on the document for the approval, but it is recorded as a signature in the envelope history. .</param>
-        /// <param name="CheckboxTabs">Specifies a tag on the document in a location where the recipient can select an option..</param>
-        /// <param name="CompanyTabs">Specifies a tag on the document where you want the recipient&#39;s company name to appear.  When getting information that includes this tab type, the original value of the tab when the associated envelope was sent is included in the response..</param>
-        /// <param name="DateSignedTabs">Specifies a tab on the document where the date the document was signed will automatically appear..</param>
-        /// <param name="DateTabs">Specifies a tab on the document where you want the recipient to enter a date. Date tabs are single-line fields that allow date information to be entered in any format. The tooltip for this tab recommends entering the date as MM/DD/YYYY, but this is not enforced. The format entered by the signer is retained.   If you need a particular date format enforced, DocuSign recommends using a Text tab with a Validation Pattern and Validation Message to enforce the format..</param>
-        /// <param name="DeclineTabs">Specifies a tag on the document where you want to give the recipient the option of declining an envelope. If the recipient clicks the Decline tag during the signing process, the envelope is voided..</param>
-        /// <param name="EmailAddressTabs">Specifies a location on the document where you want where you want the recipient&#39;s email, as entered in the recipient information, to display..</param>
-        /// <param name="EmailTabs">Specifies a tag on the document where you want the recipient to enter an email. Email tags are single-line fields that accept any characters. The system checks that a valid email format (i.e. xxx@yyy.zzz) is entered in the tag. It uses the same parameters as a Text tab, with the validation message and pattern set for email information.  When getting information that includes this tab type, the original value of the tab when the associated envelope was sent is included in the response..</param>
-        /// <param name="EnvelopeIdTabs">Specifies a tag on the document where you want the envelope ID for to appear. Recipients cannot enter or change the information in this tab, it is for informational purposes only..</param>
-        /// <param name="FirstNameTabs">Specifies tag on a document where you want the recipient&#39;s first name to appear. This tag takes the recipient&#39;s name, as entered in the recipient information, splits it into sections based on spaces and uses the first section as the first name..</param>
-        /// <param name="FormulaTabs">A list of formula tabs.  The value of a formula tab is calculated from the values of other number or date tabs in the document. When the recipient completes the underlying fields, the formula tab calculates and displays the result.  The &#x60;formula&#x60; property of the tab contains the references to the underlying tabs. See [Calculated Fields][calculatedfields] in the DocuSign Support Center to learn more about formulas.  If a formula tab contains a &#x60;paymentDetails&#x60; property, the tab is considered a payment item. See [Requesting Payments Along with Signatures][paymentguide] in the DocuSign Support Center to learn more about payments.  [calculatedfields]: https://support.docusign.com/en/guides/ndse-user-guide-calculated-fields [paymentguide]:     https://support.docusign.com/en/guides/requesting-payments-along-with-signatures .</param>
-        /// <param name="FullNameTabs">Specifies a tag on the document where you want the recipient&#39;s name to appear..</param>
-        /// <param name="InitialHereTabs">Specifies a tag location in the document at which a recipient will place their initials. The &#x60;optional&#x60; parameter specifies whether the initials are required or optional..</param>
-        /// <param name="LastNameTabs">Specifies a tag on a document where you want the recipient&#39;s last name to appear. This tag takes the recipient&#39;s name, as entered in the recipient information, splits it into sections based on spaces and uses the last section as the last name..</param>
-        /// <param name="ListTabs">Specify this tag to give your recipient a list of options, presented as a drop-down list, from which they can select..</param>
-        /// <param name="NoteTabs">Specifies a location on the document where you want to place additional information, in the form of a note, for a recipient..</param>
-        /// <param name="NumberTabs">Specifies a tag on the document where you want the recipient to enter a number. It uses the same parameters as a Text tab, with the validation message and pattern set for number information.  When getting information that includes this tab type, the original value of the tab when the associated envelope was sent is included in the response. .</param>
-        /// <param name="RadioGroupTabs">Specifies a tag on the document in a location where the recipient can select one option from a group of options using a radio button. The radio buttons do not have to be on the same page in a document..</param>
-        /// <param name="SignerAttachmentTabs">Specifies a tag on the document when you want the recipient to add supporting documents to an envelope..</param>
-        /// <param name="SignHereTabs">A complex type the contains information about the tag that specifies where the recipient places their signature in the document. The \&quot;optional\&quot; parameter sets if the signature is required or optional. .</param>
-        /// <param name="SsnTabs">Specifies a tag on the document where you want the recipient to enter a Social Security Number (SSN). A SSN can be typed with or without dashes. It uses the same parameters as a Text tab, with the validation message and pattern set for SSN information.  When getting information that includes this tab type, the original value of the tab when the associated envelope was sent is included in the response..</param>
-        /// <param name="TextTabs">Specifies a that that is an adaptable field that allows the recipient to enter different text information.  When getting information that includes this tab type, the original value of the tab when the associated envelope was sent is included in the response..</param>
-        /// <param name="TitleTabs">Specifies a tag on the document where you want the recipient&#39;s title to appear.  When getting information that includes this tab type, the original value of the tab when the associated envelope was sent is included in the response..</param>
-        /// <param name="ViewTabs">.</param>
-        /// <param name="ZipTabs">Specifies a tag on the document where you want the recipient to enter a ZIP code. The ZIP code can be a five numbers or the ZIP+4 format with nine numbers. The zip code can be typed with or without dashes. It uses the same parameters as a Text tab, with the validation message and pattern set for ZIP code information.  When getting information that includes this tab type, the original value of the tab when the associated envelope was sent is included in the response..</param>
-        public TemplateRecipientTabs(List<Approve> ApproveTabs = null, List<Checkbox> CheckboxTabs = null, List<Company> CompanyTabs = null, List<DateSigned> DateSignedTabs = null, List<DateTime?> DateTabs = null, List<Decline> DeclineTabs = null, List<EmailAddress> EmailAddressTabs = null, List<Email> EmailTabs = null, List<EnvelopeId> EnvelopeIdTabs = null, List<FirstName> FirstNameTabs = null, List<FormulaTab> FormulaTabs = null, List<FullName> FullNameTabs = null, List<InitialHere> InitialHereTabs = null, List<LastName> LastNameTabs = null, List<List> ListTabs = null, List<Note> NoteTabs = null, List<decimal?> NumberTabs = null, List<RadioGroup> RadioGroupTabs = null, List<SignerAttachment> SignerAttachmentTabs = null, List<SignHere> SignHereTabs = null, List<Ssn> SsnTabs = null, List<Text> TextTabs = null, List<Title> TitleTabs = null, List<View> ViewTabs = null, List<Zip> ZipTabs = null)
+        /// <param name="ApproveTabs">A list of [Approve tabs][approve].   This tab allows the recipient to approve documents without placing a signature or initials on the document. If the recipient clicks the tab during the signing process, the recipient is considered to have signed the document. No information is shown on the document of the approval, but it is recorded as a signature in the envelope history.  [approve]:        /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/approve .</param>
+        /// <param name="CheckboxTabs">A list of [Checkbox tabs][checkbox].   This tab allows the recipient to select a yes/no (on/off) option.   [checkbox]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/checkbox .</param>
+        /// <param name="CompanyTabs">A list of  [Company tabs][company].   This tab displays the recipient&#39;s company name.    [company]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/company  .</param>
+        /// <param name="DateSignedTabs">A list of  [Date Signed tabs][dateSigned]   This tab displays the date that the recipient signed the document.  [dateSigned]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/dateSigned  .</param>
+        /// <param name="DateTabs">A list of  [Date tabs][date].   This tab allows the recipient to enter a date. Date tabs are one-line fields that allow date information to be entered in any format. The tooltip for this tab recommends entering the date as MM/DD/YYYY, but this is not enforced. The format entered by the signer is retained. If you need a particular date format enforced, DocuSign recommends using a Text tab with a validation pattern and a validation message to enforce the format.   [date]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/date  .</param>
+        /// <param name="DeclineTabs">A list of  [Decline tabs][decline].  This tab allows the recipient the option of declining an envelope. If the recipient clicks the tab during the signing process, the envelope is voided.   [decline]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/decline  .</param>
+        /// <param name="EmailAddressTabs">A list of  [Email Address tabs][emailAddress].  This tab  displays the recipient&#39;s email as entered in the recipient information.   [emailAddress]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/emailAddress  .</param>
+        /// <param name="EmailTabs">A list of  [Email tabs][email].  This tab  allows the recipient to enter an email address. This is a one-line field that checks that a valid email address is entered. It uses the same parameters as a Text tab, with the validation message and pattern set for email information.  When getting information that includes this tab type, the original value of the tab when the associated envelope was sent is included in the response.  [email]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/email  .</param>
+        /// <param name="EnvelopeIdTabs">A list of  [Envelope ID tabs][envelopeId].  This tab  displays the envelope ID. Recipients cannot enter or change the information in this tab.   [envelopeId]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/envelopeId  .</param>
+        /// <param name="FirstNameTabs">A list of  [First Name tabs][firstName].  This tab  displays the recipient&#39;s first name. It takes the recipient&#39;s name as entered in the recipient information, splits it into sections based on spaces and uses the first section as the first name.   [firstName]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/firstName  .</param>
+        /// <param name="FormulaTabs">A list of [Formula tabs][formulaTab].  The value of a formula tab is calculated from the values of other number or date tabs in the document. When the recipient completes the underlying fields, the formula tab calculates and displays the result.  The &#x60;formula&#x60; property of the tab contains the references to the underlying tabs. See [Calculated Fields][calculatedfields] in the DocuSign Support Center to learn more about formulas.  If a formula tab contains a &#x60;paymentDetails&#x60; property, the tab is considered a payment item. See [Requesting Payments Along with Signatures][paymentguide] in the DocuSign Support Center to learn more about payments.  [calculatedfields]: https://support.docusign.com/en/guides/ndse-user-guide-calculated-fields [paymentguide]:     https://support.docusign.com/en/guides/requesting-payments-along-with-signatures [formulaTab]:      /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/formulaTab .</param>
+        /// <param name="FullNameTabs">A list of  [Full Name tabs][fullName].  This tab  displays the recipient&#39;s full name.   [fullName]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/fullName  .</param>
+        /// <param name="InitialHereTabs">A list of  [Initial Here tabs][initialHere].  This tab allows the recipient to initial the document. May be optional.  [initialHere]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/initialHere  .</param>
+        /// <param name="LastNameTabs">A list of  [Last Name tabs][lastName].  This tab  displays the recipient&#39;s last name. It takes the recipient&#39;s name as entered in the recipient information, splits it into sections based on spaces and uses the last section as the last name.   [lastName]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/lastName  .</param>
+        /// <param name="ListTabs">A list of  [list tabs][list].  This tab offers a list of options to choose from. The &#x60;listItems&#x60; property is used to specify the selectable options.    [list]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/list  .</param>
+        /// <param name="NotarizeTabs">A list of  [Notarize tabs][notarize].  A notarize tab is a tab that alerts notary recipients that they must take action on the page. Only one notarize tab can appear on a page.  [notarize]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/notarize  .</param>
+        /// <param name="NoteTabs">A list of  [Note tabs][note].  This tab  displays additional information, in the form of a note, for the recipient.  [note]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/note  .</param>
+        /// <param name="NumberTabs">A list of  [Number tabs][number].  This tab allows the recipient to enter numbers and decimal (.) points.    [number]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/number  .</param>
+        /// <param name="RadioGroupTabs">A list of  [Radio Group tabs][radioGroup].  This tab  This group tab is used to place radio buttons on a document. The &#x60;radios&#x60; property is used to add and place the radio buttons associated with the group. Only one radio button can be selected in a group.   [radioGroup]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/radioGroup  .</param>
+        /// <param name="SignerAttachmentTabs">A list of  [Signer Attachment tabs][signerAttachment].  This tab  allows the recipient to attach supporting documents to an envelope.   [signerAttachment]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/signerAttachment  .</param>
+        /// <param name="SignHereTabs">A list of  [Sign Here tabs][signHere].  This tab  allows the recipient to sign a document. May be optional.  [signHere]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/signHere  .</param>
+        /// <param name="SsnTabs">A list of  [SSN tabs][ssn].  This tab  is a one-line field that allows the recipient to enter a Social Security Number. The SSN can be typed with or without dashes. It uses the same parameters as a Text tab, with the validation message and pattern set for SSN information.   [ssn]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/ssn  .</param>
+        /// <param name="TextTabs">A list of  [Text tabs][text].  This tab  A tab that allows the recipient to enter any type of text.  [text]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/text  .</param>
+        /// <param name="TitleTabs">A list of  [Title tabs][title].  This tab  displays the recipient&#39;s title.   [title]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/title  .</param>
+        /// <param name="ViewTabs">A list of  [View tabs][view].  This tab  This tab is used with the Approve tab to handle [supplemental documents][supdocs].  [supdocs]: /esign/guide/appendix/glossary.html#supplemental-documents [view]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/view  .</param>
+        /// <param name="ZipTabs">A list of  [Zip tabs][zip].  This tab  allows the recipient to enter a ZIP code. The ZIP code can be five digits or nine digits in the ZIP+4 format. The zip code can be typed with or without dashes. It uses the same parameters as a Text tab, with the validation message and pattern set for ZIP code information.   [zip]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/zip .</param>
+        public TemplateRecipientTabs(List<Approve> ApproveTabs = null, List<Checkbox> CheckboxTabs = null, List<Company> CompanyTabs = null, List<DateSigned> DateSignedTabs = null, List<DateTime?> DateTabs = null, List<Decline> DeclineTabs = null, List<EmailAddress> EmailAddressTabs = null, List<Email> EmailTabs = null, List<EnvelopeId> EnvelopeIdTabs = null, List<FirstName> FirstNameTabs = null, List<FormulaTab> FormulaTabs = null, List<FullName> FullNameTabs = null, List<InitialHere> InitialHereTabs = null, List<LastName> LastNameTabs = null, List<List> ListTabs = null, List<Notarize> NotarizeTabs = null, List<Note> NoteTabs = null, List<decimal?> NumberTabs = null, List<RadioGroup> RadioGroupTabs = null, List<SignerAttachment> SignerAttachmentTabs = null, List<SignHere> SignHereTabs = null, List<Ssn> SsnTabs = null, List<Text> TextTabs = null, List<Title> TitleTabs = null, List<View> ViewTabs = null, List<Zip> ZipTabs = null)
         {
             this.ApproveTabs = ApproveTabs;
             this.CheckboxTabs = CheckboxTabs;
@@ -84,6 +85,7 @@ namespace DocuSign.Core.Model
             this.InitialHereTabs = InitialHereTabs;
             this.LastNameTabs = LastNameTabs;
             this.ListTabs = ListTabs;
+            this.NotarizeTabs = NotarizeTabs;
             this.NoteTabs = NoteTabs;
             this.NumberTabs = NumberTabs;
             this.RadioGroupTabs = RadioGroupTabs;
@@ -97,153 +99,159 @@ namespace DocuSign.Core.Model
         }
         
         /// <summary>
-        /// A tab that allows the recipient to approve documents without placing a signature or initials on the document. If the recipient clicks the Approve tab during the signing process, the recipient is considered to have signed the document. No information is shown on the document for the approval, but it is recorded as a signature in the envelope history. 
+        /// A list of [Approve tabs][approve].   This tab allows the recipient to approve documents without placing a signature or initials on the document. If the recipient clicks the tab during the signing process, the recipient is considered to have signed the document. No information is shown on the document of the approval, but it is recorded as a signature in the envelope history.  [approve]:        /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/approve 
         /// </summary>
-        /// <value>A tab that allows the recipient to approve documents without placing a signature or initials on the document. If the recipient clicks the Approve tab during the signing process, the recipient is considered to have signed the document. No information is shown on the document for the approval, but it is recorded as a signature in the envelope history. </value>
+        /// <value>A list of [Approve tabs][approve].   This tab allows the recipient to approve documents without placing a signature or initials on the document. If the recipient clicks the tab during the signing process, the recipient is considered to have signed the document. No information is shown on the document of the approval, but it is recorded as a signature in the envelope history.  [approve]:        /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/approve </value>
         [DataMember(Name="approveTabs", EmitDefaultValue=false)]
         public List<Approve> ApproveTabs { get; set; }
         /// <summary>
-        /// Specifies a tag on the document in a location where the recipient can select an option.
+        /// A list of [Checkbox tabs][checkbox].   This tab allows the recipient to select a yes/no (on/off) option.   [checkbox]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/checkbox 
         /// </summary>
-        /// <value>Specifies a tag on the document in a location where the recipient can select an option.</value>
+        /// <value>A list of [Checkbox tabs][checkbox].   This tab allows the recipient to select a yes/no (on/off) option.   [checkbox]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/checkbox </value>
         [DataMember(Name="checkboxTabs", EmitDefaultValue=false)]
         public List<Checkbox> CheckboxTabs { get; set; }
         /// <summary>
-        /// Specifies a tag on the document where you want the recipient&#39;s company name to appear.  When getting information that includes this tab type, the original value of the tab when the associated envelope was sent is included in the response.
+        /// A list of  [Company tabs][company].   This tab displays the recipient&#39;s company name.    [company]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/company  
         /// </summary>
-        /// <value>Specifies a tag on the document where you want the recipient&#39;s company name to appear.  When getting information that includes this tab type, the original value of the tab when the associated envelope was sent is included in the response.</value>
+        /// <value>A list of  [Company tabs][company].   This tab displays the recipient&#39;s company name.    [company]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/company  </value>
         [DataMember(Name="companyTabs", EmitDefaultValue=false)]
         public List<Company> CompanyTabs { get; set; }
         /// <summary>
-        /// Specifies a tab on the document where the date the document was signed will automatically appear.
+        /// A list of  [Date Signed tabs][dateSigned]   This tab displays the date that the recipient signed the document.  [dateSigned]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/dateSigned  
         /// </summary>
-        /// <value>Specifies a tab on the document where the date the document was signed will automatically appear.</value>
+        /// <value>A list of  [Date Signed tabs][dateSigned]   This tab displays the date that the recipient signed the document.  [dateSigned]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/dateSigned  </value>
         [DataMember(Name="dateSignedTabs", EmitDefaultValue=false)]
         public List<DateSigned> DateSignedTabs { get; set; }
         /// <summary>
-        /// Specifies a tab on the document where you want the recipient to enter a date. Date tabs are single-line fields that allow date information to be entered in any format. The tooltip for this tab recommends entering the date as MM/DD/YYYY, but this is not enforced. The format entered by the signer is retained.   If you need a particular date format enforced, DocuSign recommends using a Text tab with a Validation Pattern and Validation Message to enforce the format.
+        /// A list of  [Date tabs][date].   This tab allows the recipient to enter a date. Date tabs are one-line fields that allow date information to be entered in any format. The tooltip for this tab recommends entering the date as MM/DD/YYYY, but this is not enforced. The format entered by the signer is retained. If you need a particular date format enforced, DocuSign recommends using a Text tab with a validation pattern and a validation message to enforce the format.   [date]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/date  
         /// </summary>
-        /// <value>Specifies a tab on the document where you want the recipient to enter a date. Date tabs are single-line fields that allow date information to be entered in any format. The tooltip for this tab recommends entering the date as MM/DD/YYYY, but this is not enforced. The format entered by the signer is retained.   If you need a particular date format enforced, DocuSign recommends using a Text tab with a Validation Pattern and Validation Message to enforce the format.</value>
+        /// <value>A list of  [Date tabs][date].   This tab allows the recipient to enter a date. Date tabs are one-line fields that allow date information to be entered in any format. The tooltip for this tab recommends entering the date as MM/DD/YYYY, but this is not enforced. The format entered by the signer is retained. If you need a particular date format enforced, DocuSign recommends using a Text tab with a validation pattern and a validation message to enforce the format.   [date]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/date  </value>
         [DataMember(Name="dateTabs", EmitDefaultValue=false)]
         public List<DateTime?> DateTabs { get; set; }
         /// <summary>
-        /// Specifies a tag on the document where you want to give the recipient the option of declining an envelope. If the recipient clicks the Decline tag during the signing process, the envelope is voided.
+        /// A list of  [Decline tabs][decline].  This tab allows the recipient the option of declining an envelope. If the recipient clicks the tab during the signing process, the envelope is voided.   [decline]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/decline  
         /// </summary>
-        /// <value>Specifies a tag on the document where you want to give the recipient the option of declining an envelope. If the recipient clicks the Decline tag during the signing process, the envelope is voided.</value>
+        /// <value>A list of  [Decline tabs][decline].  This tab allows the recipient the option of declining an envelope. If the recipient clicks the tab during the signing process, the envelope is voided.   [decline]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/decline  </value>
         [DataMember(Name="declineTabs", EmitDefaultValue=false)]
         public List<Decline> DeclineTabs { get; set; }
         /// <summary>
-        /// Specifies a location on the document where you want where you want the recipient&#39;s email, as entered in the recipient information, to display.
+        /// A list of  [Email Address tabs][emailAddress].  This tab  displays the recipient&#39;s email as entered in the recipient information.   [emailAddress]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/emailAddress  
         /// </summary>
-        /// <value>Specifies a location on the document where you want where you want the recipient&#39;s email, as entered in the recipient information, to display.</value>
+        /// <value>A list of  [Email Address tabs][emailAddress].  This tab  displays the recipient&#39;s email as entered in the recipient information.   [emailAddress]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/emailAddress  </value>
         [DataMember(Name="emailAddressTabs", EmitDefaultValue=false)]
         public List<EmailAddress> EmailAddressTabs { get; set; }
         /// <summary>
-        /// Specifies a tag on the document where you want the recipient to enter an email. Email tags are single-line fields that accept any characters. The system checks that a valid email format (i.e. xxx@yyy.zzz) is entered in the tag. It uses the same parameters as a Text tab, with the validation message and pattern set for email information.  When getting information that includes this tab type, the original value of the tab when the associated envelope was sent is included in the response.
+        /// A list of  [Email tabs][email].  This tab  allows the recipient to enter an email address. This is a one-line field that checks that a valid email address is entered. It uses the same parameters as a Text tab, with the validation message and pattern set for email information.  When getting information that includes this tab type, the original value of the tab when the associated envelope was sent is included in the response.  [email]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/email  
         /// </summary>
-        /// <value>Specifies a tag on the document where you want the recipient to enter an email. Email tags are single-line fields that accept any characters. The system checks that a valid email format (i.e. xxx@yyy.zzz) is entered in the tag. It uses the same parameters as a Text tab, with the validation message and pattern set for email information.  When getting information that includes this tab type, the original value of the tab when the associated envelope was sent is included in the response.</value>
+        /// <value>A list of  [Email tabs][email].  This tab  allows the recipient to enter an email address. This is a one-line field that checks that a valid email address is entered. It uses the same parameters as a Text tab, with the validation message and pattern set for email information.  When getting information that includes this tab type, the original value of the tab when the associated envelope was sent is included in the response.  [email]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/email  </value>
         [DataMember(Name="emailTabs", EmitDefaultValue=false)]
         public List<Email> EmailTabs { get; set; }
         /// <summary>
-        /// Specifies a tag on the document where you want the envelope ID for to appear. Recipients cannot enter or change the information in this tab, it is for informational purposes only.
+        /// A list of  [Envelope ID tabs][envelopeId].  This tab  displays the envelope ID. Recipients cannot enter or change the information in this tab.   [envelopeId]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/envelopeId  
         /// </summary>
-        /// <value>Specifies a tag on the document where you want the envelope ID for to appear. Recipients cannot enter or change the information in this tab, it is for informational purposes only.</value>
+        /// <value>A list of  [Envelope ID tabs][envelopeId].  This tab  displays the envelope ID. Recipients cannot enter or change the information in this tab.   [envelopeId]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/envelopeId  </value>
         [DataMember(Name="envelopeIdTabs", EmitDefaultValue=false)]
         public List<EnvelopeId> EnvelopeIdTabs { get; set; }
         /// <summary>
-        /// Specifies tag on a document where you want the recipient&#39;s first name to appear. This tag takes the recipient&#39;s name, as entered in the recipient information, splits it into sections based on spaces and uses the first section as the first name.
+        /// A list of  [First Name tabs][firstName].  This tab  displays the recipient&#39;s first name. It takes the recipient&#39;s name as entered in the recipient information, splits it into sections based on spaces and uses the first section as the first name.   [firstName]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/firstName  
         /// </summary>
-        /// <value>Specifies tag on a document where you want the recipient&#39;s first name to appear. This tag takes the recipient&#39;s name, as entered in the recipient information, splits it into sections based on spaces and uses the first section as the first name.</value>
+        /// <value>A list of  [First Name tabs][firstName].  This tab  displays the recipient&#39;s first name. It takes the recipient&#39;s name as entered in the recipient information, splits it into sections based on spaces and uses the first section as the first name.   [firstName]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/firstName  </value>
         [DataMember(Name="firstNameTabs", EmitDefaultValue=false)]
         public List<FirstName> FirstNameTabs { get; set; }
         /// <summary>
-        /// A list of formula tabs.  The value of a formula tab is calculated from the values of other number or date tabs in the document. When the recipient completes the underlying fields, the formula tab calculates and displays the result.  The &#x60;formula&#x60; property of the tab contains the references to the underlying tabs. See [Calculated Fields][calculatedfields] in the DocuSign Support Center to learn more about formulas.  If a formula tab contains a &#x60;paymentDetails&#x60; property, the tab is considered a payment item. See [Requesting Payments Along with Signatures][paymentguide] in the DocuSign Support Center to learn more about payments.  [calculatedfields]: https://support.docusign.com/en/guides/ndse-user-guide-calculated-fields [paymentguide]:     https://support.docusign.com/en/guides/requesting-payments-along-with-signatures 
+        /// A list of [Formula tabs][formulaTab].  The value of a formula tab is calculated from the values of other number or date tabs in the document. When the recipient completes the underlying fields, the formula tab calculates and displays the result.  The &#x60;formula&#x60; property of the tab contains the references to the underlying tabs. See [Calculated Fields][calculatedfields] in the DocuSign Support Center to learn more about formulas.  If a formula tab contains a &#x60;paymentDetails&#x60; property, the tab is considered a payment item. See [Requesting Payments Along with Signatures][paymentguide] in the DocuSign Support Center to learn more about payments.  [calculatedfields]: https://support.docusign.com/en/guides/ndse-user-guide-calculated-fields [paymentguide]:     https://support.docusign.com/en/guides/requesting-payments-along-with-signatures [formulaTab]:      /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/formulaTab 
         /// </summary>
-        /// <value>A list of formula tabs.  The value of a formula tab is calculated from the values of other number or date tabs in the document. When the recipient completes the underlying fields, the formula tab calculates and displays the result.  The &#x60;formula&#x60; property of the tab contains the references to the underlying tabs. See [Calculated Fields][calculatedfields] in the DocuSign Support Center to learn more about formulas.  If a formula tab contains a &#x60;paymentDetails&#x60; property, the tab is considered a payment item. See [Requesting Payments Along with Signatures][paymentguide] in the DocuSign Support Center to learn more about payments.  [calculatedfields]: https://support.docusign.com/en/guides/ndse-user-guide-calculated-fields [paymentguide]:     https://support.docusign.com/en/guides/requesting-payments-along-with-signatures </value>
+        /// <value>A list of [Formula tabs][formulaTab].  The value of a formula tab is calculated from the values of other number or date tabs in the document. When the recipient completes the underlying fields, the formula tab calculates and displays the result.  The &#x60;formula&#x60; property of the tab contains the references to the underlying tabs. See [Calculated Fields][calculatedfields] in the DocuSign Support Center to learn more about formulas.  If a formula tab contains a &#x60;paymentDetails&#x60; property, the tab is considered a payment item. See [Requesting Payments Along with Signatures][paymentguide] in the DocuSign Support Center to learn more about payments.  [calculatedfields]: https://support.docusign.com/en/guides/ndse-user-guide-calculated-fields [paymentguide]:     https://support.docusign.com/en/guides/requesting-payments-along-with-signatures [formulaTab]:      /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/formulaTab </value>
         [DataMember(Name="formulaTabs", EmitDefaultValue=false)]
         public List<FormulaTab> FormulaTabs { get; set; }
         /// <summary>
-        /// Specifies a tag on the document where you want the recipient&#39;s name to appear.
+        /// A list of  [Full Name tabs][fullName].  This tab  displays the recipient&#39;s full name.   [fullName]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/fullName  
         /// </summary>
-        /// <value>Specifies a tag on the document where you want the recipient&#39;s name to appear.</value>
+        /// <value>A list of  [Full Name tabs][fullName].  This tab  displays the recipient&#39;s full name.   [fullName]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/fullName  </value>
         [DataMember(Name="fullNameTabs", EmitDefaultValue=false)]
         public List<FullName> FullNameTabs { get; set; }
         /// <summary>
-        /// Specifies a tag location in the document at which a recipient will place their initials. The &#x60;optional&#x60; parameter specifies whether the initials are required or optional.
+        /// A list of  [Initial Here tabs][initialHere].  This tab allows the recipient to initial the document. May be optional.  [initialHere]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/initialHere  
         /// </summary>
-        /// <value>Specifies a tag location in the document at which a recipient will place their initials. The &#x60;optional&#x60; parameter specifies whether the initials are required or optional.</value>
+        /// <value>A list of  [Initial Here tabs][initialHere].  This tab allows the recipient to initial the document. May be optional.  [initialHere]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/initialHere  </value>
         [DataMember(Name="initialHereTabs", EmitDefaultValue=false)]
         public List<InitialHere> InitialHereTabs { get; set; }
         /// <summary>
-        /// Specifies a tag on a document where you want the recipient&#39;s last name to appear. This tag takes the recipient&#39;s name, as entered in the recipient information, splits it into sections based on spaces and uses the last section as the last name.
+        /// A list of  [Last Name tabs][lastName].  This tab  displays the recipient&#39;s last name. It takes the recipient&#39;s name as entered in the recipient information, splits it into sections based on spaces and uses the last section as the last name.   [lastName]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/lastName  
         /// </summary>
-        /// <value>Specifies a tag on a document where you want the recipient&#39;s last name to appear. This tag takes the recipient&#39;s name, as entered in the recipient information, splits it into sections based on spaces and uses the last section as the last name.</value>
+        /// <value>A list of  [Last Name tabs][lastName].  This tab  displays the recipient&#39;s last name. It takes the recipient&#39;s name as entered in the recipient information, splits it into sections based on spaces and uses the last section as the last name.   [lastName]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/lastName  </value>
         [DataMember(Name="lastNameTabs", EmitDefaultValue=false)]
         public List<LastName> LastNameTabs { get; set; }
         /// <summary>
-        /// Specify this tag to give your recipient a list of options, presented as a drop-down list, from which they can select.
+        /// A list of  [list tabs][list].  This tab offers a list of options to choose from. The &#x60;listItems&#x60; property is used to specify the selectable options.    [list]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/list  
         /// </summary>
-        /// <value>Specify this tag to give your recipient a list of options, presented as a drop-down list, from which they can select.</value>
+        /// <value>A list of  [list tabs][list].  This tab offers a list of options to choose from. The &#x60;listItems&#x60; property is used to specify the selectable options.    [list]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/list  </value>
         [DataMember(Name="listTabs", EmitDefaultValue=false)]
         public List<List> ListTabs { get; set; }
         /// <summary>
-        /// Specifies a location on the document where you want to place additional information, in the form of a note, for a recipient.
+        /// A list of  [Notarize tabs][notarize].  A notarize tab is a tab that alerts notary recipients that they must take action on the page. Only one notarize tab can appear on a page.  [notarize]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/notarize  
         /// </summary>
-        /// <value>Specifies a location on the document where you want to place additional information, in the form of a note, for a recipient.</value>
+        /// <value>A list of  [Notarize tabs][notarize].  A notarize tab is a tab that alerts notary recipients that they must take action on the page. Only one notarize tab can appear on a page.  [notarize]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/notarize  </value>
+        [DataMember(Name="notarizeTabs", EmitDefaultValue=false)]
+        public List<Notarize> NotarizeTabs { get; set; }
+        /// <summary>
+        /// A list of  [Note tabs][note].  This tab  displays additional information, in the form of a note, for the recipient.  [note]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/note  
+        /// </summary>
+        /// <value>A list of  [Note tabs][note].  This tab  displays additional information, in the form of a note, for the recipient.  [note]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/note  </value>
         [DataMember(Name="noteTabs", EmitDefaultValue=false)]
         public List<Note> NoteTabs { get; set; }
         /// <summary>
-        /// Specifies a tag on the document where you want the recipient to enter a number. It uses the same parameters as a Text tab, with the validation message and pattern set for number information.  When getting information that includes this tab type, the original value of the tab when the associated envelope was sent is included in the response. 
+        /// A list of  [Number tabs][number].  This tab allows the recipient to enter numbers and decimal (.) points.    [number]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/number  
         /// </summary>
-        /// <value>Specifies a tag on the document where you want the recipient to enter a number. It uses the same parameters as a Text tab, with the validation message and pattern set for number information.  When getting information that includes this tab type, the original value of the tab when the associated envelope was sent is included in the response. </value>
+        /// <value>A list of  [Number tabs][number].  This tab allows the recipient to enter numbers and decimal (.) points.    [number]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/number  </value>
         [DataMember(Name="numberTabs", EmitDefaultValue=false)]
         public List<decimal?> NumberTabs { get; set; }
         /// <summary>
-        /// Specifies a tag on the document in a location where the recipient can select one option from a group of options using a radio button. The radio buttons do not have to be on the same page in a document.
+        /// A list of  [Radio Group tabs][radioGroup].  This tab  This group tab is used to place radio buttons on a document. The &#x60;radios&#x60; property is used to add and place the radio buttons associated with the group. Only one radio button can be selected in a group.   [radioGroup]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/radioGroup  
         /// </summary>
-        /// <value>Specifies a tag on the document in a location where the recipient can select one option from a group of options using a radio button. The radio buttons do not have to be on the same page in a document.</value>
+        /// <value>A list of  [Radio Group tabs][radioGroup].  This tab  This group tab is used to place radio buttons on a document. The &#x60;radios&#x60; property is used to add and place the radio buttons associated with the group. Only one radio button can be selected in a group.   [radioGroup]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/radioGroup  </value>
         [DataMember(Name="radioGroupTabs", EmitDefaultValue=false)]
         public List<RadioGroup> RadioGroupTabs { get; set; }
         /// <summary>
-        /// Specifies a tag on the document when you want the recipient to add supporting documents to an envelope.
+        /// A list of  [Signer Attachment tabs][signerAttachment].  This tab  allows the recipient to attach supporting documents to an envelope.   [signerAttachment]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/signerAttachment  
         /// </summary>
-        /// <value>Specifies a tag on the document when you want the recipient to add supporting documents to an envelope.</value>
+        /// <value>A list of  [Signer Attachment tabs][signerAttachment].  This tab  allows the recipient to attach supporting documents to an envelope.   [signerAttachment]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/signerAttachment  </value>
         [DataMember(Name="signerAttachmentTabs", EmitDefaultValue=false)]
         public List<SignerAttachment> SignerAttachmentTabs { get; set; }
         /// <summary>
-        /// A complex type the contains information about the tag that specifies where the recipient places their signature in the document. The \&quot;optional\&quot; parameter sets if the signature is required or optional. 
+        /// A list of  [Sign Here tabs][signHere].  This tab  allows the recipient to sign a document. May be optional.  [signHere]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/signHere  
         /// </summary>
-        /// <value>A complex type the contains information about the tag that specifies where the recipient places their signature in the document. The \&quot;optional\&quot; parameter sets if the signature is required or optional. </value>
+        /// <value>A list of  [Sign Here tabs][signHere].  This tab  allows the recipient to sign a document. May be optional.  [signHere]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/signHere  </value>
         [DataMember(Name="signHereTabs", EmitDefaultValue=false)]
         public List<SignHere> SignHereTabs { get; set; }
         /// <summary>
-        /// Specifies a tag on the document where you want the recipient to enter a Social Security Number (SSN). A SSN can be typed with or without dashes. It uses the same parameters as a Text tab, with the validation message and pattern set for SSN information.  When getting information that includes this tab type, the original value of the tab when the associated envelope was sent is included in the response.
+        /// A list of  [SSN tabs][ssn].  This tab  is a one-line field that allows the recipient to enter a Social Security Number. The SSN can be typed with or without dashes. It uses the same parameters as a Text tab, with the validation message and pattern set for SSN information.   [ssn]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/ssn  
         /// </summary>
-        /// <value>Specifies a tag on the document where you want the recipient to enter a Social Security Number (SSN). A SSN can be typed with or without dashes. It uses the same parameters as a Text tab, with the validation message and pattern set for SSN information.  When getting information that includes this tab type, the original value of the tab when the associated envelope was sent is included in the response.</value>
+        /// <value>A list of  [SSN tabs][ssn].  This tab  is a one-line field that allows the recipient to enter a Social Security Number. The SSN can be typed with or without dashes. It uses the same parameters as a Text tab, with the validation message and pattern set for SSN information.   [ssn]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/ssn  </value>
         [DataMember(Name="ssnTabs", EmitDefaultValue=false)]
         public List<Ssn> SsnTabs { get; set; }
         /// <summary>
-        /// Specifies a that that is an adaptable field that allows the recipient to enter different text information.  When getting information that includes this tab type, the original value of the tab when the associated envelope was sent is included in the response.
+        /// A list of  [Text tabs][text].  This tab  A tab that allows the recipient to enter any type of text.  [text]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/text  
         /// </summary>
-        /// <value>Specifies a that that is an adaptable field that allows the recipient to enter different text information.  When getting information that includes this tab type, the original value of the tab when the associated envelope was sent is included in the response.</value>
+        /// <value>A list of  [Text tabs][text].  This tab  A tab that allows the recipient to enter any type of text.  [text]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/text  </value>
         [DataMember(Name="textTabs", EmitDefaultValue=false)]
         public List<Text> TextTabs { get; set; }
         /// <summary>
-        /// Specifies a tag on the document where you want the recipient&#39;s title to appear.  When getting information that includes this tab type, the original value of the tab when the associated envelope was sent is included in the response.
+        /// A list of  [Title tabs][title].  This tab  displays the recipient&#39;s title.   [title]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/title  
         /// </summary>
-        /// <value>Specifies a tag on the document where you want the recipient&#39;s title to appear.  When getting information that includes this tab type, the original value of the tab when the associated envelope was sent is included in the response.</value>
+        /// <value>A list of  [Title tabs][title].  This tab  displays the recipient&#39;s title.   [title]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/title  </value>
         [DataMember(Name="titleTabs", EmitDefaultValue=false)]
         public List<Title> TitleTabs { get; set; }
         /// <summary>
-        /// 
+        /// A list of  [View tabs][view].  This tab  This tab is used with the Approve tab to handle [supplemental documents][supdocs].  [supdocs]: /esign/guide/appendix/glossary.html#supplemental-documents [view]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/view  
         /// </summary>
-        /// <value></value>
+        /// <value>A list of  [View tabs][view].  This tab  This tab is used with the Approve tab to handle [supplemental documents][supdocs].  [supdocs]: /esign/guide/appendix/glossary.html#supplemental-documents [view]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/view  </value>
         [DataMember(Name="viewTabs", EmitDefaultValue=false)]
         public List<View> ViewTabs { get; set; }
         /// <summary>
-        /// Specifies a tag on the document where you want the recipient to enter a ZIP code. The ZIP code can be a five numbers or the ZIP+4 format with nine numbers. The zip code can be typed with or without dashes. It uses the same parameters as a Text tab, with the validation message and pattern set for ZIP code information.  When getting information that includes this tab type, the original value of the tab when the associated envelope was sent is included in the response.
+        /// A list of  [Zip tabs][zip].  This tab  allows the recipient to enter a ZIP code. The ZIP code can be five digits or nine digits in the ZIP+4 format. The zip code can be typed with or without dashes. It uses the same parameters as a Text tab, with the validation message and pattern set for ZIP code information.   [zip]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/zip 
         /// </summary>
-        /// <value>Specifies a tag on the document where you want the recipient to enter a ZIP code. The ZIP code can be a five numbers or the ZIP+4 format with nine numbers. The zip code can be typed with or without dashes. It uses the same parameters as a Text tab, with the validation message and pattern set for ZIP code information.  When getting information that includes this tab type, the original value of the tab when the associated envelope was sent is included in the response.</value>
+        /// <value>A list of  [Zip tabs][zip].  This tab  allows the recipient to enter a ZIP code. The ZIP code can be five digits or nine digits in the ZIP+4 format. The zip code can be typed with or without dashes. It uses the same parameters as a Text tab, with the validation message and pattern set for ZIP code information.   [zip]: /esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/zip </value>
         [DataMember(Name="zipTabs", EmitDefaultValue=false)]
         public List<Zip> ZipTabs { get; set; }
         /// <summary>
@@ -269,6 +277,7 @@ namespace DocuSign.Core.Model
             sb.Append("  InitialHereTabs: ").Append(InitialHereTabs).Append("\n");
             sb.Append("  LastNameTabs: ").Append(LastNameTabs).Append("\n");
             sb.Append("  ListTabs: ").Append(ListTabs).Append("\n");
+            sb.Append("  NotarizeTabs: ").Append(NotarizeTabs).Append("\n");
             sb.Append("  NoteTabs: ").Append(NoteTabs).Append("\n");
             sb.Append("  NumberTabs: ").Append(NumberTabs).Append("\n");
             sb.Append("  RadioGroupTabs: ").Append(RadioGroupTabs).Append("\n");
@@ -391,6 +400,11 @@ namespace DocuSign.Core.Model
                     this.ListTabs.SequenceEqual(other.ListTabs)
                 ) && 
                 (
+                    this.NotarizeTabs == other.NotarizeTabs ||
+                    this.NotarizeTabs != null &&
+                    this.NotarizeTabs.SequenceEqual(other.NotarizeTabs)
+                ) && 
+                (
                     this.NoteTabs == other.NoteTabs ||
                     this.NoteTabs != null &&
                     this.NoteTabs.SequenceEqual(other.NoteTabs)
@@ -483,6 +497,8 @@ namespace DocuSign.Core.Model
                     hash = hash * 59 + this.LastNameTabs.GetHashCode();
                 if (this.ListTabs != null)
                     hash = hash * 59 + this.ListTabs.GetHashCode();
+                if (this.NotarizeTabs != null)
+                    hash = hash * 59 + this.NotarizeTabs.GetHashCode();
                 if (this.NoteTabs != null)
                     hash = hash * 59 + this.NoteTabs.GetHashCode();
                 if (this.NumberTabs != null)

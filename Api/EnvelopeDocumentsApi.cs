@@ -40,7 +40,7 @@ namespace DocuSign.Core.Api
         /// Deletes documents from a draft envelope.
         /// </summary>
         /// <remarks>
-        /// Deletes one or more documents from an existing draft envelope.
+        /// Deletes one or more documents from an existing envelope that has not yet been completed.  To delete a document, use only the relevant parts of the [&#x60;envelopeDefinition&#x60;](#envelopeDefinition). For example, this request body specifies that you want to delete the document whose &#x60;documentId&#x60; is \&quot;1\&quot;.   &#x60;&#x60;&#x60;text {   \&quot;documents\&quot;: [     {       \&quot;documentId\&quot;: \&quot;1\&quot;     }   ] } &#x60;&#x60;&#x60;  The envelope status must be one of:  - &#x60;created&#x60; - &#x60;sent&#x60; - &#x60;delivered&#x60;   
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -53,7 +53,7 @@ namespace DocuSign.Core.Api
         /// Deletes documents from a draft envelope.
         /// </summary>
         /// <remarks>
-        /// Deletes one or more documents from an existing draft envelope.
+        /// Deletes one or more documents from an existing envelope that has not yet been completed.  To delete a document, use only the relevant parts of the [&#x60;envelopeDefinition&#x60;](#envelopeDefinition). For example, this request body specifies that you want to delete the document whose &#x60;documentId&#x60; is \&quot;1\&quot;.   &#x60;&#x60;&#x60;text {   \&quot;documents\&quot;: [     {       \&quot;documentId\&quot;: \&quot;1\&quot;     }   ] } &#x60;&#x60;&#x60;  The envelope status must be one of:  - &#x60;created&#x60; - &#x60;sent&#x60; - &#x60;delivered&#x60;   
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -109,9 +109,8 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="envelopeId">The envelope&#39;s GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec </param>
-        /// <param name="includeMetadata">Reserved for DocuSign.  (optional)</param>
         /// <returns>EnvelopeDocuments</returns>
-        EnvelopeDocuments DocumentsGetDocuments (string accountId, string envelopeId, string includeMetadata = null);
+        EnvelopeDocuments DocumentsGetDocuments (string accountId, string envelopeId);
 
         /// <summary>
         /// Gets a list of envelope documents.
@@ -122,14 +121,13 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="envelopeId">The envelope&#39;s GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec </param>
-        /// <param name="includeMetadata">Reserved for DocuSign.  (optional)</param>
         /// <returns>ApiResponse of EnvelopeDocuments</returns>
-        ApiResponse<EnvelopeDocuments> DocumentsGetDocumentsWithHttpInfo (string accountId, string envelopeId, string includeMetadata = null);
+        ApiResponse<EnvelopeDocuments> DocumentsGetDocumentsWithHttpInfo (string accountId, string envelopeId);
         /// <summary>
         /// Adds a document to an existing draft envelope.
         /// </summary>
         /// <remarks>
-        /// Adds a document to an existing draft envelope.
+        /// Adds a document to an existing draft envelope. &lt;p&gt;**Note**: When adding or modifying documents for an in-process envelope, DocuSign recommends locking the envelope prior to making any changes.
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -143,7 +141,7 @@ namespace DocuSign.Core.Api
         /// Adds a document to an existing draft envelope.
         /// </summary>
         /// <remarks>
-        /// Adds a document to an existing draft envelope.
+        /// Adds a document to an existing draft envelope. &lt;p&gt;**Note**: When adding or modifying documents for an in-process envelope, DocuSign recommends locking the envelope prior to making any changes.
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -156,36 +154,38 @@ namespace DocuSign.Core.Api
         /// Adds one or more documents to an existing envelope document.
         /// </summary>
         /// <remarks>
-        /// Adds one or more documents to an existing envelope document.
+        /// Adds one or more documents to an existing envelope document. &lt;p&gt;**Note**: When adding or modifying documents for an in-process envelope, DocuSign recommends locking the envelope prior to making any changes.
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="envelopeId">The envelope&#39;s GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec </param>
         /// <param name="applyDocumentFields">When **true**, document fields can be added or modified while adding or modifying envelope documents.  (optional)</param>
+        /// <param name="persistTabs"> (optional)</param>
         /// <param name="envelopeDefinition"> (optional)</param>
         /// <returns>EnvelopeDocuments</returns>
-        EnvelopeDocuments DocumentsPutDocuments (string accountId, string envelopeId, string applyDocumentFields = null, EnvelopeDefinition envelopeDefinition = null);
+        EnvelopeDocuments DocumentsPutDocuments (string accountId, string envelopeId, string applyDocumentFields = null, string persistTabs = null, EnvelopeDefinition envelopeDefinition = null);
 
         /// <summary>
         /// Adds one or more documents to an existing envelope document.
         /// </summary>
         /// <remarks>
-        /// Adds one or more documents to an existing envelope document.
+        /// Adds one or more documents to an existing envelope document. &lt;p&gt;**Note**: When adding or modifying documents for an in-process envelope, DocuSign recommends locking the envelope prior to making any changes.
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="envelopeId">The envelope&#39;s GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec </param>
         /// <param name="applyDocumentFields">When **true**, document fields can be added or modified while adding or modifying envelope documents.  (optional)</param>
+        /// <param name="persistTabs"> (optional)</param>
         /// <param name="envelopeDefinition"> (optional)</param>
         /// <returns>ApiResponse of EnvelopeDocuments</returns>
-        ApiResponse<EnvelopeDocuments> DocumentsPutDocumentsWithHttpInfo (string accountId, string envelopeId, string applyDocumentFields = null, EnvelopeDefinition envelopeDefinition = null);
+        ApiResponse<EnvelopeDocuments> DocumentsPutDocumentsWithHttpInfo (string accountId, string envelopeId, string applyDocumentFields = null, string persistTabs = null, EnvelopeDefinition envelopeDefinition = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
         /// Deletes documents from a draft envelope.
         /// </summary>
         /// <remarks>
-        /// Deletes one or more documents from an existing draft envelope.
+        /// Deletes one or more documents from an existing envelope that has not yet been completed.  To delete a document, use only the relevant parts of the [&#x60;envelopeDefinition&#x60;](#envelopeDefinition). For example, this request body specifies that you want to delete the document whose &#x60;documentId&#x60; is \&quot;1\&quot;.   &#x60;&#x60;&#x60;text {   \&quot;documents\&quot;: [     {       \&quot;documentId\&quot;: \&quot;1\&quot;     }   ] } &#x60;&#x60;&#x60;  The envelope status must be one of:  - &#x60;created&#x60; - &#x60;sent&#x60; - &#x60;delivered&#x60;   
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -198,7 +198,7 @@ namespace DocuSign.Core.Api
         /// Deletes documents from a draft envelope.
         /// </summary>
         /// <remarks>
-        /// Deletes one or more documents from an existing draft envelope.
+        /// Deletes one or more documents from an existing envelope that has not yet been completed.  To delete a document, use only the relevant parts of the [&#x60;envelopeDefinition&#x60;](#envelopeDefinition). For example, this request body specifies that you want to delete the document whose &#x60;documentId&#x60; is \&quot;1\&quot;.   &#x60;&#x60;&#x60;text {   \&quot;documents\&quot;: [     {       \&quot;documentId\&quot;: \&quot;1\&quot;     }   ] } &#x60;&#x60;&#x60;  The envelope status must be one of:  - &#x60;created&#x60; - &#x60;sent&#x60; - &#x60;delivered&#x60;   
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -254,9 +254,8 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="envelopeId">The envelope&#39;s GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec </param>
-        /// <param name="includeMetadata">Reserved for DocuSign.  (optional)</param>
         /// <returns>Task of EnvelopeDocuments</returns>
-        System.Threading.Tasks.Task<EnvelopeDocuments> DocumentsGetDocumentsAsync (string accountId, string envelopeId, string includeMetadata = null);
+        System.Threading.Tasks.Task<EnvelopeDocuments> DocumentsGetDocumentsAsync (string accountId, string envelopeId);
 
         /// <summary>
         /// Gets a list of envelope documents.
@@ -267,14 +266,13 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="envelopeId">The envelope&#39;s GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec </param>
-        /// <param name="includeMetadata">Reserved for DocuSign.  (optional)</param>
         /// <returns>Task of ApiResponse (EnvelopeDocuments)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EnvelopeDocuments>> DocumentsGetDocumentsAsyncWithHttpInfo (string accountId, string envelopeId, string includeMetadata = null);
+        System.Threading.Tasks.Task<ApiResponse<EnvelopeDocuments>> DocumentsGetDocumentsAsyncWithHttpInfo (string accountId, string envelopeId);
         /// <summary>
         /// Adds a document to an existing draft envelope.
         /// </summary>
         /// <remarks>
-        /// Adds a document to an existing draft envelope.
+        /// Adds a document to an existing draft envelope. &lt;p&gt;**Note**: When adding or modifying documents for an in-process envelope, DocuSign recommends locking the envelope prior to making any changes.
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -288,7 +286,7 @@ namespace DocuSign.Core.Api
         /// Adds a document to an existing draft envelope.
         /// </summary>
         /// <remarks>
-        /// Adds a document to an existing draft envelope.
+        /// Adds a document to an existing draft envelope. &lt;p&gt;**Note**: When adding or modifying documents for an in-process envelope, DocuSign recommends locking the envelope prior to making any changes.
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -301,29 +299,31 @@ namespace DocuSign.Core.Api
         /// Adds one or more documents to an existing envelope document.
         /// </summary>
         /// <remarks>
-        /// Adds one or more documents to an existing envelope document.
+        /// Adds one or more documents to an existing envelope document. &lt;p&gt;**Note**: When adding or modifying documents for an in-process envelope, DocuSign recommends locking the envelope prior to making any changes.
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="envelopeId">The envelope&#39;s GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec </param>
         /// <param name="applyDocumentFields">When **true**, document fields can be added or modified while adding or modifying envelope documents.  (optional)</param>
+        /// <param name="persistTabs"> (optional)</param>
         /// <param name="envelopeDefinition"> (optional)</param>
         /// <returns>Task of EnvelopeDocuments</returns>
-        System.Threading.Tasks.Task<EnvelopeDocuments> DocumentsPutDocumentsAsync (string accountId, string envelopeId, string applyDocumentFields = null, EnvelopeDefinition envelopeDefinition = null);
+        System.Threading.Tasks.Task<EnvelopeDocuments> DocumentsPutDocumentsAsync (string accountId, string envelopeId, string applyDocumentFields = null, string persistTabs = null, EnvelopeDefinition envelopeDefinition = null);
 
         /// <summary>
         /// Adds one or more documents to an existing envelope document.
         /// </summary>
         /// <remarks>
-        /// Adds one or more documents to an existing envelope document.
+        /// Adds one or more documents to an existing envelope document. &lt;p&gt;**Note**: When adding or modifying documents for an in-process envelope, DocuSign recommends locking the envelope prior to making any changes.
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="envelopeId">The envelope&#39;s GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec </param>
         /// <param name="applyDocumentFields">When **true**, document fields can be added or modified while adding or modifying envelope documents.  (optional)</param>
+        /// <param name="persistTabs"> (optional)</param>
         /// <param name="envelopeDefinition"> (optional)</param>
         /// <returns>Task of ApiResponse (EnvelopeDocuments)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EnvelopeDocuments>> DocumentsPutDocumentsAsyncWithHttpInfo (string accountId, string envelopeId, string applyDocumentFields = null, EnvelopeDefinition envelopeDefinition = null);
+        System.Threading.Tasks.Task<ApiResponse<EnvelopeDocuments>> DocumentsPutDocumentsAsyncWithHttpInfo (string accountId, string envelopeId, string applyDocumentFields = null, string persistTabs = null, EnvelopeDefinition envelopeDefinition = null);
         #endregion Asynchronous Operations
     }
 
@@ -437,7 +437,7 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Deletes documents from a draft envelope. Deletes one or more documents from an existing draft envelope.
+        /// Deletes documents from a draft envelope. Deletes one or more documents from an existing envelope that has not yet been completed.  To delete a document, use only the relevant parts of the [&#x60;envelopeDefinition&#x60;](#envelopeDefinition). For example, this request body specifies that you want to delete the document whose &#x60;documentId&#x60; is \&quot;1\&quot;.   &#x60;&#x60;&#x60;text {   \&quot;documents\&quot;: [     {       \&quot;documentId\&quot;: \&quot;1\&quot;     }   ] } &#x60;&#x60;&#x60;  The envelope status must be one of:  - &#x60;created&#x60; - &#x60;sent&#x60; - &#x60;delivered&#x60;   
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -451,7 +451,7 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Deletes documents from a draft envelope. Deletes one or more documents from an existing draft envelope.
+        /// Deletes documents from a draft envelope. Deletes one or more documents from an existing envelope that has not yet been completed.  To delete a document, use only the relevant parts of the [&#x60;envelopeDefinition&#x60;](#envelopeDefinition). For example, this request body specifies that you want to delete the document whose &#x60;documentId&#x60; is \&quot;1\&quot;.   &#x60;&#x60;&#x60;text {   \&quot;documents\&quot;: [     {       \&quot;documentId\&quot;: \&quot;1\&quot;     }   ] } &#x60;&#x60;&#x60;  The envelope status must be one of:  - &#x60;created&#x60; - &#x60;sent&#x60; - &#x60;delivered&#x60;   
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -523,7 +523,7 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Deletes documents from a draft envelope. Deletes one or more documents from an existing draft envelope.
+        /// Deletes documents from a draft envelope. Deletes one or more documents from an existing envelope that has not yet been completed.  To delete a document, use only the relevant parts of the [&#x60;envelopeDefinition&#x60;](#envelopeDefinition). For example, this request body specifies that you want to delete the document whose &#x60;documentId&#x60; is \&quot;1\&quot;.   &#x60;&#x60;&#x60;text {   \&quot;documents\&quot;: [     {       \&quot;documentId\&quot;: \&quot;1\&quot;     }   ] } &#x60;&#x60;&#x60;  The envelope status must be one of:  - &#x60;created&#x60; - &#x60;sent&#x60; - &#x60;delivered&#x60;   
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -538,7 +538,7 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Deletes documents from a draft envelope. Deletes one or more documents from an existing draft envelope.
+        /// Deletes documents from a draft envelope. Deletes one or more documents from an existing envelope that has not yet been completed.  To delete a document, use only the relevant parts of the [&#x60;envelopeDefinition&#x60;](#envelopeDefinition). For example, this request body specifies that you want to delete the document whose &#x60;documentId&#x60; is \&quot;1\&quot;.   &#x60;&#x60;&#x60;text {   \&quot;documents\&quot;: [     {       \&quot;documentId\&quot;: \&quot;1\&quot;     }   ] } &#x60;&#x60;&#x60;  The envelope status must be one of:  - &#x60;created&#x60; - &#x60;sent&#x60; - &#x60;delivered&#x60;   
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -822,11 +822,10 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="envelopeId">The envelope&#39;s GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec </param>
-        /// <param name="includeMetadata">Reserved for DocuSign.  (optional)</param>
         /// <returns>EnvelopeDocuments</returns>
-        public EnvelopeDocuments DocumentsGetDocuments (string accountId, string envelopeId, string includeMetadata = null)
+        public EnvelopeDocuments DocumentsGetDocuments (string accountId, string envelopeId)
         {
-             ApiResponse<EnvelopeDocuments> localVarResponse = DocumentsGetDocumentsWithHttpInfo(accountId, envelopeId, includeMetadata);
+             ApiResponse<EnvelopeDocuments> localVarResponse = DocumentsGetDocumentsWithHttpInfo(accountId, envelopeId);
              return localVarResponse.Data;
         }
 
@@ -836,9 +835,8 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="envelopeId">The envelope&#39;s GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec </param>
-        /// <param name="includeMetadata">Reserved for DocuSign.  (optional)</param>
         /// <returns>ApiResponse of EnvelopeDocuments</returns>
-        public ApiResponse< EnvelopeDocuments > DocumentsGetDocumentsWithHttpInfo (string accountId, string envelopeId, string includeMetadata = null)
+        public ApiResponse< EnvelopeDocuments > DocumentsGetDocumentsWithHttpInfo (string accountId, string envelopeId)
         {
             // verify the required parameter 'accountId' is set
             if (accountId == null)
@@ -873,7 +871,6 @@ namespace DocuSign.Core.Api
             localVarPathParams.Add("format", "json");
             if (accountId != null) localVarPathParams.Add("accountId", Configuration.ApiClient.ParameterToString(accountId)); // path parameter
             if (envelopeId != null) localVarPathParams.Add("envelopeId", Configuration.ApiClient.ParameterToString(envelopeId)); // path parameter
-            if (includeMetadata != null) localVarQueryParams.Add("include_metadata", Configuration.ApiClient.ParameterToString(includeMetadata)); // query parameter
 
 
             // make the HTTP request
@@ -901,11 +898,10 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="envelopeId">The envelope&#39;s GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec </param>
-        /// <param name="includeMetadata">Reserved for DocuSign.  (optional)</param>
         /// <returns>Task of EnvelopeDocuments</returns>
-        public async System.Threading.Tasks.Task<EnvelopeDocuments> DocumentsGetDocumentsAsync (string accountId, string envelopeId, string includeMetadata = null)
+        public async System.Threading.Tasks.Task<EnvelopeDocuments> DocumentsGetDocumentsAsync (string accountId, string envelopeId)
         {
-             ApiResponse<EnvelopeDocuments> localVarResponse = await DocumentsGetDocumentsAsyncWithHttpInfo(accountId, envelopeId, includeMetadata);
+             ApiResponse<EnvelopeDocuments> localVarResponse = await DocumentsGetDocumentsAsyncWithHttpInfo(accountId, envelopeId);
              return localVarResponse.Data;
 
         }
@@ -916,9 +912,8 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="envelopeId">The envelope&#39;s GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec </param>
-        /// <param name="includeMetadata">Reserved for DocuSign.  (optional)</param>
         /// <returns>Task of ApiResponse (EnvelopeDocuments)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<EnvelopeDocuments>> DocumentsGetDocumentsAsyncWithHttpInfo (string accountId, string envelopeId, string includeMetadata = null)
+        public async System.Threading.Tasks.Task<ApiResponse<EnvelopeDocuments>> DocumentsGetDocumentsAsyncWithHttpInfo (string accountId, string envelopeId)
         {
             // verify the required parameter 'accountId' is set
             if (accountId == null)
@@ -953,7 +948,6 @@ namespace DocuSign.Core.Api
             localVarPathParams.Add("format", "json");
             if (accountId != null) localVarPathParams.Add("accountId", Configuration.ApiClient.ParameterToString(accountId)); // path parameter
             if (envelopeId != null) localVarPathParams.Add("envelopeId", Configuration.ApiClient.ParameterToString(envelopeId)); // path parameter
-            if (includeMetadata != null) localVarQueryParams.Add("include_metadata", Configuration.ApiClient.ParameterToString(includeMetadata)); // query parameter
 
 
             // make the HTTP request
@@ -976,7 +970,7 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Adds a document to an existing draft envelope. Adds a document to an existing draft envelope.
+        /// Adds a document to an existing draft envelope. Adds a document to an existing draft envelope. &lt;p&gt;**Note**: When adding or modifying documents for an in-process envelope, DocuSign recommends locking the envelope prior to making any changes.
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -990,7 +984,7 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Adds a document to an existing draft envelope. Adds a document to an existing draft envelope.
+        /// Adds a document to an existing draft envelope. Adds a document to an existing draft envelope. &lt;p&gt;**Note**: When adding or modifying documents for an in-process envelope, DocuSign recommends locking the envelope prior to making any changes.
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -1060,7 +1054,7 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Adds a document to an existing draft envelope. Adds a document to an existing draft envelope.
+        /// Adds a document to an existing draft envelope. Adds a document to an existing draft envelope. &lt;p&gt;**Note**: When adding or modifying documents for an in-process envelope, DocuSign recommends locking the envelope prior to making any changes.
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -1075,7 +1069,7 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Adds a document to an existing draft envelope. Adds a document to an existing draft envelope.
+        /// Adds a document to an existing draft envelope. Adds a document to an existing draft envelope. &lt;p&gt;**Note**: When adding or modifying documents for an in-process envelope, DocuSign recommends locking the envelope prior to making any changes.
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -1145,30 +1139,32 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Adds one or more documents to an existing envelope document. Adds one or more documents to an existing envelope document.
+        /// Adds one or more documents to an existing envelope document. Adds one or more documents to an existing envelope document. &lt;p&gt;**Note**: When adding or modifying documents for an in-process envelope, DocuSign recommends locking the envelope prior to making any changes.
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="envelopeId">The envelope&#39;s GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec </param>
         /// <param name="applyDocumentFields">When **true**, document fields can be added or modified while adding or modifying envelope documents.  (optional)</param>
+        /// <param name="persistTabs"> (optional)</param>
         /// <param name="envelopeDefinition"> (optional)</param>
         /// <returns>EnvelopeDocuments</returns>
-        public EnvelopeDocuments DocumentsPutDocuments (string accountId, string envelopeId, string applyDocumentFields = null, EnvelopeDefinition envelopeDefinition = null)
+        public EnvelopeDocuments DocumentsPutDocuments (string accountId, string envelopeId, string applyDocumentFields = null, string persistTabs = null, EnvelopeDefinition envelopeDefinition = null)
         {
-             ApiResponse<EnvelopeDocuments> localVarResponse = DocumentsPutDocumentsWithHttpInfo(accountId, envelopeId, applyDocumentFields, envelopeDefinition);
+             ApiResponse<EnvelopeDocuments> localVarResponse = DocumentsPutDocumentsWithHttpInfo(accountId, envelopeId, applyDocumentFields, persistTabs, envelopeDefinition);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Adds one or more documents to an existing envelope document. Adds one or more documents to an existing envelope document.
+        /// Adds one or more documents to an existing envelope document. Adds one or more documents to an existing envelope document. &lt;p&gt;**Note**: When adding or modifying documents for an in-process envelope, DocuSign recommends locking the envelope prior to making any changes.
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="envelopeId">The envelope&#39;s GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec </param>
         /// <param name="applyDocumentFields">When **true**, document fields can be added or modified while adding or modifying envelope documents.  (optional)</param>
+        /// <param name="persistTabs"> (optional)</param>
         /// <param name="envelopeDefinition"> (optional)</param>
         /// <returns>ApiResponse of EnvelopeDocuments</returns>
-        public ApiResponse< EnvelopeDocuments > DocumentsPutDocumentsWithHttpInfo (string accountId, string envelopeId, string applyDocumentFields = null, EnvelopeDefinition envelopeDefinition = null)
+        public ApiResponse< EnvelopeDocuments > DocumentsPutDocumentsWithHttpInfo (string accountId, string envelopeId, string applyDocumentFields = null, string persistTabs = null, EnvelopeDefinition envelopeDefinition = null)
         {
             // verify the required parameter 'accountId' is set
             if (accountId == null)
@@ -1204,6 +1200,7 @@ namespace DocuSign.Core.Api
             if (accountId != null) localVarPathParams.Add("accountId", Configuration.ApiClient.ParameterToString(accountId)); // path parameter
             if (envelopeId != null) localVarPathParams.Add("envelopeId", Configuration.ApiClient.ParameterToString(envelopeId)); // path parameter
             if (applyDocumentFields != null) localVarQueryParams.Add("apply_document_fields", Configuration.ApiClient.ParameterToString(applyDocumentFields)); // query parameter
+            if (persistTabs != null) localVarQueryParams.Add("persist_tabs", Configuration.ApiClient.ParameterToString(persistTabs)); // query parameter
             if (envelopeDefinition != null && envelopeDefinition.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(envelopeDefinition); // http body (model) parameter
@@ -1234,31 +1231,33 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Adds one or more documents to an existing envelope document. Adds one or more documents to an existing envelope document.
+        /// Adds one or more documents to an existing envelope document. Adds one or more documents to an existing envelope document. &lt;p&gt;**Note**: When adding or modifying documents for an in-process envelope, DocuSign recommends locking the envelope prior to making any changes.
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="envelopeId">The envelope&#39;s GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec </param>
         /// <param name="applyDocumentFields">When **true**, document fields can be added or modified while adding or modifying envelope documents.  (optional)</param>
+        /// <param name="persistTabs"> (optional)</param>
         /// <param name="envelopeDefinition"> (optional)</param>
         /// <returns>Task of EnvelopeDocuments</returns>
-        public async System.Threading.Tasks.Task<EnvelopeDocuments> DocumentsPutDocumentsAsync (string accountId, string envelopeId, string applyDocumentFields = null, EnvelopeDefinition envelopeDefinition = null)
+        public async System.Threading.Tasks.Task<EnvelopeDocuments> DocumentsPutDocumentsAsync (string accountId, string envelopeId, string applyDocumentFields = null, string persistTabs = null, EnvelopeDefinition envelopeDefinition = null)
         {
-             ApiResponse<EnvelopeDocuments> localVarResponse = await DocumentsPutDocumentsAsyncWithHttpInfo(accountId, envelopeId, applyDocumentFields, envelopeDefinition);
+             ApiResponse<EnvelopeDocuments> localVarResponse = await DocumentsPutDocumentsAsyncWithHttpInfo(accountId, envelopeId, applyDocumentFields, persistTabs, envelopeDefinition);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Adds one or more documents to an existing envelope document. Adds one or more documents to an existing envelope document.
+        /// Adds one or more documents to an existing envelope document. Adds one or more documents to an existing envelope document. &lt;p&gt;**Note**: When adding or modifying documents for an in-process envelope, DocuSign recommends locking the envelope prior to making any changes.
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="envelopeId">The envelope&#39;s GUID. Eg 93be49ab-afa0-4adf-933c-f752070d71ec </param>
         /// <param name="applyDocumentFields">When **true**, document fields can be added or modified while adding or modifying envelope documents.  (optional)</param>
+        /// <param name="persistTabs"> (optional)</param>
         /// <param name="envelopeDefinition"> (optional)</param>
         /// <returns>Task of ApiResponse (EnvelopeDocuments)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<EnvelopeDocuments>> DocumentsPutDocumentsAsyncWithHttpInfo (string accountId, string envelopeId, string applyDocumentFields = null, EnvelopeDefinition envelopeDefinition = null)
+        public async System.Threading.Tasks.Task<ApiResponse<EnvelopeDocuments>> DocumentsPutDocumentsAsyncWithHttpInfo (string accountId, string envelopeId, string applyDocumentFields = null, string persistTabs = null, EnvelopeDefinition envelopeDefinition = null)
         {
             // verify the required parameter 'accountId' is set
             if (accountId == null)
@@ -1294,6 +1293,7 @@ namespace DocuSign.Core.Api
             if (accountId != null) localVarPathParams.Add("accountId", Configuration.ApiClient.ParameterToString(accountId)); // path parameter
             if (envelopeId != null) localVarPathParams.Add("envelopeId", Configuration.ApiClient.ParameterToString(envelopeId)); // path parameter
             if (applyDocumentFields != null) localVarQueryParams.Add("apply_document_fields", Configuration.ApiClient.ParameterToString(applyDocumentFields)); // query parameter
+            if (persistTabs != null) localVarQueryParams.Add("persist_tabs", Configuration.ApiClient.ParameterToString(persistTabs)); // query parameter
             if (envelopeDefinition != null && envelopeDefinition.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(envelopeDefinition); // http body (model) parameter

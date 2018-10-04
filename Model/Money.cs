@@ -43,7 +43,7 @@ namespace DocuSign.Core.Model
         /// Initializes a new instance of the <see cref="Money" /> class.
         /// </summary>
         /// <param name="AmountInBaseUnit">The total payment amount in the currency&#39;s base unit. For example, for USD the base currency is one cent. .</param>
-        /// <param name="Currency">The three-letter [ISO 4217][ISO4217] currency code for the payment.  For example:  * AUD Australian dollar * CAD Canadian dollar * EUR Euro * GBP Great Britain pund * USD United States dollar  This is a read-only property.  [ISO4217]:          https://en.wikipedia.org/wiki/ISO_4217 .</param>
+        /// <param name="Currency">The three-letter [ISO 4217][ISO4217] currency code for the payment.  For example:  * AUD Australian dollar * CAD Canadian dollar * EUR Euro * GBP Great Britain pound * USD United States dollar  This is a read-only property.  [ISO4217]:          https://en.wikipedia.org/wiki/ISO_4217 .</param>
         /// <param name="DisplayAmount">The payment amount as displayed in the &#x60;currency&#x60;.  For example, if the payment amount is USD 12.59, the &#x60;amountInBaseUnit&#x60; is 1259 (cents), and the displayed amount is &#x60;$12.59 USD&#x60;.  This is a read-only property. .</param>
         public Money(string AmountInBaseUnit = null, string Currency = null, string DisplayAmount = null)
         {
@@ -59,9 +59,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="amountInBaseUnit", EmitDefaultValue=false)]
         public string AmountInBaseUnit { get; set; }
         /// <summary>
-        /// The three-letter [ISO 4217][ISO4217] currency code for the payment.  For example:  * AUD Australian dollar * CAD Canadian dollar * EUR Euro * GBP Great Britain pund * USD United States dollar  This is a read-only property.  [ISO4217]:          https://en.wikipedia.org/wiki/ISO_4217 
+        /// The three-letter [ISO 4217][ISO4217] currency code for the payment.  For example:  * AUD Australian dollar * CAD Canadian dollar * EUR Euro * GBP Great Britain pound * USD United States dollar  This is a read-only property.  [ISO4217]:          https://en.wikipedia.org/wiki/ISO_4217 
         /// </summary>
-        /// <value>The three-letter [ISO 4217][ISO4217] currency code for the payment.  For example:  * AUD Australian dollar * CAD Canadian dollar * EUR Euro * GBP Great Britain pund * USD United States dollar  This is a read-only property.  [ISO4217]:          https://en.wikipedia.org/wiki/ISO_4217 </value>
+        /// <value>The three-letter [ISO 4217][ISO4217] currency code for the payment.  For example:  * AUD Australian dollar * CAD Canadian dollar * EUR Euro * GBP Great Britain pound * USD United States dollar  This is a read-only property.  [ISO4217]:          https://en.wikipedia.org/wiki/ISO_4217 </value>
         [DataMember(Name="currency", EmitDefaultValue=false)]
         public string Currency { get; set; }
         /// <summary>

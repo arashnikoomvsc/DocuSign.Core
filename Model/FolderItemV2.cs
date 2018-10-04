@@ -60,7 +60,7 @@ namespace DocuSign.Core.Model
         /// <param name="SenderName">.</param>
         /// <param name="SenderUserId">.</param>
         /// <param name="SentDateTime">The date and time the envelope was sent..</param>
-        /// <param name="Status">Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later..</param>
+        /// <param name="Status">Item status. &lt;!- - TODO - -&gt;.</param>
         /// <param name="Subject">.</param>
         public FolderItemV2(string CompletedDateTime = null, string CreatedDateTime = null, string EnvelopeId = null, string EnvelopeUri = null, string ExpireDateTime = null, string FolderId = null, string FolderUri = null, string Is21CFRPart11 = null, string IsSignatureProviderEnvelope = null, string LastModifiedDateTime = null, string OwnerName = null, EnvelopeRecipients Recipients = null, string RecipientsUri = null, string SenderCompany = null, string SenderEmail = null, string SenderName = null, string SenderUserId = null, string SentDateTime = null, string Status = null, string Subject = null)
         {
@@ -195,9 +195,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="sentDateTime", EmitDefaultValue=false)]
         public string SentDateTime { get; set; }
         /// <summary>
-        /// Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later.
+        /// Item status. &lt;!- - TODO - -&gt;
         /// </summary>
-        /// <value>Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later.</value>
+        /// <value>Item status. &lt;!- - TODO - -&gt;</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
         /// <summary>

@@ -34,7 +34,7 @@ using Newtonsoft.Json.Converters;
 namespace DocuSign.Core.Model
 {
     /// <summary>
-    /// 
+    /// Describes which account management capabilities a user has.
     /// </summary>
     [DataContract]
     public partial class UserAccountManagementGranularInformation :  IEquatable<UserAccountManagementGranularInformation>
@@ -42,13 +42,13 @@ namespace DocuSign.Core.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UserAccountManagementGranularInformation" /> class.
         /// </summary>
-        /// <param name="CanManageAdmins">.</param>
+        /// <param name="CanManageAdmins">**True** if the user can manage admins..</param>
         /// <param name="CanManageAdminsMetadata">.</param>
-        /// <param name="CanManageGroups">.</param>
+        /// <param name="CanManageGroups">**True** if the user can manage groups..</param>
         /// <param name="CanManageGroupsMetadata">.</param>
         /// <param name="CanManageSharing">.</param>
         /// <param name="CanManageSharingMetadata">.</param>
-        /// <param name="CanManageUsers">.</param>
+        /// <param name="CanManageUsers">**True** if the user can manage users..</param>
         /// <param name="CanManageUsersMetadata">.</param>
         public UserAccountManagementGranularInformation(string CanManageAdmins = null, SettingsMetadata CanManageAdminsMetadata = null, string CanManageGroups = null, SettingsMetadata CanManageGroupsMetadata = null, string CanManageSharing = null, SettingsMetadata CanManageSharingMetadata = null, string CanManageUsers = null, SettingsMetadata CanManageUsersMetadata = null)
         {
@@ -63,9 +63,9 @@ namespace DocuSign.Core.Model
         }
         
         /// <summary>
-        /// 
+        /// **True** if the user can manage admins.
         /// </summary>
-        /// <value></value>
+        /// <value>**True** if the user can manage admins.</value>
         [DataMember(Name="canManageAdmins", EmitDefaultValue=false)]
         public string CanManageAdmins { get; set; }
         /// <summary>
@@ -75,9 +75,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="canManageAdminsMetadata", EmitDefaultValue=false)]
         public SettingsMetadata CanManageAdminsMetadata { get; set; }
         /// <summary>
-        /// 
+        /// **True** if the user can manage groups.
         /// </summary>
-        /// <value></value>
+        /// <value>**True** if the user can manage groups.</value>
         [DataMember(Name="canManageGroups", EmitDefaultValue=false)]
         public string CanManageGroups { get; set; }
         /// <summary>
@@ -99,9 +99,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="canManageSharingMetadata", EmitDefaultValue=false)]
         public SettingsMetadata CanManageSharingMetadata { get; set; }
         /// <summary>
-        /// 
+        /// **True** if the user can manage users.
         /// </summary>
-        /// <value></value>
+        /// <value>**True** if the user can manage users.</value>
         [DataMember(Name="canManageUsers", EmitDefaultValue=false)]
         public string CanManageUsers { get; set; }
         /// <summary>

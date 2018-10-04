@@ -91,9 +91,8 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="contactId">The unique identifier of a person in the contacts address book.</param>
-        /// <param name="cloudProvider"> (optional)</param>
         /// <returns>ContactGetResponse</returns>
-        ContactGetResponse ContactsGetContactById (string accountId, string contactId, string cloudProvider = null);
+        ContactGetResponse ContactsGetContactById (string accountId, string contactId);
 
         /// <summary>
         /// Gets a particular contact associated with the user&#39;s account.
@@ -104,9 +103,8 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="contactId">The unique identifier of a person in the contacts address book.</param>
-        /// <param name="cloudProvider"> (optional)</param>
         /// <returns>ApiResponse of ContactGetResponse</returns>
-        ApiResponse<ContactGetResponse> ContactsGetContactByIdWithHttpInfo (string accountId, string contactId, string cloudProvider = null);
+        ApiResponse<ContactGetResponse> ContactsGetContactByIdWithHttpInfo (string accountId, string contactId);
         /// <summary>
         /// Imports multiple new contacts into the contacts collection from CSV, JSON, or XML (based on content type).
         /// </summary>
@@ -210,9 +208,8 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="contactId">The unique identifier of a person in the contacts address book.</param>
-        /// <param name="cloudProvider"> (optional)</param>
         /// <returns>Task of ContactGetResponse</returns>
-        System.Threading.Tasks.Task<ContactGetResponse> ContactsGetContactByIdAsync (string accountId, string contactId, string cloudProvider = null);
+        System.Threading.Tasks.Task<ContactGetResponse> ContactsGetContactByIdAsync (string accountId, string contactId);
 
         /// <summary>
         /// Gets a particular contact associated with the user&#39;s account.
@@ -223,9 +220,8 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="contactId">The unique identifier of a person in the contacts address book.</param>
-        /// <param name="cloudProvider"> (optional)</param>
         /// <returns>Task of ApiResponse (ContactGetResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ContactGetResponse>> ContactsGetContactByIdAsyncWithHttpInfo (string accountId, string contactId, string cloudProvider = null);
+        System.Threading.Tasks.Task<ApiResponse<ContactGetResponse>> ContactsGetContactByIdAsyncWithHttpInfo (string accountId, string contactId);
         /// <summary>
         /// Imports multiple new contacts into the contacts collection from CSV, JSON, or XML (based on content type).
         /// </summary>
@@ -704,11 +700,10 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="contactId">The unique identifier of a person in the contacts address book.</param>
-        /// <param name="cloudProvider"> (optional)</param>
         /// <returns>ContactGetResponse</returns>
-        public ContactGetResponse ContactsGetContactById (string accountId, string contactId, string cloudProvider = null)
+        public ContactGetResponse ContactsGetContactById (string accountId, string contactId)
         {
-             ApiResponse<ContactGetResponse> localVarResponse = ContactsGetContactByIdWithHttpInfo(accountId, contactId, cloudProvider);
+             ApiResponse<ContactGetResponse> localVarResponse = ContactsGetContactByIdWithHttpInfo(accountId, contactId);
              return localVarResponse.Data;
         }
 
@@ -718,9 +713,8 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="contactId">The unique identifier of a person in the contacts address book.</param>
-        /// <param name="cloudProvider"> (optional)</param>
         /// <returns>ApiResponse of ContactGetResponse</returns>
-        public ApiResponse< ContactGetResponse > ContactsGetContactByIdWithHttpInfo (string accountId, string contactId, string cloudProvider = null)
+        public ApiResponse< ContactGetResponse > ContactsGetContactByIdWithHttpInfo (string accountId, string contactId)
         {
             // verify the required parameter 'accountId' is set
             if (accountId == null)
@@ -755,7 +749,6 @@ namespace DocuSign.Core.Api
             localVarPathParams.Add("format", "json");
             if (accountId != null) localVarPathParams.Add("accountId", Configuration.ApiClient.ParameterToString(accountId)); // path parameter
             if (contactId != null) localVarPathParams.Add("contactId", Configuration.ApiClient.ParameterToString(contactId)); // path parameter
-            if (cloudProvider != null) localVarQueryParams.Add("cloud_provider", Configuration.ApiClient.ParameterToString(cloudProvider)); // query parameter
 
 
             // make the HTTP request
@@ -783,11 +776,10 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="contactId">The unique identifier of a person in the contacts address book.</param>
-        /// <param name="cloudProvider"> (optional)</param>
         /// <returns>Task of ContactGetResponse</returns>
-        public async System.Threading.Tasks.Task<ContactGetResponse> ContactsGetContactByIdAsync (string accountId, string contactId, string cloudProvider = null)
+        public async System.Threading.Tasks.Task<ContactGetResponse> ContactsGetContactByIdAsync (string accountId, string contactId)
         {
-             ApiResponse<ContactGetResponse> localVarResponse = await ContactsGetContactByIdAsyncWithHttpInfo(accountId, contactId, cloudProvider);
+             ApiResponse<ContactGetResponse> localVarResponse = await ContactsGetContactByIdAsyncWithHttpInfo(accountId, contactId);
              return localVarResponse.Data;
 
         }
@@ -798,9 +790,8 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="contactId">The unique identifier of a person in the contacts address book.</param>
-        /// <param name="cloudProvider"> (optional)</param>
         /// <returns>Task of ApiResponse (ContactGetResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ContactGetResponse>> ContactsGetContactByIdAsyncWithHttpInfo (string accountId, string contactId, string cloudProvider = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ContactGetResponse>> ContactsGetContactByIdAsyncWithHttpInfo (string accountId, string contactId)
         {
             // verify the required parameter 'accountId' is set
             if (accountId == null)
@@ -835,7 +826,6 @@ namespace DocuSign.Core.Api
             localVarPathParams.Add("format", "json");
             if (accountId != null) localVarPathParams.Add("accountId", Configuration.ApiClient.ParameterToString(accountId)); // path parameter
             if (contactId != null) localVarPathParams.Add("contactId", Configuration.ApiClient.ParameterToString(contactId)); // path parameter
-            if (cloudProvider != null) localVarQueryParams.Add("cloud_provider", Configuration.ApiClient.ParameterToString(cloudProvider)); // query parameter
 
 
             // make the HTTP request

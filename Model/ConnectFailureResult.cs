@@ -42,11 +42,11 @@ namespace DocuSign.Core.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConnectFailureResult" /> class.
         /// </summary>
-        /// <param name="ConfigId">Reserved: TBD.</param>
-        /// <param name="ConfigUrl">Reserved: TBD.</param>
+        /// <param name="ConfigId">Reserved for DocuSign..</param>
+        /// <param name="ConfigUrl">Reserved for DocuSign. .</param>
         /// <param name="EnvelopeId">The envelope ID of the envelope status that failed to post..</param>
-        /// <param name="Status">Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later..</param>
-        /// <param name="StatusMessage">.</param>
+        /// <param name="Status">Connection status..</param>
+        /// <param name="StatusMessage">Connection status message..</param>
         public ConnectFailureResult(string ConfigId = null, string ConfigUrl = null, string EnvelopeId = null, string Status = null, string StatusMessage = null)
         {
             this.ConfigId = ConfigId;
@@ -57,15 +57,15 @@ namespace DocuSign.Core.Model
         }
         
         /// <summary>
-        /// Reserved: TBD
+        /// Reserved for DocuSign.
         /// </summary>
-        /// <value>Reserved: TBD</value>
+        /// <value>Reserved for DocuSign.</value>
         [DataMember(Name="configId", EmitDefaultValue=false)]
         public string ConfigId { get; set; }
         /// <summary>
-        /// Reserved: TBD
+        /// Reserved for DocuSign. 
         /// </summary>
-        /// <value>Reserved: TBD</value>
+        /// <value>Reserved for DocuSign. </value>
         [DataMember(Name="configUrl", EmitDefaultValue=false)]
         public string ConfigUrl { get; set; }
         /// <summary>
@@ -75,15 +75,15 @@ namespace DocuSign.Core.Model
         [DataMember(Name="envelopeId", EmitDefaultValue=false)]
         public string EnvelopeId { get; set; }
         /// <summary>
-        /// Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later.
+        /// Connection status.
         /// </summary>
-        /// <value>Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later.</value>
+        /// <value>Connection status.</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
         /// <summary>
-        /// 
+        /// Connection status message.
         /// </summary>
-        /// <value></value>
+        /// <value>Connection status message.</value>
         [DataMember(Name="statusMessage", EmitDefaultValue=false)]
         public string StatusMessage { get; set; }
         /// <summary>

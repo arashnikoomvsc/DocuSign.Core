@@ -67,7 +67,7 @@ namespace DocuSign.Core.Api
         /// Gets the tabs information for a signer or sign-in-person recipient in an envelope.
         /// </summary>
         /// <remarks>
-        /// Retrieves information about the tabs associated with a recipient in a draft envelope.
+        /// Retrieves information about the tabs associated with a recipient. You can make a single API call to get all the tab values and information from a given, completed envelope in addition to draft ones.  Tab values can be retrieved by using the [EnvelopeRecipients:list method](https://docs.docusign.com/esign/restapi/Envelopes/EnvelopeRecipients/list/) with query parameter include_tabs set to \&quot;true\&quot;.
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -82,7 +82,7 @@ namespace DocuSign.Core.Api
         /// Gets the tabs information for a signer or sign-in-person recipient in an envelope.
         /// </summary>
         /// <remarks>
-        /// Retrieves information about the tabs associated with a recipient in a draft envelope.
+        /// Retrieves information about the tabs associated with a recipient. You can make a single API call to get all the tab values and information from a given, completed envelope in addition to draft ones.  Tab values can be retrieved by using the [EnvelopeRecipients:list method](https://docs.docusign.com/esign/restapi/Envelopes/EnvelopeRecipients/list/) with query parameter include_tabs set to \&quot;true\&quot;.
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -123,7 +123,7 @@ namespace DocuSign.Core.Api
         /// Updates the tabs for a recipient.  
         /// </summary>
         /// <remarks>
-        /// Updates one or more tabs for a recipient in a draft envelope.
+        /// Updates one or more tabs for a recipient in a draft envelope.  **Note**: The Update method can be used if the envelope is not yet complete. To update an existing tab, the request body must include the &#x60;tabId&#x60;.
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -137,7 +137,7 @@ namespace DocuSign.Core.Api
         /// Updates the tabs for a recipient.  
         /// </summary>
         /// <remarks>
-        /// Updates one or more tabs for a recipient in a draft envelope.
+        /// Updates one or more tabs for a recipient in a draft envelope.  **Note**: The Update method can be used if the envelope is not yet complete. To update an existing tab, the request body must include the &#x60;tabId&#x60;.
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -179,7 +179,7 @@ namespace DocuSign.Core.Api
         /// Gets the tabs information for a signer or sign-in-person recipient in an envelope.
         /// </summary>
         /// <remarks>
-        /// Retrieves information about the tabs associated with a recipient in a draft envelope.
+        /// Retrieves information about the tabs associated with a recipient. You can make a single API call to get all the tab values and information from a given, completed envelope in addition to draft ones.  Tab values can be retrieved by using the [EnvelopeRecipients:list method](https://docs.docusign.com/esign/restapi/Envelopes/EnvelopeRecipients/list/) with query parameter include_tabs set to \&quot;true\&quot;.
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -194,7 +194,7 @@ namespace DocuSign.Core.Api
         /// Gets the tabs information for a signer or sign-in-person recipient in an envelope.
         /// </summary>
         /// <remarks>
-        /// Retrieves information about the tabs associated with a recipient in a draft envelope.
+        /// Retrieves information about the tabs associated with a recipient. You can make a single API call to get all the tab values and information from a given, completed envelope in addition to draft ones.  Tab values can be retrieved by using the [EnvelopeRecipients:list method](https://docs.docusign.com/esign/restapi/Envelopes/EnvelopeRecipients/list/) with query parameter include_tabs set to \&quot;true\&quot;.
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -235,7 +235,7 @@ namespace DocuSign.Core.Api
         /// Updates the tabs for a recipient.  
         /// </summary>
         /// <remarks>
-        /// Updates one or more tabs for a recipient in a draft envelope.
+        /// Updates one or more tabs for a recipient in a draft envelope.  **Note**: The Update method can be used if the envelope is not yet complete. To update an existing tab, the request body must include the &#x60;tabId&#x60;.
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -249,7 +249,7 @@ namespace DocuSign.Core.Api
         /// Updates the tabs for a recipient.  
         /// </summary>
         /// <remarks>
-        /// Updates one or more tabs for a recipient in a draft envelope.
+        /// Updates one or more tabs for a recipient in a draft envelope.  **Note**: The Update method can be used if the envelope is not yet complete. To update an existing tab, the request body must include the &#x60;tabId&#x60;.
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -556,7 +556,7 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Gets the tabs information for a signer or sign-in-person recipient in an envelope. Retrieves information about the tabs associated with a recipient in a draft envelope.
+        /// Gets the tabs information for a signer or sign-in-person recipient in an envelope. Retrieves information about the tabs associated with a recipient. You can make a single API call to get all the tab values and information from a given, completed envelope in addition to draft ones.  Tab values can be retrieved by using the [EnvelopeRecipients:list method](https://docs.docusign.com/esign/restapi/Envelopes/EnvelopeRecipients/list/) with query parameter include_tabs set to \&quot;true\&quot;.
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -572,7 +572,7 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Gets the tabs information for a signer or sign-in-person recipient in an envelope. Retrieves information about the tabs associated with a recipient in a draft envelope.
+        /// Gets the tabs information for a signer or sign-in-person recipient in an envelope. Retrieves information about the tabs associated with a recipient. You can make a single API call to get all the tab values and information from a given, completed envelope in addition to draft ones.  Tab values can be retrieved by using the [EnvelopeRecipients:list method](https://docs.docusign.com/esign/restapi/Envelopes/EnvelopeRecipients/list/) with query parameter include_tabs set to \&quot;true\&quot;.
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -644,7 +644,7 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Gets the tabs information for a signer or sign-in-person recipient in an envelope. Retrieves information about the tabs associated with a recipient in a draft envelope.
+        /// Gets the tabs information for a signer or sign-in-person recipient in an envelope. Retrieves information about the tabs associated with a recipient. You can make a single API call to get all the tab values and information from a given, completed envelope in addition to draft ones.  Tab values can be retrieved by using the [EnvelopeRecipients:list method](https://docs.docusign.com/esign/restapi/Envelopes/EnvelopeRecipients/list/) with query parameter include_tabs set to \&quot;true\&quot;.
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -661,7 +661,7 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Gets the tabs information for a signer or sign-in-person recipient in an envelope. Retrieves information about the tabs associated with a recipient in a draft envelope.
+        /// Gets the tabs information for a signer or sign-in-person recipient in an envelope. Retrieves information about the tabs associated with a recipient. You can make a single API call to get all the tab values and information from a given, completed envelope in addition to draft ones.  Tab values can be retrieved by using the [EnvelopeRecipients:list method](https://docs.docusign.com/esign/restapi/Envelopes/EnvelopeRecipients/list/) with query parameter include_tabs set to \&quot;true\&quot;.
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -918,7 +918,7 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Updates the tabs for a recipient.   Updates one or more tabs for a recipient in a draft envelope.
+        /// Updates the tabs for a recipient.   Updates one or more tabs for a recipient in a draft envelope.  **Note**: The Update method can be used if the envelope is not yet complete. To update an existing tab, the request body must include the &#x60;tabId&#x60;.
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -933,7 +933,7 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Updates the tabs for a recipient.   Updates one or more tabs for a recipient in a draft envelope.
+        /// Updates the tabs for a recipient.   Updates one or more tabs for a recipient in a draft envelope.  **Note**: The Update method can be used if the envelope is not yet complete. To update an existing tab, the request body must include the &#x60;tabId&#x60;.
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -1010,7 +1010,7 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Updates the tabs for a recipient.   Updates one or more tabs for a recipient in a draft envelope.
+        /// Updates the tabs for a recipient.   Updates one or more tabs for a recipient in a draft envelope.  **Note**: The Update method can be used if the envelope is not yet complete. To update an existing tab, the request body must include the &#x60;tabId&#x60;.
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -1026,7 +1026,7 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Updates the tabs for a recipient.   Updates one or more tabs for a recipient in a draft envelope.
+        /// Updates the tabs for a recipient.   Updates one or more tabs for a recipient in a draft envelope.  **Note**: The Update method can be used if the envelope is not yet complete. To update an existing tab, the request body must include the &#x60;tabId&#x60;.
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>

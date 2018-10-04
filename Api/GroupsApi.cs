@@ -68,12 +68,11 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="count">Number of records to return. The number must be greater than 1 and less than or equal to 100. (optional)</param>
-        /// <param name="groupName">Filters the groups returned by the group name or a sub-string of group name. (optional)</param>
         /// <param name="groupType"> (optional)</param>
         /// <param name="searchText"> (optional)</param>
         /// <param name="startPosition">Starting value for the list. (optional)</param>
         /// <returns>Groups</returns>
-        Groups GroupsGetGroups (string accountId, string count = null, string groupName = null, string groupType = null, string searchText = null, string startPosition = null);
+        Groups GroupsGetGroups (string accountId, string count = null, string groupType = null, string searchText = null, string startPosition = null);
 
         /// <summary>
         /// Gets information about groups associated with the account.
@@ -84,12 +83,11 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="count">Number of records to return. The number must be greater than 1 and less than or equal to 100. (optional)</param>
-        /// <param name="groupName">Filters the groups returned by the group name or a sub-string of group name. (optional)</param>
         /// <param name="groupType"> (optional)</param>
         /// <param name="searchText"> (optional)</param>
         /// <param name="startPosition">Starting value for the list. (optional)</param>
         /// <returns>ApiResponse of Groups</returns>
-        ApiResponse<Groups> GroupsGetGroupsWithHttpInfo (string accountId, string count = null, string groupName = null, string groupType = null, string searchText = null, string startPosition = null);
+        ApiResponse<Groups> GroupsGetGroupsWithHttpInfo (string accountId, string count = null, string groupType = null, string searchText = null, string startPosition = null);
         /// <summary>
         /// Creates one or more groups for the account.
         /// </summary>
@@ -170,12 +168,11 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="count">Number of records to return. The number must be greater than 1 and less than or equal to 100. (optional)</param>
-        /// <param name="groupName">Filters the groups returned by the group name or a sub-string of group name. (optional)</param>
         /// <param name="groupType"> (optional)</param>
         /// <param name="searchText"> (optional)</param>
         /// <param name="startPosition">Starting value for the list. (optional)</param>
         /// <returns>Task of Groups</returns>
-        System.Threading.Tasks.Task<Groups> GroupsGetGroupsAsync (string accountId, string count = null, string groupName = null, string groupType = null, string searchText = null, string startPosition = null);
+        System.Threading.Tasks.Task<Groups> GroupsGetGroupsAsync (string accountId, string count = null, string groupType = null, string searchText = null, string startPosition = null);
 
         /// <summary>
         /// Gets information about groups associated with the account.
@@ -186,12 +183,11 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="count">Number of records to return. The number must be greater than 1 and less than or equal to 100. (optional)</param>
-        /// <param name="groupName">Filters the groups returned by the group name or a sub-string of group name. (optional)</param>
         /// <param name="groupType"> (optional)</param>
         /// <param name="searchText"> (optional)</param>
         /// <param name="startPosition">Starting value for the list. (optional)</param>
         /// <returns>Task of ApiResponse (Groups)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Groups>> GroupsGetGroupsAsyncWithHttpInfo (string accountId, string count = null, string groupName = null, string groupType = null, string searchText = null, string startPosition = null);
+        System.Threading.Tasks.Task<ApiResponse<Groups>> GroupsGetGroupsAsyncWithHttpInfo (string accountId, string count = null, string groupType = null, string searchText = null, string startPosition = null);
         /// <summary>
         /// Creates one or more groups for the account.
         /// </summary>
@@ -517,14 +513,13 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="count">Number of records to return. The number must be greater than 1 and less than or equal to 100. (optional)</param>
-        /// <param name="groupName">Filters the groups returned by the group name or a sub-string of group name. (optional)</param>
         /// <param name="groupType"> (optional)</param>
         /// <param name="searchText"> (optional)</param>
         /// <param name="startPosition">Starting value for the list. (optional)</param>
         /// <returns>Groups</returns>
-        public Groups GroupsGetGroups (string accountId, string count = null, string groupName = null, string groupType = null, string searchText = null, string startPosition = null)
+        public Groups GroupsGetGroups (string accountId, string count = null, string groupType = null, string searchText = null, string startPosition = null)
         {
-             ApiResponse<Groups> localVarResponse = GroupsGetGroupsWithHttpInfo(accountId, count, groupName, groupType, searchText, startPosition);
+             ApiResponse<Groups> localVarResponse = GroupsGetGroupsWithHttpInfo(accountId, count, groupType, searchText, startPosition);
              return localVarResponse.Data;
         }
 
@@ -534,12 +529,11 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="count">Number of records to return. The number must be greater than 1 and less than or equal to 100. (optional)</param>
-        /// <param name="groupName">Filters the groups returned by the group name or a sub-string of group name. (optional)</param>
         /// <param name="groupType"> (optional)</param>
         /// <param name="searchText"> (optional)</param>
         /// <param name="startPosition">Starting value for the list. (optional)</param>
         /// <returns>ApiResponse of Groups</returns>
-        public ApiResponse< Groups > GroupsGetGroupsWithHttpInfo (string accountId, string count = null, string groupName = null, string groupType = null, string searchText = null, string startPosition = null)
+        public ApiResponse< Groups > GroupsGetGroupsWithHttpInfo (string accountId, string count = null, string groupType = null, string searchText = null, string startPosition = null)
         {
             // verify the required parameter 'accountId' is set
             if (accountId == null)
@@ -571,7 +565,6 @@ namespace DocuSign.Core.Api
             localVarPathParams.Add("format", "json");
             if (accountId != null) localVarPathParams.Add("accountId", Configuration.ApiClient.ParameterToString(accountId)); // path parameter
             if (count != null) localVarQueryParams.Add("count", Configuration.ApiClient.ParameterToString(count)); // query parameter
-            if (groupName != null) localVarQueryParams.Add("group_name", Configuration.ApiClient.ParameterToString(groupName)); // query parameter
             if (groupType != null) localVarQueryParams.Add("group_type", Configuration.ApiClient.ParameterToString(groupType)); // query parameter
             if (searchText != null) localVarQueryParams.Add("search_text", Configuration.ApiClient.ParameterToString(searchText)); // query parameter
             if (startPosition != null) localVarQueryParams.Add("start_position", Configuration.ApiClient.ParameterToString(startPosition)); // query parameter
@@ -602,14 +595,13 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="count">Number of records to return. The number must be greater than 1 and less than or equal to 100. (optional)</param>
-        /// <param name="groupName">Filters the groups returned by the group name or a sub-string of group name. (optional)</param>
         /// <param name="groupType"> (optional)</param>
         /// <param name="searchText"> (optional)</param>
         /// <param name="startPosition">Starting value for the list. (optional)</param>
         /// <returns>Task of Groups</returns>
-        public async System.Threading.Tasks.Task<Groups> GroupsGetGroupsAsync (string accountId, string count = null, string groupName = null, string groupType = null, string searchText = null, string startPosition = null)
+        public async System.Threading.Tasks.Task<Groups> GroupsGetGroupsAsync (string accountId, string count = null, string groupType = null, string searchText = null, string startPosition = null)
         {
-             ApiResponse<Groups> localVarResponse = await GroupsGetGroupsAsyncWithHttpInfo(accountId, count, groupName, groupType, searchText, startPosition);
+             ApiResponse<Groups> localVarResponse = await GroupsGetGroupsAsyncWithHttpInfo(accountId, count, groupType, searchText, startPosition);
              return localVarResponse.Data;
 
         }
@@ -620,12 +612,11 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="count">Number of records to return. The number must be greater than 1 and less than or equal to 100. (optional)</param>
-        /// <param name="groupName">Filters the groups returned by the group name or a sub-string of group name. (optional)</param>
         /// <param name="groupType"> (optional)</param>
         /// <param name="searchText"> (optional)</param>
         /// <param name="startPosition">Starting value for the list. (optional)</param>
         /// <returns>Task of ApiResponse (Groups)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Groups>> GroupsGetGroupsAsyncWithHttpInfo (string accountId, string count = null, string groupName = null, string groupType = null, string searchText = null, string startPosition = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Groups>> GroupsGetGroupsAsyncWithHttpInfo (string accountId, string count = null, string groupType = null, string searchText = null, string startPosition = null)
         {
             // verify the required parameter 'accountId' is set
             if (accountId == null)
@@ -657,7 +648,6 @@ namespace DocuSign.Core.Api
             localVarPathParams.Add("format", "json");
             if (accountId != null) localVarPathParams.Add("accountId", Configuration.ApiClient.ParameterToString(accountId)); // path parameter
             if (count != null) localVarQueryParams.Add("count", Configuration.ApiClient.ParameterToString(count)); // query parameter
-            if (groupName != null) localVarQueryParams.Add("group_name", Configuration.ApiClient.ParameterToString(groupName)); // query parameter
             if (groupType != null) localVarQueryParams.Add("group_type", Configuration.ApiClient.ParameterToString(groupType)); // query parameter
             if (searchText != null) localVarQueryParams.Add("search_text", Configuration.ApiClient.ParameterToString(searchText)); // query parameter
             if (startPosition != null) localVarQueryParams.Add("start_position", Configuration.ApiClient.ParameterToString(startPosition)); // query parameter

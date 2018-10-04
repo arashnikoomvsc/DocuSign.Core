@@ -34,7 +34,7 @@ using Newtonsoft.Json.Converters;
 namespace DocuSign.Core.Model
 {
     /// <summary>
-    /// 
+    /// Information about a connected payment gateway account.
     /// </summary>
     [DataContract]
     public partial class PaymentGatewayAccounts :  IEquatable<PaymentGatewayAccounts>
@@ -42,34 +42,42 @@ namespace DocuSign.Core.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentGatewayAccounts" /> class.
         /// </summary>
-        /// <param name="DisplayName">.</param>
-        /// <param name="PaymentGateway">.</param>
-        /// <param name="PaymentGatewayAccountId">.</param>
-        public PaymentGatewayAccounts(string DisplayName = null, string PaymentGateway = null, string PaymentGatewayAccountId = null)
+        /// <param name="DisplayName">A user-defined name for a connected gateway account.  This name is used in the Admin panel in the list of connected accounts and in Tagger in the payment gateway selector.  The human-readable version of &#x60;paymentGatewayAccountId&#x60;..</param>
+        /// <param name="PaymentGateway">Payment gateway used by the connected gateway account. This is the name used by the API. For a human-readable version use &#x60;paymentGatewayDisplayName&#x60;.  Possible values are:  * &#x60;Stripe&#x60; * &#x60;Braintree&#x60; * &#x60;AuthorizeDotNet&#x60;.</param>
+        /// <param name="PaymentGatewayAccountId">A GUID that identifies the payment gateway account. For a human-readable version use &#x60;displayName&#x60;..</param>
+        /// <param name="PaymentGatewayDisplayName">Display name of the payment gateway used by the connected gateway account. This is the human-readable version of &#x60;paymentGateway&#x60;.  Possible values are:  * Stripe * Braintree * Authorize.Net.</param>
+        public PaymentGatewayAccounts(string DisplayName = null, string PaymentGateway = null, string PaymentGatewayAccountId = null, string PaymentGatewayDisplayName = null)
         {
             this.DisplayName = DisplayName;
             this.PaymentGateway = PaymentGateway;
             this.PaymentGatewayAccountId = PaymentGatewayAccountId;
+            this.PaymentGatewayDisplayName = PaymentGatewayDisplayName;
         }
         
         /// <summary>
-        /// 
+        /// A user-defined name for a connected gateway account.  This name is used in the Admin panel in the list of connected accounts and in Tagger in the payment gateway selector.  The human-readable version of &#x60;paymentGatewayAccountId&#x60;.
         /// </summary>
-        /// <value></value>
+        /// <value>A user-defined name for a connected gateway account.  This name is used in the Admin panel in the list of connected accounts and in Tagger in the payment gateway selector.  The human-readable version of &#x60;paymentGatewayAccountId&#x60;.</value>
         [DataMember(Name="displayName", EmitDefaultValue=false)]
         public string DisplayName { get; set; }
         /// <summary>
-        /// 
+        /// Payment gateway used by the connected gateway account. This is the name used by the API. For a human-readable version use &#x60;paymentGatewayDisplayName&#x60;.  Possible values are:  * &#x60;Stripe&#x60; * &#x60;Braintree&#x60; * &#x60;AuthorizeDotNet&#x60;
         /// </summary>
-        /// <value></value>
+        /// <value>Payment gateway used by the connected gateway account. This is the name used by the API. For a human-readable version use &#x60;paymentGatewayDisplayName&#x60;.  Possible values are:  * &#x60;Stripe&#x60; * &#x60;Braintree&#x60; * &#x60;AuthorizeDotNet&#x60;</value>
         [DataMember(Name="paymentGateway", EmitDefaultValue=false)]
         public string PaymentGateway { get; set; }
         /// <summary>
-        /// 
+        /// A GUID that identifies the payment gateway account. For a human-readable version use &#x60;displayName&#x60;.
         /// </summary>
-        /// <value></value>
+        /// <value>A GUID that identifies the payment gateway account. For a human-readable version use &#x60;displayName&#x60;.</value>
         [DataMember(Name="paymentGatewayAccountId", EmitDefaultValue=false)]
         public string PaymentGatewayAccountId { get; set; }
+        /// <summary>
+        /// Display name of the payment gateway used by the connected gateway account. This is the human-readable version of &#x60;paymentGateway&#x60;.  Possible values are:  * Stripe * Braintree * Authorize.Net
+        /// </summary>
+        /// <value>Display name of the payment gateway used by the connected gateway account. This is the human-readable version of &#x60;paymentGateway&#x60;.  Possible values are:  * Stripe * Braintree * Authorize.Net</value>
+        [DataMember(Name="paymentGatewayDisplayName", EmitDefaultValue=false)]
+        public string PaymentGatewayDisplayName { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -81,6 +89,7 @@ namespace DocuSign.Core.Model
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  PaymentGateway: ").Append(PaymentGateway).Append("\n");
             sb.Append("  PaymentGatewayAccountId: ").Append(PaymentGatewayAccountId).Append("\n");
+            sb.Append("  PaymentGatewayDisplayName: ").Append(PaymentGatewayDisplayName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -131,6 +140,11 @@ namespace DocuSign.Core.Model
                     this.PaymentGatewayAccountId == other.PaymentGatewayAccountId ||
                     this.PaymentGatewayAccountId != null &&
                     this.PaymentGatewayAccountId.Equals(other.PaymentGatewayAccountId)
+                ) && 
+                (
+                    this.PaymentGatewayDisplayName == other.PaymentGatewayDisplayName ||
+                    this.PaymentGatewayDisplayName != null &&
+                    this.PaymentGatewayDisplayName.Equals(other.PaymentGatewayDisplayName)
                 );
         }
 
@@ -151,6 +165,8 @@ namespace DocuSign.Core.Model
                     hash = hash * 59 + this.PaymentGateway.GetHashCode();
                 if (this.PaymentGatewayAccountId != null)
                     hash = hash * 59 + this.PaymentGatewayAccountId.GetHashCode();
+                if (this.PaymentGatewayDisplayName != null)
+                    hash = hash * 59 + this.PaymentGatewayDisplayName.GetHashCode();
                 return hash;
             }
         }

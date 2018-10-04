@@ -44,7 +44,7 @@ namespace DocuSign.Core.Api
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
-        /// <param name="includeCreditCardInformation">When set to **true**, excludes credit card information from the response. (optional)</param>
+        /// <param name="includeCreditCardInformation">When set to **true**, payment information including credit card information will show in the return. (optional)</param>
         /// <param name="includeMetadata">When set to **true**, the &#x60;canUpgrade&#x60; and &#x60;renewalStatus&#x60; properities are included the response and an array of &#x60;supportedCountries&#x60; property is added to the &#x60;billingAddress&#x60; information.  (optional)</param>
         /// <param name="includeSuccessorPlans">When set to **true**, excludes successor information from the response. (optional)</param>
         /// <returns>BillingPlans</returns>
@@ -58,7 +58,7 @@ namespace DocuSign.Core.Api
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
-        /// <param name="includeCreditCardInformation">When set to **true**, excludes credit card information from the response. (optional)</param>
+        /// <param name="includeCreditCardInformation">When set to **true**, payment information including credit card information will show in the return. (optional)</param>
         /// <param name="includeMetadata">When set to **true**, the &#x60;canUpgrade&#x60; and &#x60;renewalStatus&#x60; properities are included the response and an array of &#x60;supportedCountries&#x60; property is added to the &#x60;billingAddress&#x60; information.  (optional)</param>
         /// <param name="includeSuccessorPlans">When set to **true**, excludes successor information from the response. (optional)</param>
         /// <returns>ApiResponse of BillingPlans</returns>
@@ -182,7 +182,7 @@ namespace DocuSign.Core.Api
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
-        /// <param name="includeCreditCardInformation">When set to **true**, excludes credit card information from the response. (optional)</param>
+        /// <param name="includeCreditCardInformation">When set to **true**, payment information including credit card information will show in the return. (optional)</param>
         /// <param name="includeMetadata">When set to **true**, the &#x60;canUpgrade&#x60; and &#x60;renewalStatus&#x60; properities are included the response and an array of &#x60;supportedCountries&#x60; property is added to the &#x60;billingAddress&#x60; information.  (optional)</param>
         /// <param name="includeSuccessorPlans">When set to **true**, excludes successor information from the response. (optional)</param>
         /// <returns>Task of BillingPlans</returns>
@@ -196,7 +196,7 @@ namespace DocuSign.Core.Api
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
-        /// <param name="includeCreditCardInformation">When set to **true**, excludes credit card information from the response. (optional)</param>
+        /// <param name="includeCreditCardInformation">When set to **true**, payment information including credit card information will show in the return. (optional)</param>
         /// <param name="includeMetadata">When set to **true**, the &#x60;canUpgrade&#x60; and &#x60;renewalStatus&#x60; properities are included the response and an array of &#x60;supportedCountries&#x60; property is added to the &#x60;billingAddress&#x60; information.  (optional)</param>
         /// <param name="includeSuccessorPlans">When set to **true**, excludes successor information from the response. (optional)</param>
         /// <returns>Task of ApiResponse (BillingPlans)</returns>
@@ -427,7 +427,7 @@ namespace DocuSign.Core.Api
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
-        /// <param name="includeCreditCardInformation">When set to **true**, excludes credit card information from the response. (optional)</param>
+        /// <param name="includeCreditCardInformation">When set to **true**, payment information including credit card information will show in the return. (optional)</param>
         /// <param name="includeMetadata">When set to **true**, the &#x60;canUpgrade&#x60; and &#x60;renewalStatus&#x60; properities are included the response and an array of &#x60;supportedCountries&#x60; property is added to the &#x60;billingAddress&#x60; information.  (optional)</param>
         /// <param name="includeSuccessorPlans">When set to **true**, excludes successor information from the response. (optional)</param>
         /// <returns>BillingPlans</returns>
@@ -442,7 +442,7 @@ namespace DocuSign.Core.Api
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
-        /// <param name="includeCreditCardInformation">When set to **true**, excludes credit card information from the response. (optional)</param>
+        /// <param name="includeCreditCardInformation">When set to **true**, payment information including credit card information will show in the return. (optional)</param>
         /// <param name="includeMetadata">When set to **true**, the &#x60;canUpgrade&#x60; and &#x60;renewalStatus&#x60; properities are included the response and an array of &#x60;supportedCountries&#x60; property is added to the &#x60;billingAddress&#x60; information.  (optional)</param>
         /// <param name="includeSuccessorPlans">When set to **true**, excludes successor information from the response. (optional)</param>
         /// <returns>ApiResponse of BillingPlans</returns>
@@ -506,7 +506,7 @@ namespace DocuSign.Core.Api
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
-        /// <param name="includeCreditCardInformation">When set to **true**, excludes credit card information from the response. (optional)</param>
+        /// <param name="includeCreditCardInformation">When set to **true**, payment information including credit card information will show in the return. (optional)</param>
         /// <param name="includeMetadata">When set to **true**, the &#x60;canUpgrade&#x60; and &#x60;renewalStatus&#x60; properities are included the response and an array of &#x60;supportedCountries&#x60; property is added to the &#x60;billingAddress&#x60; information.  (optional)</param>
         /// <param name="includeSuccessorPlans">When set to **true**, excludes successor information from the response. (optional)</param>
         /// <returns>Task of BillingPlans</returns>
@@ -522,7 +522,7 @@ namespace DocuSign.Core.Api
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
-        /// <param name="includeCreditCardInformation">When set to **true**, excludes credit card information from the response. (optional)</param>
+        /// <param name="includeCreditCardInformation">When set to **true**, payment information including credit card information will show in the return. (optional)</param>
         /// <param name="includeMetadata">When set to **true**, the &#x60;canUpgrade&#x60; and &#x60;renewalStatus&#x60; properities are included the response and an array of &#x60;supportedCountries&#x60; property is added to the &#x60;billingAddress&#x60; information.  (optional)</param>
         /// <param name="includeSuccessorPlans">When set to **true**, excludes successor information from the response. (optional)</param>
         /// <returns>Task of ApiResponse (BillingPlans)</returns>

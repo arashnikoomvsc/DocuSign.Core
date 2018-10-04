@@ -34,7 +34,7 @@ using Newtonsoft.Json.Converters;
 namespace DocuSign.Core.Model
 {
     /// <summary>
-    /// 
+    /// Chunked Uploads resource 
     /// </summary>
     [DataContract]
     public partial class ChunkedUploads :  IEquatable<ChunkedUploads>

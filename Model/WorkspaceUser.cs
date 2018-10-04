@@ -51,7 +51,7 @@ namespace DocuSign.Core.Model
         /// <param name="ErrorDetails">.</param>
         /// <param name="LastModified">Utc date and time the comment was last updated (can only be done by creator.).</param>
         /// <param name="LastModifiedById">.</param>
-        /// <param name="Status">Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later..</param>
+        /// <param name="Status">Filters the results by user status. You can specify a comma-separated list of the following statuses:  * ActivationRequired  * ActivationSent  * Active * Closed  * Disabled.</param>
         /// <param name="Type">Type of the user. Valid values: type_owner, type_participant..</param>
         /// <param name="UserId">The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing..</param>
         /// <param name="UserName">.</param>
@@ -133,9 +133,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="lastModifiedById", EmitDefaultValue=false)]
         public string LastModifiedById { get; set; }
         /// <summary>
-        /// Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later.
+        /// Filters the results by user status. You can specify a comma-separated list of the following statuses:  * ActivationRequired  * ActivationSent  * Active * Closed  * Disabled
         /// </summary>
-        /// <value>Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later.</value>
+        /// <value>Filters the results by user status. You can specify a comma-separated list of the following statuses:  * ActivationRequired  * ActivationSent  * Active * Closed  * Disabled</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
         /// <summary>

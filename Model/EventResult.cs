@@ -44,7 +44,7 @@ namespace DocuSign.Core.Model
         /// </summary>
         /// <param name="EventTimestamp">.</param>
         /// <param name="FailureDescription">.</param>
-        /// <param name="Status">Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later..</param>
+        /// <param name="Status">Event status..</param>
         /// <param name="VendorFailureStatusCode">.</param>
         public EventResult(string EventTimestamp = null, string FailureDescription = null, string Status = null, string VendorFailureStatusCode = null)
         {
@@ -67,9 +67,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="failureDescription", EmitDefaultValue=false)]
         public string FailureDescription { get; set; }
         /// <summary>
-        /// Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later.
+        /// Event status.
         /// </summary>
-        /// <value>Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later.</value>
+        /// <value>Event status.</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
         /// <summary>
