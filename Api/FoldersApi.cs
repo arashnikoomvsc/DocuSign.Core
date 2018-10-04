@@ -46,15 +46,14 @@ namespace DocuSign.Core.Api
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="folderId">The ID of the folder being accessed.</param>
         /// <param name="fromDate"> Only return items on or after this date. If no value is provided, the default search is the previous 30 days.  (optional)</param>
-        /// <param name="includeItems"> (optional)</param>
         /// <param name="ownerEmail"> The email of the folder owner.  (optional)</param>
         /// <param name="ownerName"> The name of the folder owner.  (optional)</param>
         /// <param name="searchText"> The search text used to search the items of the envelope. The search looks at recipient names and emails, envelope custom fields, sender name, and subject.  (optional)</param>
         /// <param name="startPosition">The position of the folder items to return. This is used for repeated calls, when the number of envelopes returned is too much for one return (calls return 100 envelopes at a time). The default value is 0. (optional)</param>
-        /// <param name="status">The current status of the envelope. If no value is provided, the default search is all/any status. (optional)</param>
+        /// <param name="status">A comma-separated list of current envelope statuses to included in the response. Possible values are:  * completed * created * declined * deleted * delivered * processing * sent * signed * timedout * voided  The &#x60;any&#x60; value is equivalent to any status.   (optional)</param>
         /// <param name="toDate">Only return items up to this date. If no value is provided, the default search is to the current date. (optional)</param>
         /// <returns>FolderItemsResponse</returns>
-        FolderItemsResponse FoldersGetFolderItems (string accountId, string folderId, string fromDate = null, string includeItems = null, string ownerEmail = null, string ownerName = null, string searchText = null, string startPosition = null, string status = null, string toDate = null);
+        FolderItemsResponse FoldersGetFolderItems (string accountId, string folderId, string fromDate = null, string ownerEmail = null, string ownerName = null, string searchText = null, string startPosition = null, string status = null, string toDate = null);
 
         /// <summary>
         /// Gets a list of the envelopes in the specified folder.
@@ -66,15 +65,14 @@ namespace DocuSign.Core.Api
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="folderId">The ID of the folder being accessed.</param>
         /// <param name="fromDate"> Only return items on or after this date. If no value is provided, the default search is the previous 30 days.  (optional)</param>
-        /// <param name="includeItems"> (optional)</param>
         /// <param name="ownerEmail"> The email of the folder owner.  (optional)</param>
         /// <param name="ownerName"> The name of the folder owner.  (optional)</param>
         /// <param name="searchText"> The search text used to search the items of the envelope. The search looks at recipient names and emails, envelope custom fields, sender name, and subject.  (optional)</param>
         /// <param name="startPosition">The position of the folder items to return. This is used for repeated calls, when the number of envelopes returned is too much for one return (calls return 100 envelopes at a time). The default value is 0. (optional)</param>
-        /// <param name="status">The current status of the envelope. If no value is provided, the default search is all/any status. (optional)</param>
+        /// <param name="status">A comma-separated list of current envelope statuses to included in the response. Possible values are:  * completed * created * declined * deleted * delivered * processing * sent * signed * timedout * voided  The &#x60;any&#x60; value is equivalent to any status.   (optional)</param>
         /// <param name="toDate">Only return items up to this date. If no value is provided, the default search is to the current date. (optional)</param>
         /// <returns>ApiResponse of FolderItemsResponse</returns>
-        ApiResponse<FolderItemsResponse> FoldersGetFolderItemsWithHttpInfo (string accountId, string folderId, string fromDate = null, string includeItems = null, string ownerEmail = null, string ownerName = null, string searchText = null, string startPosition = null, string status = null, string toDate = null);
+        ApiResponse<FolderItemsResponse> FoldersGetFolderItemsWithHttpInfo (string accountId, string folderId, string fromDate = null, string ownerEmail = null, string ownerName = null, string searchText = null, string startPosition = null, string status = null, string toDate = null);
         /// <summary>
         /// Gets a list of the folders for the account.
         /// </summary>
@@ -84,12 +82,11 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="include">Reserved for DocuSign.  (optional)</param>
-        /// <param name="includeItems"> (optional)</param>
         /// <param name="startPosition">Reserved for DocuSign.  (optional)</param>
         /// <param name="template">Specifies the items that are returned. Valid values are:   * include - The folder list will return normal folders plus template folders.  * only - Only the list of template folders are returned. (optional)</param>
         /// <param name="userFilter">Reserved for DocuSign.  (optional)</param>
         /// <returns>Folders</returns>
-        Folders FoldersGetFolders (string accountId, string include = null, string includeItems = null, string startPosition = null, string template = null, string userFilter = null);
+        Folders FoldersGetFolders (string accountId, string include = null, string startPosition = null, string template = null, string userFilter = null);
 
         /// <summary>
         /// Gets a list of the folders for the account.
@@ -100,12 +97,11 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="include">Reserved for DocuSign.  (optional)</param>
-        /// <param name="includeItems"> (optional)</param>
         /// <param name="startPosition">Reserved for DocuSign.  (optional)</param>
         /// <param name="template">Specifies the items that are returned. Valid values are:   * include - The folder list will return normal folders plus template folders.  * only - Only the list of template folders are returned. (optional)</param>
         /// <param name="userFilter">Reserved for DocuSign.  (optional)</param>
         /// <returns>ApiResponse of Folders</returns>
-        ApiResponse<Folders> FoldersGetFoldersWithHttpInfo (string accountId, string include = null, string includeItems = null, string startPosition = null, string template = null, string userFilter = null);
+        ApiResponse<Folders> FoldersGetFoldersWithHttpInfo (string accountId, string include = null, string startPosition = null, string template = null, string userFilter = null);
         /// <summary>
         /// Moves an envelope from its current folder to the specified folder.
         /// </summary>
@@ -182,15 +178,14 @@ namespace DocuSign.Core.Api
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="folderId">The ID of the folder being accessed.</param>
         /// <param name="fromDate"> Only return items on or after this date. If no value is provided, the default search is the previous 30 days.  (optional)</param>
-        /// <param name="includeItems"> (optional)</param>
         /// <param name="ownerEmail"> The email of the folder owner.  (optional)</param>
         /// <param name="ownerName"> The name of the folder owner.  (optional)</param>
         /// <param name="searchText"> The search text used to search the items of the envelope. The search looks at recipient names and emails, envelope custom fields, sender name, and subject.  (optional)</param>
         /// <param name="startPosition">The position of the folder items to return. This is used for repeated calls, when the number of envelopes returned is too much for one return (calls return 100 envelopes at a time). The default value is 0. (optional)</param>
-        /// <param name="status">The current status of the envelope. If no value is provided, the default search is all/any status. (optional)</param>
+        /// <param name="status">A comma-separated list of current envelope statuses to included in the response. Possible values are:  * completed * created * declined * deleted * delivered * processing * sent * signed * timedout * voided  The &#x60;any&#x60; value is equivalent to any status.   (optional)</param>
         /// <param name="toDate">Only return items up to this date. If no value is provided, the default search is to the current date. (optional)</param>
         /// <returns>Task of FolderItemsResponse</returns>
-        System.Threading.Tasks.Task<FolderItemsResponse> FoldersGetFolderItemsAsync (string accountId, string folderId, string fromDate = null, string includeItems = null, string ownerEmail = null, string ownerName = null, string searchText = null, string startPosition = null, string status = null, string toDate = null);
+        System.Threading.Tasks.Task<FolderItemsResponse> FoldersGetFolderItemsAsync (string accountId, string folderId, string fromDate = null, string ownerEmail = null, string ownerName = null, string searchText = null, string startPosition = null, string status = null, string toDate = null);
 
         /// <summary>
         /// Gets a list of the envelopes in the specified folder.
@@ -202,15 +197,14 @@ namespace DocuSign.Core.Api
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="folderId">The ID of the folder being accessed.</param>
         /// <param name="fromDate"> Only return items on or after this date. If no value is provided, the default search is the previous 30 days.  (optional)</param>
-        /// <param name="includeItems"> (optional)</param>
         /// <param name="ownerEmail"> The email of the folder owner.  (optional)</param>
         /// <param name="ownerName"> The name of the folder owner.  (optional)</param>
         /// <param name="searchText"> The search text used to search the items of the envelope. The search looks at recipient names and emails, envelope custom fields, sender name, and subject.  (optional)</param>
         /// <param name="startPosition">The position of the folder items to return. This is used for repeated calls, when the number of envelopes returned is too much for one return (calls return 100 envelopes at a time). The default value is 0. (optional)</param>
-        /// <param name="status">The current status of the envelope. If no value is provided, the default search is all/any status. (optional)</param>
+        /// <param name="status">A comma-separated list of current envelope statuses to included in the response. Possible values are:  * completed * created * declined * deleted * delivered * processing * sent * signed * timedout * voided  The &#x60;any&#x60; value is equivalent to any status.   (optional)</param>
         /// <param name="toDate">Only return items up to this date. If no value is provided, the default search is to the current date. (optional)</param>
         /// <returns>Task of ApiResponse (FolderItemsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FolderItemsResponse>> FoldersGetFolderItemsAsyncWithHttpInfo (string accountId, string folderId, string fromDate = null, string includeItems = null, string ownerEmail = null, string ownerName = null, string searchText = null, string startPosition = null, string status = null, string toDate = null);
+        System.Threading.Tasks.Task<ApiResponse<FolderItemsResponse>> FoldersGetFolderItemsAsyncWithHttpInfo (string accountId, string folderId, string fromDate = null, string ownerEmail = null, string ownerName = null, string searchText = null, string startPosition = null, string status = null, string toDate = null);
         /// <summary>
         /// Gets a list of the folders for the account.
         /// </summary>
@@ -220,12 +214,11 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="include">Reserved for DocuSign.  (optional)</param>
-        /// <param name="includeItems"> (optional)</param>
         /// <param name="startPosition">Reserved for DocuSign.  (optional)</param>
         /// <param name="template">Specifies the items that are returned. Valid values are:   * include - The folder list will return normal folders plus template folders.  * only - Only the list of template folders are returned. (optional)</param>
         /// <param name="userFilter">Reserved for DocuSign.  (optional)</param>
         /// <returns>Task of Folders</returns>
-        System.Threading.Tasks.Task<Folders> FoldersGetFoldersAsync (string accountId, string include = null, string includeItems = null, string startPosition = null, string template = null, string userFilter = null);
+        System.Threading.Tasks.Task<Folders> FoldersGetFoldersAsync (string accountId, string include = null, string startPosition = null, string template = null, string userFilter = null);
 
         /// <summary>
         /// Gets a list of the folders for the account.
@@ -236,12 +229,11 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="include">Reserved for DocuSign.  (optional)</param>
-        /// <param name="includeItems"> (optional)</param>
         /// <param name="startPosition">Reserved for DocuSign.  (optional)</param>
         /// <param name="template">Specifies the items that are returned. Valid values are:   * include - The folder list will return normal folders plus template folders.  * only - Only the list of template folders are returned. (optional)</param>
         /// <param name="userFilter">Reserved for DocuSign.  (optional)</param>
         /// <returns>Task of ApiResponse (Folders)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Folders>> FoldersGetFoldersAsyncWithHttpInfo (string accountId, string include = null, string includeItems = null, string startPosition = null, string template = null, string userFilter = null);
+        System.Threading.Tasks.Task<ApiResponse<Folders>> FoldersGetFoldersAsyncWithHttpInfo (string accountId, string include = null, string startPosition = null, string template = null, string userFilter = null);
         /// <summary>
         /// Moves an envelope from its current folder to the specified folder.
         /// </summary>
@@ -425,17 +417,16 @@ namespace DocuSign.Core.Api
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="folderId">The ID of the folder being accessed.</param>
         /// <param name="fromDate"> Only return items on or after this date. If no value is provided, the default search is the previous 30 days.  (optional)</param>
-        /// <param name="includeItems"> (optional)</param>
         /// <param name="ownerEmail"> The email of the folder owner.  (optional)</param>
         /// <param name="ownerName"> The name of the folder owner.  (optional)</param>
         /// <param name="searchText"> The search text used to search the items of the envelope. The search looks at recipient names and emails, envelope custom fields, sender name, and subject.  (optional)</param>
         /// <param name="startPosition">The position of the folder items to return. This is used for repeated calls, when the number of envelopes returned is too much for one return (calls return 100 envelopes at a time). The default value is 0. (optional)</param>
-        /// <param name="status">The current status of the envelope. If no value is provided, the default search is all/any status. (optional)</param>
+        /// <param name="status">A comma-separated list of current envelope statuses to included in the response. Possible values are:  * completed * created * declined * deleted * delivered * processing * sent * signed * timedout * voided  The &#x60;any&#x60; value is equivalent to any status.   (optional)</param>
         /// <param name="toDate">Only return items up to this date. If no value is provided, the default search is to the current date. (optional)</param>
         /// <returns>FolderItemsResponse</returns>
-        public FolderItemsResponse FoldersGetFolderItems (string accountId, string folderId, string fromDate = null, string includeItems = null, string ownerEmail = null, string ownerName = null, string searchText = null, string startPosition = null, string status = null, string toDate = null)
+        public FolderItemsResponse FoldersGetFolderItems (string accountId, string folderId, string fromDate = null, string ownerEmail = null, string ownerName = null, string searchText = null, string startPosition = null, string status = null, string toDate = null)
         {
-             ApiResponse<FolderItemsResponse> localVarResponse = FoldersGetFolderItemsWithHttpInfo(accountId, folderId, fromDate, includeItems, ownerEmail, ownerName, searchText, startPosition, status, toDate);
+             ApiResponse<FolderItemsResponse> localVarResponse = FoldersGetFolderItemsWithHttpInfo(accountId, folderId, fromDate, ownerEmail, ownerName, searchText, startPosition, status, toDate);
              return localVarResponse.Data;
         }
 
@@ -446,15 +437,14 @@ namespace DocuSign.Core.Api
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="folderId">The ID of the folder being accessed.</param>
         /// <param name="fromDate"> Only return items on or after this date. If no value is provided, the default search is the previous 30 days.  (optional)</param>
-        /// <param name="includeItems"> (optional)</param>
         /// <param name="ownerEmail"> The email of the folder owner.  (optional)</param>
         /// <param name="ownerName"> The name of the folder owner.  (optional)</param>
         /// <param name="searchText"> The search text used to search the items of the envelope. The search looks at recipient names and emails, envelope custom fields, sender name, and subject.  (optional)</param>
         /// <param name="startPosition">The position of the folder items to return. This is used for repeated calls, when the number of envelopes returned is too much for one return (calls return 100 envelopes at a time). The default value is 0. (optional)</param>
-        /// <param name="status">The current status of the envelope. If no value is provided, the default search is all/any status. (optional)</param>
+        /// <param name="status">A comma-separated list of current envelope statuses to included in the response. Possible values are:  * completed * created * declined * deleted * delivered * processing * sent * signed * timedout * voided  The &#x60;any&#x60; value is equivalent to any status.   (optional)</param>
         /// <param name="toDate">Only return items up to this date. If no value is provided, the default search is to the current date. (optional)</param>
         /// <returns>ApiResponse of FolderItemsResponse</returns>
-        public ApiResponse< FolderItemsResponse > FoldersGetFolderItemsWithHttpInfo (string accountId, string folderId, string fromDate = null, string includeItems = null, string ownerEmail = null, string ownerName = null, string searchText = null, string startPosition = null, string status = null, string toDate = null)
+        public ApiResponse< FolderItemsResponse > FoldersGetFolderItemsWithHttpInfo (string accountId, string folderId, string fromDate = null, string ownerEmail = null, string ownerName = null, string searchText = null, string startPosition = null, string status = null, string toDate = null)
         {
             // verify the required parameter 'accountId' is set
             if (accountId == null)
@@ -490,7 +480,6 @@ namespace DocuSign.Core.Api
             if (accountId != null) localVarPathParams.Add("accountId", Configuration.ApiClient.ParameterToString(accountId)); // path parameter
             if (folderId != null) localVarPathParams.Add("folderId", Configuration.ApiClient.ParameterToString(folderId)); // path parameter
             if (fromDate != null) localVarQueryParams.Add("from_date", Configuration.ApiClient.ParameterToString(fromDate)); // query parameter
-            if (includeItems != null) localVarQueryParams.Add("include_items", Configuration.ApiClient.ParameterToString(includeItems)); // query parameter
             if (ownerEmail != null) localVarQueryParams.Add("owner_email", Configuration.ApiClient.ParameterToString(ownerEmail)); // query parameter
             if (ownerName != null) localVarQueryParams.Add("owner_name", Configuration.ApiClient.ParameterToString(ownerName)); // query parameter
             if (searchText != null) localVarQueryParams.Add("search_text", Configuration.ApiClient.ParameterToString(searchText)); // query parameter
@@ -525,17 +514,16 @@ namespace DocuSign.Core.Api
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="folderId">The ID of the folder being accessed.</param>
         /// <param name="fromDate"> Only return items on or after this date. If no value is provided, the default search is the previous 30 days.  (optional)</param>
-        /// <param name="includeItems"> (optional)</param>
         /// <param name="ownerEmail"> The email of the folder owner.  (optional)</param>
         /// <param name="ownerName"> The name of the folder owner.  (optional)</param>
         /// <param name="searchText"> The search text used to search the items of the envelope. The search looks at recipient names and emails, envelope custom fields, sender name, and subject.  (optional)</param>
         /// <param name="startPosition">The position of the folder items to return. This is used for repeated calls, when the number of envelopes returned is too much for one return (calls return 100 envelopes at a time). The default value is 0. (optional)</param>
-        /// <param name="status">The current status of the envelope. If no value is provided, the default search is all/any status. (optional)</param>
+        /// <param name="status">A comma-separated list of current envelope statuses to included in the response. Possible values are:  * completed * created * declined * deleted * delivered * processing * sent * signed * timedout * voided  The &#x60;any&#x60; value is equivalent to any status.   (optional)</param>
         /// <param name="toDate">Only return items up to this date. If no value is provided, the default search is to the current date. (optional)</param>
         /// <returns>Task of FolderItemsResponse</returns>
-        public async System.Threading.Tasks.Task<FolderItemsResponse> FoldersGetFolderItemsAsync (string accountId, string folderId, string fromDate = null, string includeItems = null, string ownerEmail = null, string ownerName = null, string searchText = null, string startPosition = null, string status = null, string toDate = null)
+        public async System.Threading.Tasks.Task<FolderItemsResponse> FoldersGetFolderItemsAsync (string accountId, string folderId, string fromDate = null, string ownerEmail = null, string ownerName = null, string searchText = null, string startPosition = null, string status = null, string toDate = null)
         {
-             ApiResponse<FolderItemsResponse> localVarResponse = await FoldersGetFolderItemsAsyncWithHttpInfo(accountId, folderId, fromDate, includeItems, ownerEmail, ownerName, searchText, startPosition, status, toDate);
+             ApiResponse<FolderItemsResponse> localVarResponse = await FoldersGetFolderItemsAsyncWithHttpInfo(accountId, folderId, fromDate, ownerEmail, ownerName, searchText, startPosition, status, toDate);
              return localVarResponse.Data;
 
         }
@@ -547,15 +535,14 @@ namespace DocuSign.Core.Api
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="folderId">The ID of the folder being accessed.</param>
         /// <param name="fromDate"> Only return items on or after this date. If no value is provided, the default search is the previous 30 days.  (optional)</param>
-        /// <param name="includeItems"> (optional)</param>
         /// <param name="ownerEmail"> The email of the folder owner.  (optional)</param>
         /// <param name="ownerName"> The name of the folder owner.  (optional)</param>
         /// <param name="searchText"> The search text used to search the items of the envelope. The search looks at recipient names and emails, envelope custom fields, sender name, and subject.  (optional)</param>
         /// <param name="startPosition">The position of the folder items to return. This is used for repeated calls, when the number of envelopes returned is too much for one return (calls return 100 envelopes at a time). The default value is 0. (optional)</param>
-        /// <param name="status">The current status of the envelope. If no value is provided, the default search is all/any status. (optional)</param>
+        /// <param name="status">A comma-separated list of current envelope statuses to included in the response. Possible values are:  * completed * created * declined * deleted * delivered * processing * sent * signed * timedout * voided  The &#x60;any&#x60; value is equivalent to any status.   (optional)</param>
         /// <param name="toDate">Only return items up to this date. If no value is provided, the default search is to the current date. (optional)</param>
         /// <returns>Task of ApiResponse (FolderItemsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<FolderItemsResponse>> FoldersGetFolderItemsAsyncWithHttpInfo (string accountId, string folderId, string fromDate = null, string includeItems = null, string ownerEmail = null, string ownerName = null, string searchText = null, string startPosition = null, string status = null, string toDate = null)
+        public async System.Threading.Tasks.Task<ApiResponse<FolderItemsResponse>> FoldersGetFolderItemsAsyncWithHttpInfo (string accountId, string folderId, string fromDate = null, string ownerEmail = null, string ownerName = null, string searchText = null, string startPosition = null, string status = null, string toDate = null)
         {
             // verify the required parameter 'accountId' is set
             if (accountId == null)
@@ -591,7 +578,6 @@ namespace DocuSign.Core.Api
             if (accountId != null) localVarPathParams.Add("accountId", Configuration.ApiClient.ParameterToString(accountId)); // path parameter
             if (folderId != null) localVarPathParams.Add("folderId", Configuration.ApiClient.ParameterToString(folderId)); // path parameter
             if (fromDate != null) localVarQueryParams.Add("from_date", Configuration.ApiClient.ParameterToString(fromDate)); // query parameter
-            if (includeItems != null) localVarQueryParams.Add("include_items", Configuration.ApiClient.ParameterToString(includeItems)); // query parameter
             if (ownerEmail != null) localVarQueryParams.Add("owner_email", Configuration.ApiClient.ParameterToString(ownerEmail)); // query parameter
             if (ownerName != null) localVarQueryParams.Add("owner_name", Configuration.ApiClient.ParameterToString(ownerName)); // query parameter
             if (searchText != null) localVarQueryParams.Add("search_text", Configuration.ApiClient.ParameterToString(searchText)); // query parameter
@@ -625,14 +611,13 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="include">Reserved for DocuSign.  (optional)</param>
-        /// <param name="includeItems"> (optional)</param>
         /// <param name="startPosition">Reserved for DocuSign.  (optional)</param>
         /// <param name="template">Specifies the items that are returned. Valid values are:   * include - The folder list will return normal folders plus template folders.  * only - Only the list of template folders are returned. (optional)</param>
         /// <param name="userFilter">Reserved for DocuSign.  (optional)</param>
         /// <returns>Folders</returns>
-        public Folders FoldersGetFolders (string accountId, string include = null, string includeItems = null, string startPosition = null, string template = null, string userFilter = null)
+        public Folders FoldersGetFolders (string accountId, string include = null, string startPosition = null, string template = null, string userFilter = null)
         {
-             ApiResponse<Folders> localVarResponse = FoldersGetFoldersWithHttpInfo(accountId, include, includeItems, startPosition, template, userFilter);
+             ApiResponse<Folders> localVarResponse = FoldersGetFoldersWithHttpInfo(accountId, include, startPosition, template, userFilter);
              return localVarResponse.Data;
         }
 
@@ -642,12 +627,11 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="include">Reserved for DocuSign.  (optional)</param>
-        /// <param name="includeItems"> (optional)</param>
         /// <param name="startPosition">Reserved for DocuSign.  (optional)</param>
         /// <param name="template">Specifies the items that are returned. Valid values are:   * include - The folder list will return normal folders plus template folders.  * only - Only the list of template folders are returned. (optional)</param>
         /// <param name="userFilter">Reserved for DocuSign.  (optional)</param>
         /// <returns>ApiResponse of Folders</returns>
-        public ApiResponse< Folders > FoldersGetFoldersWithHttpInfo (string accountId, string include = null, string includeItems = null, string startPosition = null, string template = null, string userFilter = null)
+        public ApiResponse< Folders > FoldersGetFoldersWithHttpInfo (string accountId, string include = null, string startPosition = null, string template = null, string userFilter = null)
         {
             // verify the required parameter 'accountId' is set
             if (accountId == null)
@@ -679,7 +663,6 @@ namespace DocuSign.Core.Api
             localVarPathParams.Add("format", "json");
             if (accountId != null) localVarPathParams.Add("accountId", Configuration.ApiClient.ParameterToString(accountId)); // path parameter
             if (include != null) localVarQueryParams.Add("include", Configuration.ApiClient.ParameterToString(include)); // query parameter
-            if (includeItems != null) localVarQueryParams.Add("include_items", Configuration.ApiClient.ParameterToString(includeItems)); // query parameter
             if (startPosition != null) localVarQueryParams.Add("start_position", Configuration.ApiClient.ParameterToString(startPosition)); // query parameter
             if (template != null) localVarQueryParams.Add("template", Configuration.ApiClient.ParameterToString(template)); // query parameter
             if (userFilter != null) localVarQueryParams.Add("user_filter", Configuration.ApiClient.ParameterToString(userFilter)); // query parameter
@@ -710,14 +693,13 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="include">Reserved for DocuSign.  (optional)</param>
-        /// <param name="includeItems"> (optional)</param>
         /// <param name="startPosition">Reserved for DocuSign.  (optional)</param>
         /// <param name="template">Specifies the items that are returned. Valid values are:   * include - The folder list will return normal folders plus template folders.  * only - Only the list of template folders are returned. (optional)</param>
         /// <param name="userFilter">Reserved for DocuSign.  (optional)</param>
         /// <returns>Task of Folders</returns>
-        public async System.Threading.Tasks.Task<Folders> FoldersGetFoldersAsync (string accountId, string include = null, string includeItems = null, string startPosition = null, string template = null, string userFilter = null)
+        public async System.Threading.Tasks.Task<Folders> FoldersGetFoldersAsync (string accountId, string include = null, string startPosition = null, string template = null, string userFilter = null)
         {
-             ApiResponse<Folders> localVarResponse = await FoldersGetFoldersAsyncWithHttpInfo(accountId, include, includeItems, startPosition, template, userFilter);
+             ApiResponse<Folders> localVarResponse = await FoldersGetFoldersAsyncWithHttpInfo(accountId, include, startPosition, template, userFilter);
              return localVarResponse.Data;
 
         }
@@ -728,12 +710,11 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="include">Reserved for DocuSign.  (optional)</param>
-        /// <param name="includeItems"> (optional)</param>
         /// <param name="startPosition">Reserved for DocuSign.  (optional)</param>
         /// <param name="template">Specifies the items that are returned. Valid values are:   * include - The folder list will return normal folders plus template folders.  * only - Only the list of template folders are returned. (optional)</param>
         /// <param name="userFilter">Reserved for DocuSign.  (optional)</param>
         /// <returns>Task of ApiResponse (Folders)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Folders>> FoldersGetFoldersAsyncWithHttpInfo (string accountId, string include = null, string includeItems = null, string startPosition = null, string template = null, string userFilter = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Folders>> FoldersGetFoldersAsyncWithHttpInfo (string accountId, string include = null, string startPosition = null, string template = null, string userFilter = null)
         {
             // verify the required parameter 'accountId' is set
             if (accountId == null)
@@ -765,7 +746,6 @@ namespace DocuSign.Core.Api
             localVarPathParams.Add("format", "json");
             if (accountId != null) localVarPathParams.Add("accountId", Configuration.ApiClient.ParameterToString(accountId)); // path parameter
             if (include != null) localVarQueryParams.Add("include", Configuration.ApiClient.ParameterToString(include)); // query parameter
-            if (includeItems != null) localVarQueryParams.Add("include_items", Configuration.ApiClient.ParameterToString(includeItems)); // query parameter
             if (startPosition != null) localVarQueryParams.Add("start_position", Configuration.ApiClient.ParameterToString(startPosition)); // query parameter
             if (template != null) localVarQueryParams.Add("template", Configuration.ApiClient.ParameterToString(template)); // query parameter
             if (userFilter != null) localVarQueryParams.Add("user_filter", Configuration.ApiClient.ParameterToString(userFilter)); // query parameter

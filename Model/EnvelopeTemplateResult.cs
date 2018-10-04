@@ -46,7 +46,8 @@ namespace DocuSign.Core.Model
         /// <param name="AllowReassign">When set to **true**, the recipient can redirect an envelope to a more appropriate recipient..</param>
         /// <param name="Asynchronous">When set to **true**, the envelope is queued for processing and the value of the &#x60;status&#x60; property is set to &#39;Processing&#39;. Additionally, get status calls return &#39;Processing&#39; until completed..</param>
         /// <param name="AttachmentsUri">.</param>
-        /// <param name="AuthoritativeCopy">Specifies the Authoritative copy feature. If set to true the Authoritative copy feature is enabled..</param>
+        /// <param name="AuthoritativeCopy">Specifies whether all documents in this envelope are authoritative copies. A document can set its own &#x60;authoritativeCopy&#x60; property to override this value. For example you can set the authoritativeCopy on an envelope level to true but can turn it off for a specific document. .</param>
+        /// <param name="AuthoritativeCopyDefault">The default &#x60;authoritativeCopy&#x60; setting for documents in this envelope that do not have &#x60;authoritativeCopy&#x60; set. If this property is not set, each document defaults to the envelope&#39;s &#x60;authoritativeCopy&#x60;..</param>
         /// <param name="AutoNavigation">Specifies whether auto navigation is set for the recipient. .</param>
         /// <param name="BrandId">The unique identifier of a brand..</param>
         /// <param name="BrandLock">.</param>
@@ -87,12 +88,13 @@ namespace DocuSign.Core.Model
         /// <param name="PageCount">.</param>
         /// <param name="ParentFolderUri">.</param>
         /// <param name="Password">.</param>
-        /// <param name="PurgeState">.</param>
+        /// <param name="PurgeState">Shows the current purge state for the envelope. The possible values are:  * &#x60;unpurged&#x60;: There has been no successful request to purge documents. * &#x60;documents_queued&#x60;: The envelope documents have been added to the purge queue, but have not been purged. * &#x60;documents_and_metadata_queued&#x60;: The envelope documents and metadata have been added to the purge queue, but have not yet been purged. * &#x60;documents_purged&#x60;: The envelope documents have been successfully purged. * &#x60;documents_and_metadata_purged&#x60;: The envelope documents and metadata have been successfully purged. .</param>
         /// <param name="Recipients">.</param>
         /// <param name="RecipientsLock">When set to **true**, prevents senders from changing, correcting, or deleting the recipient information for the envelope..</param>
         /// <param name="RecipientsUri">Contains a URI for an endpoint that you can use to retrieve the recipients..</param>
         /// <param name="SentDateTime">The date and time the envelope was sent..</param>
         /// <param name="Shared">When set to **true**, this custom tab is shared..</param>
+        /// <param name="SignerCanSignOnMobile">.</param>
         /// <param name="SigningLocation">Specifies the physical location where the signing takes place. It can have two enumeration values; InPerson and Online. The default value is Online..</param>
         /// <param name="Status">Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later..</param>
         /// <param name="StatusChangedDateTime">The data and time the status changed..</param>
@@ -103,13 +105,14 @@ namespace DocuSign.Core.Model
         /// <param name="UseDisclosure">When set to **true**, the disclosure is shown to recipients in accordance with the account&#39;s Electronic Record and Signature Disclosure frequency setting. When set to **false**, the Electronic Record and Signature Disclosure is not shown to any envelope recipients.   If the &#x60;useDisclosure&#x60; property is not set, then the account&#39;s normal disclosure setting is used and the value of the &#x60;useDisclosure&#x60; property is not returned in responses when getting envelope information..</param>
         /// <param name="VoidedDateTime">The date and time the envelope or template was voided..</param>
         /// <param name="VoidedReason">The reason the envelope or template was voided..</param>
-        public EnvelopeTemplateResult(string AllowMarkup = null, string AllowReassign = null, string Asynchronous = null, string AttachmentsUri = null, string AuthoritativeCopy = null, string AutoNavigation = null, string BrandId = null, string BrandLock = null, string CertificateUri = null, string CompletedDateTime = null, string CreatedDateTime = null, AccountCustomFields CustomFields = null, string CustomFieldsUri = null, string DeclinedDateTime = null, string DeletedDateTime = null, string DeliveredDateTime = null, string Description = null, List<Document> Documents = null, string DocumentsCombinedUri = null, string DocumentsUri = null, string EmailBlurb = null, EnvelopeEmailSettings EmailSettings = null, string EmailSubject = null, string EnableWetSign = null, string EnforceSignerVisibility = null, string EnvelopeId = null, string EnvelopeIdStamping = null, string EnvelopeUri = null, string FolderId = null, string FolderName = null, string FolderUri = null, string InitialSentDateTime = null, string Is21CFRPart11 = null, string IsSignatureProviderEnvelope = null, string LastModified = null, string LastModifiedDateTime = null, EnvelopeLocks LockInformation = null, string MessageLock = null, string Name = null, Notification Notification = null, string NotificationUri = null, UserInfo Owner = null, int? PageCount = null, string ParentFolderUri = null, string Password = null, string PurgeState = null, EnvelopeRecipients Recipients = null, string RecipientsLock = null, string RecipientsUri = null, string SentDateTime = null, string Shared = null, string SigningLocation = null, string Status = null, string StatusChangedDateTime = null, string TemplateId = null, string TemplatesUri = null, string TransactionId = null, string Uri = null, string UseDisclosure = null, string VoidedDateTime = null, string VoidedReason = null)
+        public EnvelopeTemplateResult(string AllowMarkup = null, string AllowReassign = null, string Asynchronous = null, string AttachmentsUri = null, string AuthoritativeCopy = null, string AuthoritativeCopyDefault = null, string AutoNavigation = null, string BrandId = null, string BrandLock = null, string CertificateUri = null, string CompletedDateTime = null, string CreatedDateTime = null, AccountCustomFields CustomFields = null, string CustomFieldsUri = null, string DeclinedDateTime = null, string DeletedDateTime = null, string DeliveredDateTime = null, string Description = null, List<Document> Documents = null, string DocumentsCombinedUri = null, string DocumentsUri = null, string EmailBlurb = null, EnvelopeEmailSettings EmailSettings = null, string EmailSubject = null, string EnableWetSign = null, string EnforceSignerVisibility = null, string EnvelopeId = null, string EnvelopeIdStamping = null, string EnvelopeUri = null, string FolderId = null, string FolderName = null, string FolderUri = null, string InitialSentDateTime = null, string Is21CFRPart11 = null, string IsSignatureProviderEnvelope = null, string LastModified = null, string LastModifiedDateTime = null, EnvelopeLocks LockInformation = null, string MessageLock = null, string Name = null, Notification Notification = null, string NotificationUri = null, UserInfo Owner = null, int? PageCount = null, string ParentFolderUri = null, string Password = null, string PurgeState = null, EnvelopeRecipients Recipients = null, string RecipientsLock = null, string RecipientsUri = null, string SentDateTime = null, string Shared = null, string SignerCanSignOnMobile = null, string SigningLocation = null, string Status = null, string StatusChangedDateTime = null, string TemplateId = null, string TemplatesUri = null, string TransactionId = null, string Uri = null, string UseDisclosure = null, string VoidedDateTime = null, string VoidedReason = null)
         {
             this.AllowMarkup = AllowMarkup;
             this.AllowReassign = AllowReassign;
             this.Asynchronous = Asynchronous;
             this.AttachmentsUri = AttachmentsUri;
             this.AuthoritativeCopy = AuthoritativeCopy;
+            this.AuthoritativeCopyDefault = AuthoritativeCopyDefault;
             this.AutoNavigation = AutoNavigation;
             this.BrandId = BrandId;
             this.BrandLock = BrandLock;
@@ -156,6 +159,7 @@ namespace DocuSign.Core.Model
             this.RecipientsUri = RecipientsUri;
             this.SentDateTime = SentDateTime;
             this.Shared = Shared;
+            this.SignerCanSignOnMobile = SignerCanSignOnMobile;
             this.SigningLocation = SigningLocation;
             this.Status = Status;
             this.StatusChangedDateTime = StatusChangedDateTime;
@@ -193,11 +197,17 @@ namespace DocuSign.Core.Model
         [DataMember(Name="attachmentsUri", EmitDefaultValue=false)]
         public string AttachmentsUri { get; set; }
         /// <summary>
-        /// Specifies the Authoritative copy feature. If set to true the Authoritative copy feature is enabled.
+        /// Specifies whether all documents in this envelope are authoritative copies. A document can set its own &#x60;authoritativeCopy&#x60; property to override this value. For example you can set the authoritativeCopy on an envelope level to true but can turn it off for a specific document. 
         /// </summary>
-        /// <value>Specifies the Authoritative copy feature. If set to true the Authoritative copy feature is enabled.</value>
+        /// <value>Specifies whether all documents in this envelope are authoritative copies. A document can set its own &#x60;authoritativeCopy&#x60; property to override this value. For example you can set the authoritativeCopy on an envelope level to true but can turn it off for a specific document. </value>
         [DataMember(Name="authoritativeCopy", EmitDefaultValue=false)]
         public string AuthoritativeCopy { get; set; }
+        /// <summary>
+        /// The default &#x60;authoritativeCopy&#x60; setting for documents in this envelope that do not have &#x60;authoritativeCopy&#x60; set. If this property is not set, each document defaults to the envelope&#39;s &#x60;authoritativeCopy&#x60;.
+        /// </summary>
+        /// <value>The default &#x60;authoritativeCopy&#x60; setting for documents in this envelope that do not have &#x60;authoritativeCopy&#x60; set. If this property is not set, each document defaults to the envelope&#39;s &#x60;authoritativeCopy&#x60;.</value>
+        [DataMember(Name="authoritativeCopyDefault", EmitDefaultValue=false)]
+        public string AuthoritativeCopyDefault { get; set; }
         /// <summary>
         /// Specifies whether auto navigation is set for the recipient. 
         /// </summary>
@@ -439,9 +449,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="password", EmitDefaultValue=false)]
         public string Password { get; set; }
         /// <summary>
-        /// 
+        /// Shows the current purge state for the envelope. The possible values are:  * &#x60;unpurged&#x60;: There has been no successful request to purge documents. * &#x60;documents_queued&#x60;: The envelope documents have been added to the purge queue, but have not been purged. * &#x60;documents_and_metadata_queued&#x60;: The envelope documents and metadata have been added to the purge queue, but have not yet been purged. * &#x60;documents_purged&#x60;: The envelope documents have been successfully purged. * &#x60;documents_and_metadata_purged&#x60;: The envelope documents and metadata have been successfully purged. 
         /// </summary>
-        /// <value></value>
+        /// <value>Shows the current purge state for the envelope. The possible values are:  * &#x60;unpurged&#x60;: There has been no successful request to purge documents. * &#x60;documents_queued&#x60;: The envelope documents have been added to the purge queue, but have not been purged. * &#x60;documents_and_metadata_queued&#x60;: The envelope documents and metadata have been added to the purge queue, but have not yet been purged. * &#x60;documents_purged&#x60;: The envelope documents have been successfully purged. * &#x60;documents_and_metadata_purged&#x60;: The envelope documents and metadata have been successfully purged. </value>
         [DataMember(Name="purgeState", EmitDefaultValue=false)]
         public string PurgeState { get; set; }
         /// <summary>
@@ -474,6 +484,12 @@ namespace DocuSign.Core.Model
         /// <value>When set to **true**, this custom tab is shared.</value>
         [DataMember(Name="shared", EmitDefaultValue=false)]
         public string Shared { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <value></value>
+        [DataMember(Name="signerCanSignOnMobile", EmitDefaultValue=false)]
+        public string SignerCanSignOnMobile { get; set; }
         /// <summary>
         /// Specifies the physical location where the signing takes place. It can have two enumeration values; InPerson and Online. The default value is Online.
         /// </summary>
@@ -547,6 +563,7 @@ namespace DocuSign.Core.Model
             sb.Append("  Asynchronous: ").Append(Asynchronous).Append("\n");
             sb.Append("  AttachmentsUri: ").Append(AttachmentsUri).Append("\n");
             sb.Append("  AuthoritativeCopy: ").Append(AuthoritativeCopy).Append("\n");
+            sb.Append("  AuthoritativeCopyDefault: ").Append(AuthoritativeCopyDefault).Append("\n");
             sb.Append("  AutoNavigation: ").Append(AutoNavigation).Append("\n");
             sb.Append("  BrandId: ").Append(BrandId).Append("\n");
             sb.Append("  BrandLock: ").Append(BrandLock).Append("\n");
@@ -593,6 +610,7 @@ namespace DocuSign.Core.Model
             sb.Append("  RecipientsUri: ").Append(RecipientsUri).Append("\n");
             sb.Append("  SentDateTime: ").Append(SentDateTime).Append("\n");
             sb.Append("  Shared: ").Append(Shared).Append("\n");
+            sb.Append("  SignerCanSignOnMobile: ").Append(SignerCanSignOnMobile).Append("\n");
             sb.Append("  SigningLocation: ").Append(SigningLocation).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  StatusChangedDateTime: ").Append(StatusChangedDateTime).Append("\n");
@@ -663,6 +681,11 @@ namespace DocuSign.Core.Model
                     this.AuthoritativeCopy == other.AuthoritativeCopy ||
                     this.AuthoritativeCopy != null &&
                     this.AuthoritativeCopy.Equals(other.AuthoritativeCopy)
+                ) && 
+                (
+                    this.AuthoritativeCopyDefault == other.AuthoritativeCopyDefault ||
+                    this.AuthoritativeCopyDefault != null &&
+                    this.AuthoritativeCopyDefault.Equals(other.AuthoritativeCopyDefault)
                 ) && 
                 (
                     this.AutoNavigation == other.AutoNavigation ||
@@ -895,6 +918,11 @@ namespace DocuSign.Core.Model
                     this.Shared.Equals(other.Shared)
                 ) && 
                 (
+                    this.SignerCanSignOnMobile == other.SignerCanSignOnMobile ||
+                    this.SignerCanSignOnMobile != null &&
+                    this.SignerCanSignOnMobile.Equals(other.SignerCanSignOnMobile)
+                ) && 
+                (
                     this.SigningLocation == other.SigningLocation ||
                     this.SigningLocation != null &&
                     this.SigningLocation.Equals(other.SigningLocation)
@@ -967,6 +995,8 @@ namespace DocuSign.Core.Model
                     hash = hash * 59 + this.AttachmentsUri.GetHashCode();
                 if (this.AuthoritativeCopy != null)
                     hash = hash * 59 + this.AuthoritativeCopy.GetHashCode();
+                if (this.AuthoritativeCopyDefault != null)
+                    hash = hash * 59 + this.AuthoritativeCopyDefault.GetHashCode();
                 if (this.AutoNavigation != null)
                     hash = hash * 59 + this.AutoNavigation.GetHashCode();
                 if (this.BrandId != null)
@@ -1059,6 +1089,8 @@ namespace DocuSign.Core.Model
                     hash = hash * 59 + this.SentDateTime.GetHashCode();
                 if (this.Shared != null)
                     hash = hash * 59 + this.Shared.GetHashCode();
+                if (this.SignerCanSignOnMobile != null)
+                    hash = hash * 59 + this.SignerCanSignOnMobile.GetHashCode();
                 if (this.SigningLocation != null)
                     hash = hash * 59 + this.SigningLocation.GetHashCode();
                 if (this.Status != null)

@@ -50,7 +50,7 @@ namespace DocuSign.Core.Model
         /// <param name="Uri">.</param>
         /// <param name="UserId">The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing..</param>
         /// <param name="UserName">.</param>
-        /// <param name="UserStatus">.</param>
+        /// <param name="UserStatus">Status of the user&#39;s account. One of:  * ActivationRequired * ActivationSent * Active * Closed * Disabled .</param>
         /// <param name="UserType">.</param>
         public UserInfo(string ActivationAccessCode = null, string Email = null, ErrorDetails ErrorDetails = null, string LoginStatus = null, string SendActivationEmail = null, string Uri = null, string UserId = null, string UserName = null, string UserStatus = null, string UserType = null)
         {
@@ -115,9 +115,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="userName", EmitDefaultValue=false)]
         public string UserName { get; set; }
         /// <summary>
-        /// 
+        /// Status of the user&#39;s account. One of:  * ActivationRequired * ActivationSent * Active * Closed * Disabled 
         /// </summary>
-        /// <value></value>
+        /// <value>Status of the user&#39;s account. One of:  * ActivationRequired * ActivationSent * Active * Closed * Disabled </value>
         [DataMember(Name="userStatus", EmitDefaultValue=false)]
         public string UserStatus { get; set; }
         /// <summary>

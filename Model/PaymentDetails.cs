@@ -42,18 +42,22 @@ namespace DocuSign.Core.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentDetails" /> class.
         /// </summary>
-        /// <param name="ChargeId">.</param>
-        /// <param name="CurrencyCode">Specifies the three-letter [ISO 4217][ISO4217] currency code for the payment.  Supported currencies are:  * AUD Australian dollar * CAD Canadian dollar * EUR Euro * GBP Great Britain pund * USD United States dollar  Specifying any other ISO 4217 code for payments is an error.  [ISO4217]:          https://en.wikipedia.org/wiki/ISO_4217 .</param>
+        /// <param name="AllowedPaymentMethods">An array of accepted payment methods:  * &#x60;CreditCard&#x60; * &#x60;ApplePay&#x60; * &#x60;AndroidPay&#x60; * &#x60;BankAccount&#x60;  For example, if you only accept credit cards and ACH transfers, you would set this property to:  &#x60;&#39;[\&quot;BankAccount\&quot;, \&quot;CreditCard\&quot;]&#39;&#x60;  Do not specify &#x60;BankAccount&#x60; (ACH) if you are also using in-person signing. .</param>
+        /// <param name="ChargeId">The GUID set by the payment gateway (such as Stripe) that identifies a transaction. The &#x60;chargeId&#x60; is created when authorizing a payment and must be referenced when completing a payment..</param>
+        /// <param name="CurrencyCode">Specifies the three-letter [ISO 4217][ISO4217] currency code for the payment.  Supported currencies are:  * AUD Australian dollar * CAD Canadian dollar * EUR Euro * GBP Great Britain pound * USD United States dollar  Specifying any other ISO 4217 code for payments is an error.  [ISO4217]:          https://en.wikipedia.org/wiki/ISO_4217 .</param>
         /// <param name="GatewayAccountId">A GUID that identifies the payment gateway connected to the sender&#39;s DocuSign account.  There is no public API for connecting payment gateway accounts You must connect and manage payment gateway accounts through the DocuSign Admin console and through your chosen payment gateway.  You can get the gateway account ID in the Payments section of the DocuSign Admin console.   [paymentgateways]:  https://support.docusign.com/en/guides/managing-payment-gateways .</param>
-        /// <param name="GatewayName">.</param>
+        /// <param name="GatewayDisplayName">Display name of the gateway connected to sender&#39;s Docusign account.  Possible values are: Stripe, Braintree, Authorize.Net..</param>
+        /// <param name="GatewayName">Name of the gateway connected to sender&#39;s DocuSign account.  Possible values are:  * &#x60;Stripe&#x60; * &#x60;Braintree&#x60; * &#x60;AuthorizeDotNet&#x60;.</param>
         /// <param name="LineItems">A payment formula can have one or more line items that provide detail about individual items in a payment request.  The list of line items are returned as metadata to the payment gateway. .</param>
         /// <param name="Status">This read-only property describes the status of a payment.  * &#x60;new&#x60;&lt;br&gt;   This is a new payment request.   The envelope has been created,   but no payment authorizations have been made.  * &#x60;auth_complete&#x60;&lt;br&gt;   A recipient has entered their credit card information,   but the envelope has not been completed.   The card has not been charged.  * &#x60;payment_complete&#x60;&lt;br&gt;   The recipient&#39;s card has been charged.  * &#x60;payment_capture_failed&#x60;&lt;br&gt;   Final charge failed.   This can happen when too much time   passes between authorizing the payment   and completing the document. .</param>
         /// <param name="Total">This read-only property is a currency-formatted string that represents the total of all the line items. The total is available only after the document is completed, which is when all recipients have paid and have completed all required fields. .</param>
-        public PaymentDetails(string ChargeId = null, string CurrencyCode = null, string GatewayAccountId = null, string GatewayName = null, List<PaymentLineItem> LineItems = null, string Status = null, Money Total = null)
+        public PaymentDetails(List<string> AllowedPaymentMethods = null, string ChargeId = null, string CurrencyCode = null, string GatewayAccountId = null, string GatewayDisplayName = null, string GatewayName = null, List<PaymentLineItem> LineItems = null, string Status = null, Money Total = null)
         {
+            this.AllowedPaymentMethods = AllowedPaymentMethods;
             this.ChargeId = ChargeId;
             this.CurrencyCode = CurrencyCode;
             this.GatewayAccountId = GatewayAccountId;
+            this.GatewayDisplayName = GatewayDisplayName;
             this.GatewayName = GatewayName;
             this.LineItems = LineItems;
             this.Status = Status;
@@ -61,15 +65,21 @@ namespace DocuSign.Core.Model
         }
         
         /// <summary>
-        /// 
+        /// An array of accepted payment methods:  * &#x60;CreditCard&#x60; * &#x60;ApplePay&#x60; * &#x60;AndroidPay&#x60; * &#x60;BankAccount&#x60;  For example, if you only accept credit cards and ACH transfers, you would set this property to:  &#x60;&#39;[\&quot;BankAccount\&quot;, \&quot;CreditCard\&quot;]&#39;&#x60;  Do not specify &#x60;BankAccount&#x60; (ACH) if you are also using in-person signing. 
         /// </summary>
-        /// <value></value>
+        /// <value>An array of accepted payment methods:  * &#x60;CreditCard&#x60; * &#x60;ApplePay&#x60; * &#x60;AndroidPay&#x60; * &#x60;BankAccount&#x60;  For example, if you only accept credit cards and ACH transfers, you would set this property to:  &#x60;&#39;[\&quot;BankAccount\&quot;, \&quot;CreditCard\&quot;]&#39;&#x60;  Do not specify &#x60;BankAccount&#x60; (ACH) if you are also using in-person signing. </value>
+        [DataMember(Name="allowedPaymentMethods", EmitDefaultValue=false)]
+        public List<string> AllowedPaymentMethods { get; set; }
+        /// <summary>
+        /// The GUID set by the payment gateway (such as Stripe) that identifies a transaction. The &#x60;chargeId&#x60; is created when authorizing a payment and must be referenced when completing a payment.
+        /// </summary>
+        /// <value>The GUID set by the payment gateway (such as Stripe) that identifies a transaction. The &#x60;chargeId&#x60; is created when authorizing a payment and must be referenced when completing a payment.</value>
         [DataMember(Name="chargeId", EmitDefaultValue=false)]
         public string ChargeId { get; set; }
         /// <summary>
-        /// Specifies the three-letter [ISO 4217][ISO4217] currency code for the payment.  Supported currencies are:  * AUD Australian dollar * CAD Canadian dollar * EUR Euro * GBP Great Britain pund * USD United States dollar  Specifying any other ISO 4217 code for payments is an error.  [ISO4217]:          https://en.wikipedia.org/wiki/ISO_4217 
+        /// Specifies the three-letter [ISO 4217][ISO4217] currency code for the payment.  Supported currencies are:  * AUD Australian dollar * CAD Canadian dollar * EUR Euro * GBP Great Britain pound * USD United States dollar  Specifying any other ISO 4217 code for payments is an error.  [ISO4217]:          https://en.wikipedia.org/wiki/ISO_4217 
         /// </summary>
-        /// <value>Specifies the three-letter [ISO 4217][ISO4217] currency code for the payment.  Supported currencies are:  * AUD Australian dollar * CAD Canadian dollar * EUR Euro * GBP Great Britain pund * USD United States dollar  Specifying any other ISO 4217 code for payments is an error.  [ISO4217]:          https://en.wikipedia.org/wiki/ISO_4217 </value>
+        /// <value>Specifies the three-letter [ISO 4217][ISO4217] currency code for the payment.  Supported currencies are:  * AUD Australian dollar * CAD Canadian dollar * EUR Euro * GBP Great Britain pound * USD United States dollar  Specifying any other ISO 4217 code for payments is an error.  [ISO4217]:          https://en.wikipedia.org/wiki/ISO_4217 </value>
         [DataMember(Name="currencyCode", EmitDefaultValue=false)]
         public string CurrencyCode { get; set; }
         /// <summary>
@@ -79,9 +89,15 @@ namespace DocuSign.Core.Model
         [DataMember(Name="gatewayAccountId", EmitDefaultValue=false)]
         public string GatewayAccountId { get; set; }
         /// <summary>
-        /// 
+        /// Display name of the gateway connected to sender&#39;s Docusign account.  Possible values are: Stripe, Braintree, Authorize.Net.
         /// </summary>
-        /// <value></value>
+        /// <value>Display name of the gateway connected to sender&#39;s Docusign account.  Possible values are: Stripe, Braintree, Authorize.Net.</value>
+        [DataMember(Name="gatewayDisplayName", EmitDefaultValue=false)]
+        public string GatewayDisplayName { get; set; }
+        /// <summary>
+        /// Name of the gateway connected to sender&#39;s DocuSign account.  Possible values are:  * &#x60;Stripe&#x60; * &#x60;Braintree&#x60; * &#x60;AuthorizeDotNet&#x60;
+        /// </summary>
+        /// <value>Name of the gateway connected to sender&#39;s DocuSign account.  Possible values are:  * &#x60;Stripe&#x60; * &#x60;Braintree&#x60; * &#x60;AuthorizeDotNet&#x60;</value>
         [DataMember(Name="gatewayName", EmitDefaultValue=false)]
         public string GatewayName { get; set; }
         /// <summary>
@@ -110,9 +126,11 @@ namespace DocuSign.Core.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PaymentDetails {\n");
+            sb.Append("  AllowedPaymentMethods: ").Append(AllowedPaymentMethods).Append("\n");
             sb.Append("  ChargeId: ").Append(ChargeId).Append("\n");
             sb.Append("  CurrencyCode: ").Append(CurrencyCode).Append("\n");
             sb.Append("  GatewayAccountId: ").Append(GatewayAccountId).Append("\n");
+            sb.Append("  GatewayDisplayName: ").Append(GatewayDisplayName).Append("\n");
             sb.Append("  GatewayName: ").Append(GatewayName).Append("\n");
             sb.Append("  LineItems: ").Append(LineItems).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
@@ -154,6 +172,11 @@ namespace DocuSign.Core.Model
 
             return 
                 (
+                    this.AllowedPaymentMethods == other.AllowedPaymentMethods ||
+                    this.AllowedPaymentMethods != null &&
+                    this.AllowedPaymentMethods.SequenceEqual(other.AllowedPaymentMethods)
+                ) && 
+                (
                     this.ChargeId == other.ChargeId ||
                     this.ChargeId != null &&
                     this.ChargeId.Equals(other.ChargeId)
@@ -167,6 +190,11 @@ namespace DocuSign.Core.Model
                     this.GatewayAccountId == other.GatewayAccountId ||
                     this.GatewayAccountId != null &&
                     this.GatewayAccountId.Equals(other.GatewayAccountId)
+                ) && 
+                (
+                    this.GatewayDisplayName == other.GatewayDisplayName ||
+                    this.GatewayDisplayName != null &&
+                    this.GatewayDisplayName.Equals(other.GatewayDisplayName)
                 ) && 
                 (
                     this.GatewayName == other.GatewayName ||
@@ -201,12 +229,16 @@ namespace DocuSign.Core.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.AllowedPaymentMethods != null)
+                    hash = hash * 59 + this.AllowedPaymentMethods.GetHashCode();
                 if (this.ChargeId != null)
                     hash = hash * 59 + this.ChargeId.GetHashCode();
                 if (this.CurrencyCode != null)
                     hash = hash * 59 + this.CurrencyCode.GetHashCode();
                 if (this.GatewayAccountId != null)
                     hash = hash * 59 + this.GatewayAccountId.GetHashCode();
+                if (this.GatewayDisplayName != null)
+                    hash = hash * 59 + this.GatewayDisplayName.GetHashCode();
                 if (this.GatewayName != null)
                     hash = hash * 59 + this.GatewayName.GetHashCode();
                 if (this.LineItems != null)

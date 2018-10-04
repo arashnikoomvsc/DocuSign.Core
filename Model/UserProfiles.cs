@@ -50,10 +50,10 @@ namespace DocuSign.Core.Model
         /// <param name="DisplayProfile">When set to **true**, the user&#39;s ID card can be viewed from signed documents and envelope history..</param>
         /// <param name="DisplayUsageHistory">When set to **true**, the user&#39;s usage information is shown on the ID card..</param>
         /// <param name="ProfileImageUri">.</param>
-        /// <param name="Title">The title of the user..</param>
+        /// <param name="Title">The user&#39;s job title.  Limit 100 characters..</param>
         /// <param name="UsageHistory">A complex element consisting of:   * lastSentDateTime - the date and time the user last sent an envelope.  * lastSignedDateTime - the date and time the user last signed an envelope. * sentCount - the number of envelopes the user has sent. * signedCount - the number of envelopes the user has signed.  .</param>
         /// <param name="UserDetails">.</param>
-        /// <param name="UserProfileLastModifiedDate">.</param>
+        /// <param name="UserProfileLastModifiedDate">The date-time when the user&#39;s profile was last modified..</param>
         public UserProfiles(AddressInformationV2 Address = null, List<AuthenticationMethod> AuthenticationMethods = null, string CompanyName = null, string DisplayOrganizationInfo = null, string DisplayPersonalInfo = null, string DisplayProfile = null, string DisplayUsageHistory = null, string ProfileImageUri = null, string Title = null, UsageHistory UsageHistory = null, Users UserDetails = null, string UserProfileLastModifiedDate = null)
         {
             this.Address = Address;
@@ -119,9 +119,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="profileImageUri", EmitDefaultValue=false)]
         public string ProfileImageUri { get; set; }
         /// <summary>
-        /// The title of the user.
+        /// The user&#39;s job title.  Limit 100 characters.
         /// </summary>
-        /// <value>The title of the user.</value>
+        /// <value>The user&#39;s job title.  Limit 100 characters.</value>
         [DataMember(Name="title", EmitDefaultValue=false)]
         public string Title { get; set; }
         /// <summary>
@@ -137,9 +137,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="userDetails", EmitDefaultValue=false)]
         public Users UserDetails { get; set; }
         /// <summary>
-        /// 
+        /// The date-time when the user&#39;s profile was last modified.
         /// </summary>
-        /// <value></value>
+        /// <value>The date-time when the user&#39;s profile was last modified.</value>
         [DataMember(Name="userProfileLastModifiedDate", EmitDefaultValue=false)]
         public string UserProfileLastModifiedDate { get; set; }
         /// <summary>

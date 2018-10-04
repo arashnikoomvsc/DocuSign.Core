@@ -57,12 +57,10 @@ namespace DocuSign.Core.Model
         /// <param name="ErrorDetails">.</param>
         /// <param name="FaxNumber">Reserved:.</param>
         /// <param name="HostRecipientId">.</param>
-        /// <param name="IdCheckConfigurationName">Specifies authentication check by name. The names used here must be the same as the authentication type names used by the account (these name can also be found in the web console sending interface in the Identify list for a recipient,) This overrides any default authentication setting.  *Example*: Your account has ID Check and SMS Authentication available and in the web console Identify list these appear as &#39;ID Check $&#39; and &#39;SMS Auth $&#39;. To use ID check in an envelope, the idCheckConfigurationName should be &#39;ID Check &#39;. If you wanted to use SMS, it would be &#39;SMS Auth $&#39; and you would need to add you would need to add phone number information to the &#x60;smsAuthentication&#x60; node..</param>
+        /// <param name="IdCheckConfigurationName">Specifies authentication check by name. The names used here must be the same as the authentication type names used by the account. These names can also be found in the web console sending interface in the Identify list for a recipient. This setting overrides any default authentication setting.  *Example*: Your account has ID Check and SMS Authentication available and in the web console Identify list these appear as &#x60;ID Check $&#x60; and &#x60;SMS Auth $&#x60;. To use ID check in an envelope, the &#x60;idCheckConfigurationName&#x60; should be &#x60;ID Check $&#x60;. If you wanted to use SMS, it would be &#x60;SMS Auth $&#x60; and you would need to add phone number information to the &#x60;smsAuthentication&#x60; node..</param>
         /// <param name="IdCheckInformationInput">A complex element that contains input information related to a recipient ID check. It can include the following information.  addressInformationInput: Used to set recipient address information and consists of:  * addressInformation: consists of six elements, with stree2 and zipPlus4 being optional. The elements are: street1, street2, city, state, zip, zipPlus4. The maximum length of each element is: street1/street2 &#x3D; 150 characters, city &#x3D; 50 characters, state &#x3D; 2 characters, and zip/zipPlus4 &#x3D; 20 characters. * displayLevelCode: Specifies the display level for the recipient. Values are: ReadOnly, Editable, or DoNotDisplay. * receiveInResponse: A Boolean element that specifies if the information needs to be returned in the response.  dobInformationInput: Used to set recipient date of birth information and consists of:  * dateOfBirth: Specifies the recipient&#39;s date, month and year of birth. * displayLevelCode: Specifies the display level for the recipient. Values are: ReadOnly, Editable, or DoNotDisplay. * receiveInResponse: A Boolean element that specifies if the information needs to be returned in the response.  ssn4InformationInput: Used to set the last four digits of the recipient&#39;s SSN information and consists of:  * ssn4: Specifies the last four digits of the recipient&#39;s SSN. * displayLevelCode: Specifies the display level for the recipient. Values are: ReadOnly, Editable, or DoNotDisplay. * receiveInResponse: A Boolean element that specifies if the information needs to be returned in the response.  ssn9InformationInput: Used to set the recipient&#39;s SSN information. Note that the ssn9 information can never be returned in the response. The ssn9 input consists of:  * ssn9: Specifies the recipient&#39;s SSN. * displayLevelCode: Specifies the display level for the recipient. Values are: ReadOnly, Editable, or DoNotDisplay.  .</param>
         /// <param name="InheritEmailNotificationConfiguration">When set to **true** and the envelope recipient creates a DocuSign account after signing, the Manage Account Email Notification settings are used as the default settings for the recipient&#39;s account. .</param>
         /// <param name="Name">The notary&#39;s full legal name.  Maximum Length: 100 characters. .</param>
-        /// <param name="NotaryEmailMetadata">.</param>
-        /// <param name="NotaryNameMetadata">.</param>
         /// <param name="Note">A note sent to the notary in the signing email. This note is visible only to this notary.  Maximum Length: 1000 characters. .</param>
         /// <param name="PhoneAuthentication">A complex type that Contains the elements:  * recipMayProvideNumber - Boolean. When set to **true**, the recipient can use whatever phone number they choose. * senderProvidedNumbers - ArrayOfString.  A list of phone numbers the recipient can use. * recordVoicePrint - Reserved. * validateRecipProvidedNumber - Reserved. .</param>
         /// <param name="RecipientAttachments">Reserved:.</param>
@@ -78,11 +76,12 @@ namespace DocuSign.Core.Model
         /// <param name="SmsAuthentication">Contains the element senderProvidedNumbers which is an Array  of phone numbers the recipient can use for SMS text authentication.  .</param>
         /// <param name="SocialAuthentications"> Lists the social ID type that can be used for recipient authentication..</param>
         /// <param name="Status">Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later..</param>
+        /// <param name="Tabs">.</param>
         /// <param name="TemplateLocked">When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. .</param>
         /// <param name="TemplateRequired">When set to **true**, the sender may not remove the recipient. Used only when working with template recipients..</param>
         /// <param name="TotalTabCount">.</param>
         /// <param name="UserId">The user ID of the user being accessed. Generally this is the user ID of the authenticated user, but if the authenticated user is an Admin on the account, this may be another user the Admin user is accessing..</param>
-        public NotaryHost(string AccessCode = null, string AddAccessCodeToEmail = null, string ClientUserId = null, List<string> CustomFields = null, string DeclinedDateTime = null, string DeclinedReason = null, string DeliveredDateTime = null, string DeliveryMethod = null, List<DocumentVisibility> DocumentVisibility = null, string Email = null, RecipientEmailNotification EmailNotification = null, string EmbeddedRecipientStartURL = null, ErrorDetails ErrorDetails = null, string FaxNumber = null, string HostRecipientId = null, string IdCheckConfigurationName = null, IdCheckInformationInput IdCheckInformationInput = null, string InheritEmailNotificationConfiguration = null, string Name = null, PropertyMetadata NotaryEmailMetadata = null, PropertyMetadata NotaryNameMetadata = null, string Note = null, RecipientPhoneAuthentication PhoneAuthentication = null, List<RecipientAttachment> RecipientAttachments = null, AuthenticationStatus RecipientAuthenticationStatus = null, string RecipientId = null, string RecipientIdGuid = null, string RequireIdLookup = null, string RoleName = null, string RoutingOrder = null, RecipientSAMLAuthentication SamlAuthentication = null, string SentDateTime = null, string SignedDateTime = null, RecipientSMSAuthentication SmsAuthentication = null, List<SocialAuthentication> SocialAuthentications = null, string Status = null, string TemplateLocked = null, string TemplateRequired = null, string TotalTabCount = null, string UserId = null)
+        public NotaryHost(string AccessCode = null, string AddAccessCodeToEmail = null, string ClientUserId = null, List<string> CustomFields = null, string DeclinedDateTime = null, string DeclinedReason = null, string DeliveredDateTime = null, string DeliveryMethod = null, List<DocumentVisibility> DocumentVisibility = null, string Email = null, RecipientEmailNotification EmailNotification = null, string EmbeddedRecipientStartURL = null, ErrorDetails ErrorDetails = null, string FaxNumber = null, string HostRecipientId = null, string IdCheckConfigurationName = null, IdCheckInformationInput IdCheckInformationInput = null, string InheritEmailNotificationConfiguration = null, string Name = null, string Note = null, RecipientPhoneAuthentication PhoneAuthentication = null, List<RecipientAttachment> RecipientAttachments = null, AuthenticationStatus RecipientAuthenticationStatus = null, string RecipientId = null, string RecipientIdGuid = null, string RequireIdLookup = null, string RoleName = null, string RoutingOrder = null, RecipientSAMLAuthentication SamlAuthentication = null, string SentDateTime = null, string SignedDateTime = null, RecipientSMSAuthentication SmsAuthentication = null, List<SocialAuthentication> SocialAuthentications = null, string Status = null, EnvelopeRecipientTabs Tabs = null, string TemplateLocked = null, string TemplateRequired = null, string TotalTabCount = null, string UserId = null)
         {
             this.AccessCode = AccessCode;
             this.AddAccessCodeToEmail = AddAccessCodeToEmail;
@@ -103,8 +102,6 @@ namespace DocuSign.Core.Model
             this.IdCheckInformationInput = IdCheckInformationInput;
             this.InheritEmailNotificationConfiguration = InheritEmailNotificationConfiguration;
             this.Name = Name;
-            this.NotaryEmailMetadata = NotaryEmailMetadata;
-            this.NotaryNameMetadata = NotaryNameMetadata;
             this.Note = Note;
             this.PhoneAuthentication = PhoneAuthentication;
             this.RecipientAttachments = RecipientAttachments;
@@ -120,6 +117,7 @@ namespace DocuSign.Core.Model
             this.SmsAuthentication = SmsAuthentication;
             this.SocialAuthentications = SocialAuthentications;
             this.Status = Status;
+            this.Tabs = Tabs;
             this.TemplateLocked = TemplateLocked;
             this.TemplateRequired = TemplateRequired;
             this.TotalTabCount = TotalTabCount;
@@ -217,9 +215,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="hostRecipientId", EmitDefaultValue=false)]
         public string HostRecipientId { get; set; }
         /// <summary>
-        /// Specifies authentication check by name. The names used here must be the same as the authentication type names used by the account (these name can also be found in the web console sending interface in the Identify list for a recipient,) This overrides any default authentication setting.  *Example*: Your account has ID Check and SMS Authentication available and in the web console Identify list these appear as &#39;ID Check $&#39; and &#39;SMS Auth $&#39;. To use ID check in an envelope, the idCheckConfigurationName should be &#39;ID Check &#39;. If you wanted to use SMS, it would be &#39;SMS Auth $&#39; and you would need to add you would need to add phone number information to the &#x60;smsAuthentication&#x60; node.
+        /// Specifies authentication check by name. The names used here must be the same as the authentication type names used by the account. These names can also be found in the web console sending interface in the Identify list for a recipient. This setting overrides any default authentication setting.  *Example*: Your account has ID Check and SMS Authentication available and in the web console Identify list these appear as &#x60;ID Check $&#x60; and &#x60;SMS Auth $&#x60;. To use ID check in an envelope, the &#x60;idCheckConfigurationName&#x60; should be &#x60;ID Check $&#x60;. If you wanted to use SMS, it would be &#x60;SMS Auth $&#x60; and you would need to add phone number information to the &#x60;smsAuthentication&#x60; node.
         /// </summary>
-        /// <value>Specifies authentication check by name. The names used here must be the same as the authentication type names used by the account (these name can also be found in the web console sending interface in the Identify list for a recipient,) This overrides any default authentication setting.  *Example*: Your account has ID Check and SMS Authentication available and in the web console Identify list these appear as &#39;ID Check $&#39; and &#39;SMS Auth $&#39;. To use ID check in an envelope, the idCheckConfigurationName should be &#39;ID Check &#39;. If you wanted to use SMS, it would be &#39;SMS Auth $&#39; and you would need to add you would need to add phone number information to the &#x60;smsAuthentication&#x60; node.</value>
+        /// <value>Specifies authentication check by name. The names used here must be the same as the authentication type names used by the account. These names can also be found in the web console sending interface in the Identify list for a recipient. This setting overrides any default authentication setting.  *Example*: Your account has ID Check and SMS Authentication available and in the web console Identify list these appear as &#x60;ID Check $&#x60; and &#x60;SMS Auth $&#x60;. To use ID check in an envelope, the &#x60;idCheckConfigurationName&#x60; should be &#x60;ID Check $&#x60;. If you wanted to use SMS, it would be &#x60;SMS Auth $&#x60; and you would need to add phone number information to the &#x60;smsAuthentication&#x60; node.</value>
         [DataMember(Name="idCheckConfigurationName", EmitDefaultValue=false)]
         public string IdCheckConfigurationName { get; set; }
         /// <summary>
@@ -240,18 +238,6 @@ namespace DocuSign.Core.Model
         /// <value>The notary&#39;s full legal name.  Maximum Length: 100 characters. </value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <value></value>
-        [DataMember(Name="notaryEmailMetadata", EmitDefaultValue=false)]
-        public PropertyMetadata NotaryEmailMetadata { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <value></value>
-        [DataMember(Name="notaryNameMetadata", EmitDefaultValue=false)]
-        public PropertyMetadata NotaryNameMetadata { get; set; }
         /// <summary>
         /// A note sent to the notary in the signing email. This note is visible only to this notary.  Maximum Length: 1000 characters. 
         /// </summary>
@@ -343,6 +329,12 @@ namespace DocuSign.Core.Model
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
         /// <summary>
+        /// 
+        /// </summary>
+        /// <value></value>
+        [DataMember(Name="tabs", EmitDefaultValue=false)]
+        public EnvelopeRecipientTabs Tabs { get; set; }
+        /// <summary>
         /// When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. 
         /// </summary>
         /// <value>When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. </value>
@@ -393,8 +385,6 @@ namespace DocuSign.Core.Model
             sb.Append("  IdCheckInformationInput: ").Append(IdCheckInformationInput).Append("\n");
             sb.Append("  InheritEmailNotificationConfiguration: ").Append(InheritEmailNotificationConfiguration).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  NotaryEmailMetadata: ").Append(NotaryEmailMetadata).Append("\n");
-            sb.Append("  NotaryNameMetadata: ").Append(NotaryNameMetadata).Append("\n");
             sb.Append("  Note: ").Append(Note).Append("\n");
             sb.Append("  PhoneAuthentication: ").Append(PhoneAuthentication).Append("\n");
             sb.Append("  RecipientAttachments: ").Append(RecipientAttachments).Append("\n");
@@ -410,6 +400,7 @@ namespace DocuSign.Core.Model
             sb.Append("  SmsAuthentication: ").Append(SmsAuthentication).Append("\n");
             sb.Append("  SocialAuthentications: ").Append(SocialAuthentications).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Tabs: ").Append(Tabs).Append("\n");
             sb.Append("  TemplateLocked: ").Append(TemplateLocked).Append("\n");
             sb.Append("  TemplateRequired: ").Append(TemplateRequired).Append("\n");
             sb.Append("  TotalTabCount: ").Append(TotalTabCount).Append("\n");
@@ -546,16 +537,6 @@ namespace DocuSign.Core.Model
                     this.Name.Equals(other.Name)
                 ) && 
                 (
-                    this.NotaryEmailMetadata == other.NotaryEmailMetadata ||
-                    this.NotaryEmailMetadata != null &&
-                    this.NotaryEmailMetadata.Equals(other.NotaryEmailMetadata)
-                ) && 
-                (
-                    this.NotaryNameMetadata == other.NotaryNameMetadata ||
-                    this.NotaryNameMetadata != null &&
-                    this.NotaryNameMetadata.Equals(other.NotaryNameMetadata)
-                ) && 
-                (
                     this.Note == other.Note ||
                     this.Note != null &&
                     this.Note.Equals(other.Note)
@@ -631,6 +612,11 @@ namespace DocuSign.Core.Model
                     this.Status.Equals(other.Status)
                 ) && 
                 (
+                    this.Tabs == other.Tabs ||
+                    this.Tabs != null &&
+                    this.Tabs.Equals(other.Tabs)
+                ) && 
+                (
                     this.TemplateLocked == other.TemplateLocked ||
                     this.TemplateLocked != null &&
                     this.TemplateLocked.Equals(other.TemplateLocked)
@@ -701,10 +687,6 @@ namespace DocuSign.Core.Model
                     hash = hash * 59 + this.InheritEmailNotificationConfiguration.GetHashCode();
                 if (this.Name != null)
                     hash = hash * 59 + this.Name.GetHashCode();
-                if (this.NotaryEmailMetadata != null)
-                    hash = hash * 59 + this.NotaryEmailMetadata.GetHashCode();
-                if (this.NotaryNameMetadata != null)
-                    hash = hash * 59 + this.NotaryNameMetadata.GetHashCode();
                 if (this.Note != null)
                     hash = hash * 59 + this.Note.GetHashCode();
                 if (this.PhoneAuthentication != null)
@@ -735,6 +717,8 @@ namespace DocuSign.Core.Model
                     hash = hash * 59 + this.SocialAuthentications.GetHashCode();
                 if (this.Status != null)
                     hash = hash * 59 + this.Status.GetHashCode();
+                if (this.Tabs != null)
+                    hash = hash * 59 + this.Tabs.GetHashCode();
                 if (this.TemplateLocked != null)
                     hash = hash * 59 + this.TemplateLocked.GetHashCode();
                 if (this.TemplateRequired != null)

@@ -140,7 +140,7 @@ namespace DocuSign.Core.Api
         /// Add one or more attachments to a DRAFT or IN-PROCESS envelope.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Supported attachment formats include: .asp, .bmp, .csv, .doc, .docm, .docx, .dot, .dotm, .dotx, .gif, .htm, .html, .jpeg, .jpg, .msg, .pdf, .png, .pot, .potx, .pps, .ppt, .pptm, .pptx, .ps, .rtf, .tif, .tiff, .txt, .wpd, .xls, .xlsm, .xlsx, .xml, and .xps. For more information on supported file formats please see [Supported File Formats](https://support.docusign.com/guides/ndse-user-guide-supported-file-formats).
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -153,7 +153,7 @@ namespace DocuSign.Core.Api
         /// Add one or more attachments to a DRAFT or IN-PROCESS envelope.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Supported attachment formats include: .asp, .bmp, .csv, .doc, .docm, .docx, .dot, .dotm, .dotx, .gif, .htm, .html, .jpeg, .jpg, .msg, .pdf, .png, .pot, .potx, .pps, .ppt, .pptm, .pptx, .ps, .rtf, .tif, .tiff, .txt, .wpd, .xls, .xlsm, .xlsx, .xml, and .xps. For more information on supported file formats please see [Supported File Formats](https://support.docusign.com/guides/ndse-user-guide-supported-file-formats).
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -267,7 +267,7 @@ namespace DocuSign.Core.Api
         /// Add one or more attachments to a DRAFT or IN-PROCESS envelope.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Supported attachment formats include: .asp, .bmp, .csv, .doc, .docm, .docx, .dot, .dotm, .dotx, .gif, .htm, .html, .jpeg, .jpg, .msg, .pdf, .png, .pot, .potx, .pps, .ppt, .pptm, .pptx, .ps, .rtf, .tif, .tiff, .txt, .wpd, .xls, .xlsm, .xlsx, .xml, and .xps. For more information on supported file formats please see [Supported File Formats](https://support.docusign.com/guides/ndse-user-guide-supported-file-formats).
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -280,7 +280,7 @@ namespace DocuSign.Core.Api
         /// Add one or more attachments to a DRAFT or IN-PROCESS envelope.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Supported attachment formats include: .asp, .bmp, .csv, .doc, .docm, .docx, .dot, .dotm, .dotx, .gif, .htm, .html, .jpeg, .jpg, .msg, .pdf, .png, .pot, .potx, .pps, .ppt, .pptm, .pptx, .ps, .rtf, .tif, .tiff, .txt, .wpd, .xls, .xlsm, .xlsx, .xml, and .xps. For more information on supported file formats please see [Supported File Formats](https://support.docusign.com/guides/ndse-user-guide-supported-file-formats).
         /// </remarks>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -1075,7 +1075,7 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Add one or more attachments to a DRAFT or IN-PROCESS envelope. 
+        /// Add one or more attachments to a DRAFT or IN-PROCESS envelope. Supported attachment formats include: .asp, .bmp, .csv, .doc, .docm, .docx, .dot, .dotm, .dotx, .gif, .htm, .html, .jpeg, .jpg, .msg, .pdf, .png, .pot, .potx, .pps, .ppt, .pptm, .pptx, .ps, .rtf, .tif, .tiff, .txt, .wpd, .xls, .xlsm, .xlsx, .xml, and .xps. For more information on supported file formats please see [Supported File Formats](https://support.docusign.com/guides/ndse-user-guide-supported-file-formats).
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -1089,7 +1089,7 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Add one or more attachments to a DRAFT or IN-PROCESS envelope. 
+        /// Add one or more attachments to a DRAFT or IN-PROCESS envelope. Supported attachment formats include: .asp, .bmp, .csv, .doc, .docm, .docx, .dot, .dotm, .dotx, .gif, .htm, .html, .jpeg, .jpg, .msg, .pdf, .png, .pot, .potx, .pps, .ppt, .pptm, .pptx, .ps, .rtf, .tif, .tiff, .txt, .wpd, .xls, .xlsm, .xlsx, .xml, and .xps. For more information on supported file formats please see [Supported File Formats](https://support.docusign.com/guides/ndse-user-guide-supported-file-formats).
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -1161,7 +1161,7 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Add one or more attachments to a DRAFT or IN-PROCESS envelope. 
+        /// Add one or more attachments to a DRAFT or IN-PROCESS envelope. Supported attachment formats include: .asp, .bmp, .csv, .doc, .docm, .docx, .dot, .dotm, .dotx, .gif, .htm, .html, .jpeg, .jpg, .msg, .pdf, .png, .pot, .potx, .pps, .ppt, .pptm, .pptx, .ps, .rtf, .tif, .tiff, .txt, .wpd, .xls, .xlsm, .xlsx, .xml, and .xps. For more information on supported file formats please see [Supported File Formats](https://support.docusign.com/guides/ndse-user-guide-supported-file-formats).
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
@@ -1176,7 +1176,7 @@ namespace DocuSign.Core.Api
         }
 
         /// <summary>
-        /// Add one or more attachments to a DRAFT or IN-PROCESS envelope. 
+        /// Add one or more attachments to a DRAFT or IN-PROCESS envelope. Supported attachment formats include: .asp, .bmp, .csv, .doc, .docm, .docx, .dot, .dotm, .dotx, .gif, .htm, .html, .jpeg, .jpg, .msg, .pdf, .png, .pot, .potx, .pps, .ppt, .pptm, .pptx, .ps, .rtf, .tif, .tiff, .txt, .wpd, .xls, .xlsm, .xlsx, .xml, and .xps. For more information on supported file formats please see [Supported File Formats](https://support.docusign.com/guides/ndse-user-guide-supported-file-formats).
         /// </summary>
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>

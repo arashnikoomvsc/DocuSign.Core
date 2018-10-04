@@ -45,10 +45,11 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="powerFormId"></param>
+        /// <param name="dataLayout"> (optional)</param>
         /// <param name="fromDate">Start of the search date range. Only returns templates created on or after this date/time. If no value is specified, there is no limit on the earliest date created. (optional)</param>
         /// <param name="toDate">End of the search date range. Only returns templates created up to this date/time. If no value is provided, this defaults to the current date. (optional)</param>
         /// <returns>PowerFormsFormDataResponse</returns>
-        PowerFormsFormDataResponse PowerFormsGetPowerFormFormData (string accountId, string powerFormId, string fromDate = null, string toDate = null);
+        PowerFormsFormDataResponse PowerFormsGetPowerFormFormData (string accountId, string powerFormId, string dataLayout = null, string fromDate = null, string toDate = null);
 
         /// <summary>
         /// Returns the form data associated with the usage of a PowerForm.
@@ -59,10 +60,11 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="powerFormId"></param>
+        /// <param name="dataLayout"> (optional)</param>
         /// <param name="fromDate">Start of the search date range. Only returns templates created on or after this date/time. If no value is specified, there is no limit on the earliest date created. (optional)</param>
         /// <param name="toDate">End of the search date range. Only returns templates created up to this date/time. If no value is provided, this defaults to the current date. (optional)</param>
         /// <returns>ApiResponse of PowerFormsFormDataResponse</returns>
-        ApiResponse<PowerFormsFormDataResponse> PowerFormsGetPowerFormFormDataWithHttpInfo (string accountId, string powerFormId, string fromDate = null, string toDate = null);
+        ApiResponse<PowerFormsFormDataResponse> PowerFormsGetPowerFormFormDataWithHttpInfo (string accountId, string powerFormId, string dataLayout = null, string fromDate = null, string toDate = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -74,10 +76,11 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="powerFormId"></param>
+        /// <param name="dataLayout"> (optional)</param>
         /// <param name="fromDate">Start of the search date range. Only returns templates created on or after this date/time. If no value is specified, there is no limit on the earliest date created. (optional)</param>
         /// <param name="toDate">End of the search date range. Only returns templates created up to this date/time. If no value is provided, this defaults to the current date. (optional)</param>
         /// <returns>Task of PowerFormsFormDataResponse</returns>
-        System.Threading.Tasks.Task<PowerFormsFormDataResponse> PowerFormsGetPowerFormFormDataAsync (string accountId, string powerFormId, string fromDate = null, string toDate = null);
+        System.Threading.Tasks.Task<PowerFormsFormDataResponse> PowerFormsGetPowerFormFormDataAsync (string accountId, string powerFormId, string dataLayout = null, string fromDate = null, string toDate = null);
 
         /// <summary>
         /// Returns the form data associated with the usage of a PowerForm.
@@ -88,10 +91,11 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="powerFormId"></param>
+        /// <param name="dataLayout"> (optional)</param>
         /// <param name="fromDate">Start of the search date range. Only returns templates created on or after this date/time. If no value is specified, there is no limit on the earliest date created. (optional)</param>
         /// <param name="toDate">End of the search date range. Only returns templates created up to this date/time. If no value is provided, this defaults to the current date. (optional)</param>
         /// <returns>Task of ApiResponse (PowerFormsFormDataResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PowerFormsFormDataResponse>> PowerFormsGetPowerFormFormDataAsyncWithHttpInfo (string accountId, string powerFormId, string fromDate = null, string toDate = null);
+        System.Threading.Tasks.Task<ApiResponse<PowerFormsFormDataResponse>> PowerFormsGetPowerFormFormDataAsyncWithHttpInfo (string accountId, string powerFormId, string dataLayout = null, string fromDate = null, string toDate = null);
         #endregion Asynchronous Operations
     }
 
@@ -210,12 +214,13 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="powerFormId"></param>
+        /// <param name="dataLayout"> (optional)</param>
         /// <param name="fromDate">Start of the search date range. Only returns templates created on or after this date/time. If no value is specified, there is no limit on the earliest date created. (optional)</param>
         /// <param name="toDate">End of the search date range. Only returns templates created up to this date/time. If no value is provided, this defaults to the current date. (optional)</param>
         /// <returns>PowerFormsFormDataResponse</returns>
-        public PowerFormsFormDataResponse PowerFormsGetPowerFormFormData (string accountId, string powerFormId, string fromDate = null, string toDate = null)
+        public PowerFormsFormDataResponse PowerFormsGetPowerFormFormData (string accountId, string powerFormId, string dataLayout = null, string fromDate = null, string toDate = null)
         {
-             ApiResponse<PowerFormsFormDataResponse> localVarResponse = PowerFormsGetPowerFormFormDataWithHttpInfo(accountId, powerFormId, fromDate, toDate);
+             ApiResponse<PowerFormsFormDataResponse> localVarResponse = PowerFormsGetPowerFormFormDataWithHttpInfo(accountId, powerFormId, dataLayout, fromDate, toDate);
              return localVarResponse.Data;
         }
 
@@ -225,10 +230,11 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="powerFormId"></param>
+        /// <param name="dataLayout"> (optional)</param>
         /// <param name="fromDate">Start of the search date range. Only returns templates created on or after this date/time. If no value is specified, there is no limit on the earliest date created. (optional)</param>
         /// <param name="toDate">End of the search date range. Only returns templates created up to this date/time. If no value is provided, this defaults to the current date. (optional)</param>
         /// <returns>ApiResponse of PowerFormsFormDataResponse</returns>
-        public ApiResponse< PowerFormsFormDataResponse > PowerFormsGetPowerFormFormDataWithHttpInfo (string accountId, string powerFormId, string fromDate = null, string toDate = null)
+        public ApiResponse< PowerFormsFormDataResponse > PowerFormsGetPowerFormFormDataWithHttpInfo (string accountId, string powerFormId, string dataLayout = null, string fromDate = null, string toDate = null)
         {
             // verify the required parameter 'accountId' is set
             if (accountId == null)
@@ -263,6 +269,7 @@ namespace DocuSign.Core.Api
             localVarPathParams.Add("format", "json");
             if (accountId != null) localVarPathParams.Add("accountId", Configuration.ApiClient.ParameterToString(accountId)); // path parameter
             if (powerFormId != null) localVarPathParams.Add("powerFormId", Configuration.ApiClient.ParameterToString(powerFormId)); // path parameter
+            if (dataLayout != null) localVarQueryParams.Add("data_layout", Configuration.ApiClient.ParameterToString(dataLayout)); // query parameter
             if (fromDate != null) localVarQueryParams.Add("from_date", Configuration.ApiClient.ParameterToString(fromDate)); // query parameter
             if (toDate != null) localVarQueryParams.Add("to_date", Configuration.ApiClient.ParameterToString(toDate)); // query parameter
 
@@ -292,12 +299,13 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="powerFormId"></param>
+        /// <param name="dataLayout"> (optional)</param>
         /// <param name="fromDate">Start of the search date range. Only returns templates created on or after this date/time. If no value is specified, there is no limit on the earliest date created. (optional)</param>
         /// <param name="toDate">End of the search date range. Only returns templates created up to this date/time. If no value is provided, this defaults to the current date. (optional)</param>
         /// <returns>Task of PowerFormsFormDataResponse</returns>
-        public async System.Threading.Tasks.Task<PowerFormsFormDataResponse> PowerFormsGetPowerFormFormDataAsync (string accountId, string powerFormId, string fromDate = null, string toDate = null)
+        public async System.Threading.Tasks.Task<PowerFormsFormDataResponse> PowerFormsGetPowerFormFormDataAsync (string accountId, string powerFormId, string dataLayout = null, string fromDate = null, string toDate = null)
         {
-             ApiResponse<PowerFormsFormDataResponse> localVarResponse = await PowerFormsGetPowerFormFormDataAsyncWithHttpInfo(accountId, powerFormId, fromDate, toDate);
+             ApiResponse<PowerFormsFormDataResponse> localVarResponse = await PowerFormsGetPowerFormFormDataAsyncWithHttpInfo(accountId, powerFormId, dataLayout, fromDate, toDate);
              return localVarResponse.Data;
 
         }
@@ -308,10 +316,11 @@ namespace DocuSign.Core.Api
         /// <exception cref="DocuSign.Core.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The external account number (int) or account ID Guid.</param>
         /// <param name="powerFormId"></param>
+        /// <param name="dataLayout"> (optional)</param>
         /// <param name="fromDate">Start of the search date range. Only returns templates created on or after this date/time. If no value is specified, there is no limit on the earliest date created. (optional)</param>
         /// <param name="toDate">End of the search date range. Only returns templates created up to this date/time. If no value is provided, this defaults to the current date. (optional)</param>
         /// <returns>Task of ApiResponse (PowerFormsFormDataResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<PowerFormsFormDataResponse>> PowerFormsGetPowerFormFormDataAsyncWithHttpInfo (string accountId, string powerFormId, string fromDate = null, string toDate = null)
+        public async System.Threading.Tasks.Task<ApiResponse<PowerFormsFormDataResponse>> PowerFormsGetPowerFormFormDataAsyncWithHttpInfo (string accountId, string powerFormId, string dataLayout = null, string fromDate = null, string toDate = null)
         {
             // verify the required parameter 'accountId' is set
             if (accountId == null)
@@ -346,6 +355,7 @@ namespace DocuSign.Core.Api
             localVarPathParams.Add("format", "json");
             if (accountId != null) localVarPathParams.Add("accountId", Configuration.ApiClient.ParameterToString(accountId)); // path parameter
             if (powerFormId != null) localVarPathParams.Add("powerFormId", Configuration.ApiClient.ParameterToString(powerFormId)); // path parameter
+            if (dataLayout != null) localVarQueryParams.Add("data_layout", Configuration.ApiClient.ParameterToString(dataLayout)); // query parameter
             if (fromDate != null) localVarQueryParams.Add("from_date", Configuration.ApiClient.ParameterToString(fromDate)); // query parameter
             if (toDate != null) localVarQueryParams.Add("to_date", Configuration.ApiClient.ParameterToString(toDate)); // query parameter
 

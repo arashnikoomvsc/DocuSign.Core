@@ -34,7 +34,7 @@ using Newtonsoft.Json.Converters;
 namespace DocuSign.Core.Model
 {
     /// <summary>
-    /// 
+    /// One of the selectable items in the &#x60;listItems&#x60; property of a [&#x60;list&#x60;](/esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/list) tab.
     /// </summary>
     [DataContract]
     public partial class ListItem :  IEquatable<ListItem>

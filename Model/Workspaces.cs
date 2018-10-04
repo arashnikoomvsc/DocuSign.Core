@@ -47,7 +47,7 @@ namespace DocuSign.Core.Model
         /// <param name="CreatedByInformation">.</param>
         /// <param name="LastModified">Utc date and time the comment was last updated (can only be done by creator.).</param>
         /// <param name="LastModifiedByInformation">.</param>
-        /// <param name="Status">Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later..</param>
+        /// <param name="Status">Item status. &lt;!- - TODO - -&gt;.</param>
         /// <param name="WorkspaceBaseUrl">The relative URL that may be used to access the workspace..</param>
         /// <param name="WorkspaceDescription">Text describing the purpose of the workspace..</param>
         /// <param name="WorkspaceId">The id of the workspace, always populated..</param>
@@ -99,9 +99,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="lastModifiedByInformation", EmitDefaultValue=false)]
         public WorkspaceUser LastModifiedByInformation { get; set; }
         /// <summary>
-        /// Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later.
+        /// Item status. &lt;!- - TODO - -&gt;
         /// </summary>
-        /// <value>Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later.</value>
+        /// <value>Item status. &lt;!- - TODO - -&gt;</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
         /// <summary>

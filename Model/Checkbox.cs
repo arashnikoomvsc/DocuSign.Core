@@ -34,7 +34,7 @@ using Newtonsoft.Json.Converters;
 namespace DocuSign.Core.Model
 {
     /// <summary>
-    /// 
+    /// A tab that allows the recipient to select a yes/no (on/off) option. 
     /// </summary>
     [DataContract]
     public partial class Checkbox :  IEquatable<Checkbox>
@@ -46,7 +46,7 @@ namespace DocuSign.Core.Model
         /// <param name="AnchorHorizontalAlignment">Reserved for DocuSign. &lt;!- - Specifies the alignment of anchor tabs with anchor strings. Possible values are **left** or **right**. The default value is **left**. - -&gt; .</param>
         /// <param name="AnchorIgnoreIfNotPresent">When set to **true**, this tab is ignored if anchorString is not found in the document..</param>
         /// <param name="AnchorMatchWholeWord">Reserved for DocuSign. &lt;!- - When set to **true**, the anchor string in this tab matches whole words only (strings embedded in other strings are ignored.) The default value is **true**. - -&gt; .</param>
-        /// <param name="AnchorString">Anchor text information for a radio button..</param>
+        /// <param name="AnchorString">Specifies the anchor string..</param>
         /// <param name="AnchorUnits">Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches..</param>
         /// <param name="AnchorXOffset">Specifies the X axis location of the tab, in achorUnits, relative to the anchorString..</param>
         /// <param name="AnchorYOffset">Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString..</param>
@@ -60,14 +60,14 @@ namespace DocuSign.Core.Model
         /// <param name="Name">Specifies the tool tip text for the tab..</param>
         /// <param name="PageNumber">Specifies the page number on which the tab is located. Must be 1 for [supplemental documents][supdocs].  [supdocs]: /esign/guide/appendix/glossary.html#supplemental-documents .</param>
         /// <param name="RecipientId">Unique for the recipient. It is used by the tab element to indicate which recipient is to sign the Document..</param>
-        /// <param name="Required">When set to **true**, the signer is required to fill out this tab.</param>
+        /// <param name="Required">This property does not apply to &#x60;checkbox&#x60; tabs. Check boxes are always optional..</param>
         /// <param name="RequireInitialOnSharedChange">Optional element for field markup. When set to **true**, the signer is required to initial when they modify a shared field..</param>
         /// <param name="Selected">When set to **true**, the checkbox is selected..</param>
         /// <param name="Shared">When set to **true**, this custom tab is shared..</param>
-        /// <param name="Status">Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later..</param>
-        /// <param name="TabId">The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call].     .</param>
+        /// <param name="Status">Tab status &lt;!- - todo - -&gt; .</param>
+        /// <param name="TabId">The unique identifier for the tab..</param>
         /// <param name="TabLabel">The label string associated with the tab. The string may be the empty string. If no value is provided, the tab type is used as the value.  Maximum of 500 characters. .</param>
-        /// <param name="TabOrder">.</param>
+        /// <param name="TabOrder">A positive integer that sets the order the tab is navigated to during signing.  Tabs on a page are navigated to in ascending order, starting with the lowest number and moving to the highest. If two or more tabs have the same &#x60;tabOrder&#x60; value, the normal auto-navigation setting behavior for the envelope is used..</param>
         /// <param name="TemplateLocked">When set to **true**, the sender cannot change any attributes of the recipient. Used only when working with template recipients. .</param>
         /// <param name="TemplateRequired">When set to **true**, the sender may not remove the recipient. Used only when working with template recipients..</param>
         /// <param name="XPosition">This indicates the horizontal offset of the object on the page. DocuSign uses 72 DPI when determining position. Required. May be zero. .</param>
@@ -131,9 +131,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="anchorMatchWholeWord", EmitDefaultValue=false)]
         public string AnchorMatchWholeWord { get; set; }
         /// <summary>
-        /// Anchor text information for a radio button.
+        /// Specifies the anchor string.
         /// </summary>
-        /// <value>Anchor text information for a radio button.</value>
+        /// <value>Specifies the anchor string.</value>
         [DataMember(Name="anchorString", EmitDefaultValue=false)]
         public string AnchorString { get; set; }
         /// <summary>
@@ -215,9 +215,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="recipientId", EmitDefaultValue=false)]
         public string RecipientId { get; set; }
         /// <summary>
-        /// When set to **true**, the signer is required to fill out this tab
+        /// This property does not apply to &#x60;checkbox&#x60; tabs. Check boxes are always optional.
         /// </summary>
-        /// <value>When set to **true**, the signer is required to fill out this tab</value>
+        /// <value>This property does not apply to &#x60;checkbox&#x60; tabs. Check boxes are always optional.</value>
         [DataMember(Name="required", EmitDefaultValue=false)]
         public string Required { get; set; }
         /// <summary>
@@ -239,15 +239,15 @@ namespace DocuSign.Core.Model
         [DataMember(Name="shared", EmitDefaultValue=false)]
         public string Shared { get; set; }
         /// <summary>
-        /// Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later.
+        /// Tab status &lt;!- - todo - -&gt; 
         /// </summary>
-        /// <value>Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later.</value>
+        /// <value>Tab status &lt;!- - todo - -&gt; </value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
         /// <summary>
-        /// The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call].     
+        /// The unique identifier for the tab.
         /// </summary>
-        /// <value>The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call].     </value>
+        /// <value>The unique identifier for the tab.</value>
         [DataMember(Name="tabId", EmitDefaultValue=false)]
         public string TabId { get; set; }
         /// <summary>
@@ -257,9 +257,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="tabLabel", EmitDefaultValue=false)]
         public string TabLabel { get; set; }
         /// <summary>
-        /// 
+        /// A positive integer that sets the order the tab is navigated to during signing.  Tabs on a page are navigated to in ascending order, starting with the lowest number and moving to the highest. If two or more tabs have the same &#x60;tabOrder&#x60; value, the normal auto-navigation setting behavior for the envelope is used.
         /// </summary>
-        /// <value></value>
+        /// <value>A positive integer that sets the order the tab is navigated to during signing.  Tabs on a page are navigated to in ascending order, starting with the lowest number and moving to the highest. If two or more tabs have the same &#x60;tabOrder&#x60; value, the normal auto-navigation setting behavior for the envelope is used.</value>
         [DataMember(Name="tabOrder", EmitDefaultValue=false)]
         public string TabOrder { get; set; }
         /// <summary>

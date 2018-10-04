@@ -44,7 +44,7 @@ namespace DocuSign.Core.Model
         /// </summary>
         /// <param name="ErrorDetails">.</param>
         /// <param name="GroupId">The DocuSign group ID for the group..</param>
-        /// <param name="GroupName">The name of the group..</param>
+        /// <param name="GroupName">The name of the group. The search_text provided in the call automatically performs a wild card search on group_name..</param>
         /// <param name="GroupType">The group type..</param>
         /// <param name="PermissionProfileId">The ID of the permission profile associated with the group..</param>
         /// <param name="Users">.</param>
@@ -71,9 +71,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="groupId", EmitDefaultValue=false)]
         public string GroupId { get; set; }
         /// <summary>
-        /// The name of the group.
+        /// The name of the group. The search_text provided in the call automatically performs a wild card search on group_name.
         /// </summary>
-        /// <value>The name of the group.</value>
+        /// <value>The name of the group. The search_text provided in the call automatically performs a wild card search on group_name.</value>
         [DataMember(Name="groupName", EmitDefaultValue=false)]
         public string GroupName { get; set; }
         /// <summary>

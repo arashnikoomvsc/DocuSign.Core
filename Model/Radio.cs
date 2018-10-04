@@ -34,7 +34,7 @@ using Newtonsoft.Json.Converters;
 namespace DocuSign.Core.Model
 {
     /// <summary>
-    /// 
+    /// One of the selectable radio buttons in the &#x60;radios&#x60; property of a [&#x60;radioGroup&#x60;](/esign/restapi/Envelopes/EnvelopeRecipientTabs/create/#/definitions/radioGroup) tab. 
     /// </summary>
     [DataContract]
     public partial class Radio :  IEquatable<Radio>
@@ -46,7 +46,7 @@ namespace DocuSign.Core.Model
         /// <param name="AnchorHorizontalAlignment">Reserved for DocuSign. &lt;!- - Specifies the alignment of anchor tabs with anchor strings. Possible values are **left** or **right**. The default value is **left**. - -&gt; .</param>
         /// <param name="AnchorIgnoreIfNotPresent">When set to **true**, this tab is ignored if anchorString is not found in the document..</param>
         /// <param name="AnchorMatchWholeWord">Reserved for DocuSign. &lt;!- - When set to **true**, the anchor string in this tab matches whole words only (strings embedded in other strings are ignored.) The default value is **true**. - -&gt; .</param>
-        /// <param name="AnchorString">Anchor text information for a radio button..</param>
+        /// <param name="AnchorString">Specifies the anchor string..</param>
         /// <param name="AnchorUnits">Specifies units of the X and Y offset. Units could be pixels, millimeters, centimeters, or inches..</param>
         /// <param name="AnchorXOffset">Specifies the X axis location of the tab, in achorUnits, relative to the anchorString..</param>
         /// <param name="AnchorYOffset">Specifies the Y axis location of the tab, in achorUnits, relative to the anchorString..</param>
@@ -55,8 +55,8 @@ namespace DocuSign.Core.Model
         /// <param name="PageNumber">Specifies the page number on which the tab is located. Must be 1 for [supplemental documents][supdocs].  [supdocs]: /esign/guide/appendix/glossary.html#supplemental-documents .</param>
         /// <param name="Required">When set to **true**, the signer is required to fill out this tab.</param>
         /// <param name="Selected">When set to **true**, the radio button is selected..</param>
-        /// <param name="TabId">The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call].     .</param>
-        /// <param name="TabOrder">.</param>
+        /// <param name="TabId">The unique identifier for the tab..</param>
+        /// <param name="TabOrder">A positive integer that sets the order the tab is navigated to during signing.  Tabs on a page are navigated to in ascending order, starting with the lowest number and moving to the highest. If two or more tabs have the same &#x60;tabOrder&#x60; value, the normal auto-navigation setting behavior for the envelope is used..</param>
         /// <param name="Value">Specifies the value of the tab. .</param>
         /// <param name="XPosition">This indicates the horizontal offset of the object on the page. DocuSign uses 72 DPI when determining position. Required. May be zero. .</param>
         /// <param name="YPosition">This indicates the vertical offset of the object on the page. DocuSign uses 72 DPI when determining position..</param>
@@ -107,9 +107,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="anchorMatchWholeWord", EmitDefaultValue=false)]
         public string AnchorMatchWholeWord { get; set; }
         /// <summary>
-        /// Anchor text information for a radio button.
+        /// Specifies the anchor string.
         /// </summary>
-        /// <value>Anchor text information for a radio button.</value>
+        /// <value>Specifies the anchor string.</value>
         [DataMember(Name="anchorString", EmitDefaultValue=false)]
         public string AnchorString { get; set; }
         /// <summary>
@@ -161,15 +161,15 @@ namespace DocuSign.Core.Model
         [DataMember(Name="selected", EmitDefaultValue=false)]
         public string Selected { get; set; }
         /// <summary>
-        /// The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call].     
+        /// The unique identifier for the tab.
         /// </summary>
-        /// <value>The unique identifier for the tab. The tabid can be retrieved with the [ML:GET call].     </value>
+        /// <value>The unique identifier for the tab.</value>
         [DataMember(Name="tabId", EmitDefaultValue=false)]
         public string TabId { get; set; }
         /// <summary>
-        /// 
+        /// A positive integer that sets the order the tab is navigated to during signing.  Tabs on a page are navigated to in ascending order, starting with the lowest number and moving to the highest. If two or more tabs have the same &#x60;tabOrder&#x60; value, the normal auto-navigation setting behavior for the envelope is used.
         /// </summary>
-        /// <value></value>
+        /// <value>A positive integer that sets the order the tab is navigated to during signing.  Tabs on a page are navigated to in ascending order, starting with the lowest number and moving to the highest. If two or more tabs have the same &#x60;tabOrder&#x60; value, the normal auto-navigation setting behavior for the envelope is used.</value>
         [DataMember(Name="tabOrder", EmitDefaultValue=false)]
         public string TabOrder { get; set; }
         /// <summary>

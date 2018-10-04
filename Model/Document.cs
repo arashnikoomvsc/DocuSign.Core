@@ -34,7 +34,7 @@ using Newtonsoft.Json.Converters;
 namespace DocuSign.Core.Model
 {
     /// <summary>
-    /// 
+    /// A document object.
     /// </summary>
     [DataContract]
     public partial class Document :  IEquatable<Document>
@@ -42,14 +42,15 @@ namespace DocuSign.Core.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Document" /> class.
         /// </summary>
-        /// <param name="ApplyAnchorTabs">Reserved: TBD.</param>
+        /// <param name="ApplyAnchorTabs">Reserved for DocuSign.</param>
+        /// <param name="AuthoritativeCopy">If **true**, this document is considered an authoritative copy.  If this property is not set, it gets its value from the envelope&#39;s &#x60;authoritativeCopyDefault&#x60; property if it&#39;s set, or the envelope&#39;s &#x60;authoritativeCopy&#x60; property.  If **false**, this document is not an authoritative copy regardless of the envelope&#39;s &#x60;authoritativeCopyDefault&#x60; or &#x60;authoritativeCopy&#x60; property..</param>
         /// <param name="Display">This string sets the display and behavior properties of the document during signing. The possible values are:  * &#x60;modal&#x60;&lt;br&gt;   The document is shown as a supplement action strip   and can be viewed, downloaded, or printed in a modal window.   This is the recommended value for supplemental documents.   * &#x60;download&#x60;&lt;br&gt;   The document is shown as a supplement action strip   and can be viewed, downloaded, or printed in a new browser window.   * &#x60;inline&#x60;&lt;br&gt;   The document is shown in the normal signing window.   This value is not used with supplemental documents,   but is the default value for all other documents. .</param>
         /// <param name="DocumentBase64">The document&#39;s bytes. This field can be used to include a base64 version of the document bytes within an envelope definition instead of sending the document using a multi-part HTTP request. The maximum document size is smaller if this field is used due to the overhead of the base64 encoding..</param>
         /// <param name="DocumentFields">.</param>
         /// <param name="DocumentGroup">.</param>
-        /// <param name="DocumentId">Specifies the document ID number that the tab is placed on. This must refer to an existing Document&#39;s ID attribute..</param>
+        /// <param name="DocumentId">Specifies the document ID of this document. This value is used by tabs to determine which document they appear in..</param>
         /// <param name="EncryptedWithKeyManager">When set to **true**, the document is been already encrypted by the sender for use with the DocuSign Key Manager Security Appliance.  .</param>
-        /// <param name="FileExtension">The file extension type of the document. If the document is not a PDF it is converted to a PDF.  .</param>
+        /// <param name="FileExtension">The file extension type of the document. Non-PDF documents are converted to PDF.  If the document is not a PDF, &#x60;fileExtension&#x60; is required.  If you try to upload a non-PDF document without a &#x60;fileExtension&#x60;, you will receive an \&quot;unable to load document\&quot; error message.    .</param>
         /// <param name="FileFormatHint">.</param>
         /// <param name="IncludeInDownload">When set to **true**, the document is included in the combined document download.  The default value is **true**. .</param>
         /// <param name="MatchBoxes">Matchboxes define areas in a document for document matching when you are creating envelopes. They are only used when you upload and edit a template.   A matchbox consists of 5 elements:  * pageNumber - The document page number  on which the matchbox will appear.  * xPosition - The x position of the matchbox on a page.  * yPosition - The y position of the matchbox on a page. * width - The width of the matchbox.  * height - The height of the matchbox.  .</param>
@@ -63,9 +64,10 @@ namespace DocuSign.Core.Model
         /// <param name="TemplateRequired">When set to **true**, the sender may not remove the recipient. Used only when working with template recipients..</param>
         /// <param name="TransformPdfFields">When set to **true**, PDF form field data is transformed into document tab values when the PDF form field name matches the DocuSign custom tab tabLabel. The resulting PDF form data is also returned in the PDF meta data when requesting the document PDF. See the [ML:Transform PDF Fields] section for more information about how fields are transformed into DocuSign tabs. .</param>
         /// <param name="Uri">.</param>
-        public Document(string ApplyAnchorTabs = null, string Display = null, string DocumentBase64 = null, List<NameValue> DocumentFields = null, string DocumentGroup = null, string DocumentId = null, string EncryptedWithKeyManager = null, string FileExtension = null, string FileFormatHint = null, string IncludeInDownload = null, List<MatchBox> MatchBoxes = null, string Name = null, string Order = null, string Pages = null, string Password = null, string RemoteUrl = null, string SignerMustAcknowledge = null, string TemplateLocked = null, string TemplateRequired = null, string TransformPdfFields = null, string Uri = null)
+        public Document(string ApplyAnchorTabs = null, bool? AuthoritativeCopy = null, string Display = null, string DocumentBase64 = null, List<NameValue> DocumentFields = null, string DocumentGroup = null, string DocumentId = null, string EncryptedWithKeyManager = null, string FileExtension = null, string FileFormatHint = null, string IncludeInDownload = null, List<MatchBox> MatchBoxes = null, string Name = null, string Order = null, string Pages = null, string Password = null, string RemoteUrl = null, string SignerMustAcknowledge = null, string TemplateLocked = null, string TemplateRequired = null, string TransformPdfFields = null, string Uri = null)
         {
             this.ApplyAnchorTabs = ApplyAnchorTabs;
+            this.AuthoritativeCopy = AuthoritativeCopy;
             this.Display = Display;
             this.DocumentBase64 = DocumentBase64;
             this.DocumentFields = DocumentFields;
@@ -89,11 +91,17 @@ namespace DocuSign.Core.Model
         }
         
         /// <summary>
-        /// Reserved: TBD
+        /// Reserved for DocuSign
         /// </summary>
-        /// <value>Reserved: TBD</value>
+        /// <value>Reserved for DocuSign</value>
         [DataMember(Name="applyAnchorTabs", EmitDefaultValue=false)]
         public string ApplyAnchorTabs { get; set; }
+        /// <summary>
+        /// If **true**, this document is considered an authoritative copy.  If this property is not set, it gets its value from the envelope&#39;s &#x60;authoritativeCopyDefault&#x60; property if it&#39;s set, or the envelope&#39;s &#x60;authoritativeCopy&#x60; property.  If **false**, this document is not an authoritative copy regardless of the envelope&#39;s &#x60;authoritativeCopyDefault&#x60; or &#x60;authoritativeCopy&#x60; property.
+        /// </summary>
+        /// <value>If **true**, this document is considered an authoritative copy.  If this property is not set, it gets its value from the envelope&#39;s &#x60;authoritativeCopyDefault&#x60; property if it&#39;s set, or the envelope&#39;s &#x60;authoritativeCopy&#x60; property.  If **false**, this document is not an authoritative copy regardless of the envelope&#39;s &#x60;authoritativeCopyDefault&#x60; or &#x60;authoritativeCopy&#x60; property.</value>
+        [DataMember(Name="authoritativeCopy", EmitDefaultValue=false)]
+        public bool? AuthoritativeCopy { get; set; }
         /// <summary>
         /// This string sets the display and behavior properties of the document during signing. The possible values are:  * &#x60;modal&#x60;&lt;br&gt;   The document is shown as a supplement action strip   and can be viewed, downloaded, or printed in a modal window.   This is the recommended value for supplemental documents.   * &#x60;download&#x60;&lt;br&gt;   The document is shown as a supplement action strip   and can be viewed, downloaded, or printed in a new browser window.   * &#x60;inline&#x60;&lt;br&gt;   The document is shown in the normal signing window.   This value is not used with supplemental documents,   but is the default value for all other documents. 
         /// </summary>
@@ -119,9 +127,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="documentGroup", EmitDefaultValue=false)]
         public string DocumentGroup { get; set; }
         /// <summary>
-        /// Specifies the document ID number that the tab is placed on. This must refer to an existing Document&#39;s ID attribute.
+        /// Specifies the document ID of this document. This value is used by tabs to determine which document they appear in.
         /// </summary>
-        /// <value>Specifies the document ID number that the tab is placed on. This must refer to an existing Document&#39;s ID attribute.</value>
+        /// <value>Specifies the document ID of this document. This value is used by tabs to determine which document they appear in.</value>
         [DataMember(Name="documentId", EmitDefaultValue=false)]
         public string DocumentId { get; set; }
         /// <summary>
@@ -131,9 +139,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="encryptedWithKeyManager", EmitDefaultValue=false)]
         public string EncryptedWithKeyManager { get; set; }
         /// <summary>
-        /// The file extension type of the document. If the document is not a PDF it is converted to a PDF.  
+        /// The file extension type of the document. Non-PDF documents are converted to PDF.  If the document is not a PDF, &#x60;fileExtension&#x60; is required.  If you try to upload a non-PDF document without a &#x60;fileExtension&#x60;, you will receive an \&quot;unable to load document\&quot; error message.    
         /// </summary>
-        /// <value>The file extension type of the document. If the document is not a PDF it is converted to a PDF.  </value>
+        /// <value>The file extension type of the document. Non-PDF documents are converted to PDF.  If the document is not a PDF, &#x60;fileExtension&#x60; is required.  If you try to upload a non-PDF document without a &#x60;fileExtension&#x60;, you will receive an \&quot;unable to load document\&quot; error message.    </value>
         [DataMember(Name="fileExtension", EmitDefaultValue=false)]
         public string FileExtension { get; set; }
         /// <summary>
@@ -223,6 +231,7 @@ namespace DocuSign.Core.Model
             var sb = new StringBuilder();
             sb.Append("class Document {\n");
             sb.Append("  ApplyAnchorTabs: ").Append(ApplyAnchorTabs).Append("\n");
+            sb.Append("  AuthoritativeCopy: ").Append(AuthoritativeCopy).Append("\n");
             sb.Append("  Display: ").Append(Display).Append("\n");
             sb.Append("  DocumentBase64: ").Append(DocumentBase64).Append("\n");
             sb.Append("  DocumentFields: ").Append(DocumentFields).Append("\n");
@@ -283,6 +292,11 @@ namespace DocuSign.Core.Model
                     this.ApplyAnchorTabs == other.ApplyAnchorTabs ||
                     this.ApplyAnchorTabs != null &&
                     this.ApplyAnchorTabs.Equals(other.ApplyAnchorTabs)
+                ) && 
+                (
+                    this.AuthoritativeCopy == other.AuthoritativeCopy ||
+                    this.AuthoritativeCopy != null &&
+                    this.AuthoritativeCopy.Equals(other.AuthoritativeCopy)
                 ) && 
                 (
                     this.Display == other.Display ||
@@ -399,6 +413,8 @@ namespace DocuSign.Core.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.ApplyAnchorTabs != null)
                     hash = hash * 59 + this.ApplyAnchorTabs.GetHashCode();
+                if (this.AuthoritativeCopy != null)
+                    hash = hash * 59 + this.AuthoritativeCopy.GetHashCode();
                 if (this.Display != null)
                     hash = hash * 59 + this.Display.GetHashCode();
                 if (this.DocumentBase64 != null)

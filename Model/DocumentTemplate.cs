@@ -46,7 +46,7 @@ namespace DocuSign.Core.Model
         /// <param name="DocumentId">Specifies the document ID number that the tab is placed on. This must refer to an existing Document&#39;s ID attribute..</param>
         /// <param name="DocumentStartPage">.</param>
         /// <param name="ErrorDetails">.</param>
-        /// <param name="TemplateId">The unique identifier of the template. If this is not provided, DocuSign will generate a value. .</param>
+        /// <param name="TemplateId">The unique identifier of the template. If this is not provided, DocuSign generates an error and the call fails..</param>
         public DocumentTemplate(string DocumentEndPage = null, string DocumentId = null, string DocumentStartPage = null, ErrorDetails ErrorDetails = null, string TemplateId = null)
         {
             this.DocumentEndPage = DocumentEndPage;
@@ -81,9 +81,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="errorDetails", EmitDefaultValue=false)]
         public ErrorDetails ErrorDetails { get; set; }
         /// <summary>
-        /// The unique identifier of the template. If this is not provided, DocuSign will generate a value. 
+        /// The unique identifier of the template. If this is not provided, DocuSign generates an error and the call fails.
         /// </summary>
-        /// <value>The unique identifier of the template. If this is not provided, DocuSign will generate a value. </value>
+        /// <value>The unique identifier of the template. If this is not provided, DocuSign generates an error and the call fails.</value>
         [DataMember(Name="templateId", EmitDefaultValue=false)]
         public string TemplateId { get; set; }
         /// <summary>

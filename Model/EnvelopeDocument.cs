@@ -43,6 +43,7 @@ namespace DocuSign.Core.Model
         /// Initializes a new instance of the <see cref="EnvelopeDocument" /> class.
         /// </summary>
         /// <param name="AttachmentTabId">.</param>
+        /// <param name="AuthoritativeCopy">Specifies whether all documents in this envelope are authoritative copies. A document can set its own &#x60;authoritativeCopy&#x60; property to override this value. For example you can set the authoritativeCopy on an envelope level to true but can turn it off for a specific document. .</param>
         /// <param name="AvailableDocumentTypes">.</param>
         /// <param name="ContainsPdfFormFields">.</param>
         /// <param name="Display">This string sets the display and behavior properties of the document during signing. The possible values are:  * &#x60;modal&#x60;&lt;br&gt;   The document is shown as a supplement action strip   and can be viewed, downloaded, or printed in a modal window.   This is the recommended value for supplemental documents.   * &#x60;download&#x60;&lt;br&gt;   The document is shown as a supplement action strip   and can be viewed, downloaded, or printed in a new browser window.   * &#x60;inline&#x60;&lt;br&gt;   The document is shown in the normal signing window.   This value is not used with supplemental documents,   but is the default value for all other documents. .</param>
@@ -57,9 +58,10 @@ namespace DocuSign.Core.Model
         /// <param name="SignerMustAcknowledge">Sets how the signer interacts with the supplemental document. The possible values are:   * &#x60;no_interaction&#x60;&lt;br&gt;   No recipient action is required.   * &#x60;view&#x60;&lt;br&gt;   The recipient is required to view the document.   * &#x60;accept&#x60;&lt;br&gt;   The recipient is required to accept the document by selecting accept during signing, but is not required to view the document.   * &#x60;view_accept&#x60;&lt;br&gt;   The recipient is required to view and accept the document.    .</param>
         /// <param name="Type">Type of the user. Valid values: type_owner, type_participant..</param>
         /// <param name="Uri">.</param>
-        public EnvelopeDocument(string AttachmentTabId = null, List<SignatureType> AvailableDocumentTypes = null, string ContainsPdfFormFields = null, string Display = null, List<NameValue> DocumentFields = null, string DocumentGroup = null, string DocumentId = null, ErrorDetails ErrorDetails = null, string IncludeInDownload = null, string Name = null, string Order = null, string Pages = null, string SignerMustAcknowledge = null, string Type = null, string Uri = null)
+        public EnvelopeDocument(string AttachmentTabId = null, string AuthoritativeCopy = null, List<SignatureType> AvailableDocumentTypes = null, string ContainsPdfFormFields = null, string Display = null, List<NameValue> DocumentFields = null, string DocumentGroup = null, string DocumentId = null, ErrorDetails ErrorDetails = null, string IncludeInDownload = null, string Name = null, string Order = null, string Pages = null, string SignerMustAcknowledge = null, string Type = null, string Uri = null)
         {
             this.AttachmentTabId = AttachmentTabId;
+            this.AuthoritativeCopy = AuthoritativeCopy;
             this.AvailableDocumentTypes = AvailableDocumentTypes;
             this.ContainsPdfFormFields = ContainsPdfFormFields;
             this.Display = Display;
@@ -82,6 +84,12 @@ namespace DocuSign.Core.Model
         /// <value></value>
         [DataMember(Name="attachmentTabId", EmitDefaultValue=false)]
         public string AttachmentTabId { get; set; }
+        /// <summary>
+        /// Specifies whether all documents in this envelope are authoritative copies. A document can set its own &#x60;authoritativeCopy&#x60; property to override this value. For example you can set the authoritativeCopy on an envelope level to true but can turn it off for a specific document. 
+        /// </summary>
+        /// <value>Specifies whether all documents in this envelope are authoritative copies. A document can set its own &#x60;authoritativeCopy&#x60; property to override this value. For example you can set the authoritativeCopy on an envelope level to true but can turn it off for a specific document. </value>
+        [DataMember(Name="authoritativeCopy", EmitDefaultValue=false)]
+        public string AuthoritativeCopy { get; set; }
         /// <summary>
         /// 
         /// </summary>
@@ -175,6 +183,7 @@ namespace DocuSign.Core.Model
             var sb = new StringBuilder();
             sb.Append("class EnvelopeDocument {\n");
             sb.Append("  AttachmentTabId: ").Append(AttachmentTabId).Append("\n");
+            sb.Append("  AuthoritativeCopy: ").Append(AuthoritativeCopy).Append("\n");
             sb.Append("  AvailableDocumentTypes: ").Append(AvailableDocumentTypes).Append("\n");
             sb.Append("  ContainsPdfFormFields: ").Append(ContainsPdfFormFields).Append("\n");
             sb.Append("  Display: ").Append(Display).Append("\n");
@@ -229,6 +238,11 @@ namespace DocuSign.Core.Model
                     this.AttachmentTabId == other.AttachmentTabId ||
                     this.AttachmentTabId != null &&
                     this.AttachmentTabId.Equals(other.AttachmentTabId)
+                ) && 
+                (
+                    this.AuthoritativeCopy == other.AuthoritativeCopy ||
+                    this.AuthoritativeCopy != null &&
+                    this.AuthoritativeCopy.Equals(other.AuthoritativeCopy)
                 ) && 
                 (
                     this.AvailableDocumentTypes == other.AvailableDocumentTypes ||
@@ -315,6 +329,8 @@ namespace DocuSign.Core.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.AttachmentTabId != null)
                     hash = hash * 59 + this.AttachmentTabId.GetHashCode();
+                if (this.AuthoritativeCopy != null)
+                    hash = hash * 59 + this.AuthoritativeCopy.GetHashCode();
                 if (this.AvailableDocumentTypes != null)
                     hash = hash * 59 + this.AvailableDocumentTypes.GetHashCode();
                 if (this.ContainsPdfFormFields != null)

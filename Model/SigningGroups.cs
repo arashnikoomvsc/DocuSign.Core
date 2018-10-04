@@ -46,7 +46,7 @@ namespace DocuSign.Core.Model
         /// <param name="CreatedBy">.</param>
         /// <param name="ErrorDetails">.</param>
         /// <param name="GroupEmail">.</param>
-        /// <param name="GroupName">The name of the group..</param>
+        /// <param name="GroupName">The name of the group. The search_text provided in the call automatically performs a wild card search on group_name..</param>
         /// <param name="GroupType">The group type..</param>
         /// <param name="Modified">.</param>
         /// <param name="ModifiedBy">.</param>
@@ -91,9 +91,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="groupEmail", EmitDefaultValue=false)]
         public string GroupEmail { get; set; }
         /// <summary>
-        /// The name of the group.
+        /// The name of the group. The search_text provided in the call automatically performs a wild card search on group_name.
         /// </summary>
-        /// <value>The name of the group.</value>
+        /// <value>The name of the group. The search_text provided in the call automatically performs a wild card search on group_name.</value>
         [DataMember(Name="groupName", EmitDefaultValue=false)]
         public string GroupName { get; set; }
         /// <summary>

@@ -34,7 +34,7 @@ using Newtonsoft.Json.Converters;
 namespace DocuSign.Core.Model
 {
     /// <summary>
-    /// Register a webhook for the envelope
+    /// Register a Connect webhook for a specific envelope
     /// </summary>
     [DataContract]
     public partial class EventNotification :  IEquatable<EventNotification>
@@ -44,7 +44,7 @@ namespace DocuSign.Core.Model
         /// </summary>
         /// <param name="EnvelopeEvents">A list of envelope-level event statuses that will trigger Connect to send updates to the endpoint specified in the &#x60;url&#x60; property.   To receive notifications, you must include either an &#x60;envelopeEvents&#x60; node or a &#x60;recipientEvents&#x60; node. You do not need to specify both..</param>
         /// <param name="IncludeCertificateOfCompletion">When set to **true**, the Connect Service includes the Certificate of Completion with completed envelopes. .</param>
-        /// <param name="IncludeCertificateWithSoap">When set to **true**, the Connect service will send the DocuSign signedby certificate as part of the SOAP xml. The certificate is included in the XML message as &#x60;wsse:BinarySecurityToken&#x60;..</param>
+        /// <param name="IncludeCertificateWithSoap">When set to **true**, the Connect service will digitally sign the XML data. The signature will be included in the XML message..</param>
         /// <param name="IncludeDocumentFields">When set to **true**, the Document Fields associated with the envelope&#39;s documents are included in the notification messages. Document Fields are optional custom name-value pairs added to documents using the API. .</param>
         /// <param name="IncludeDocuments">When set to **true**, the XML webhook messages will include the envelope&#39;s PDF documents. Including the PDF documents will greatly increase the size of the notification messages. Ensure that your listener can handle incoming messages that are 25MB or larger. .</param>
         /// <param name="IncludeEnvelopeVoidReason">When set to **true**, if the envelope is voided, the Connect Service notification will include the void reason, as entered by the person that voided the envelope. .</param>
@@ -53,9 +53,9 @@ namespace DocuSign.Core.Model
         /// <param name="LoggingEnabled">When set to **true**, the webhook messages are logged. They can be viewed on the DocuSign Administration Web Tool in the Connect section. Logged messages can also be downloaded via the [ConnectEvents resource](../../../Connect/ConnectEvents/).</param>
         /// <param name="RecipientEvents">An array of recipient event statuses that will trigger Connect to send notifications to your webhook listener at the url endpoint specified in the &#x60;url&#x60; property.   To receive notifications, you must include either an &#x60;envelopeEvents&#x60; node or a &#x60;recipientEvents&#x60; node. You do not need to specify both..</param>
         /// <param name="RequireAcknowledgment">When set to **true**, the DocuSign Connect service checks that the message was received and retries on failures. .</param>
-        /// <param name="SignMessageWithX509Cert">When set to **true**, notification messages are digitally signed with an [X509 certificate](https://trust.docusign.com/en-us/trust-certifications/docusign-public-certificates/). .</param>
+        /// <param name="SignMessageWithX509Cert">When set to **true**, Mutual TLS will be enabled for notifications. Mutual TLS must be initiated by the listener (the customer&#39;s web server) during the TLS handshake protocol. .</param>
         /// <param name="SoapNameSpace">The namespace of the SOAP interface.  The namespace value must be set if useSoapInterface is set to true..</param>
-        /// <param name="Url">The endpoint to which webhook notification messages are sent via an HTTP/S POST request. For the DocuSign production platform, the url must start with https. For the demo platform, either http or https is ok..</param>
+        /// <param name="Url">The endpoint to which webhook notification messages are sent via an HTTPS POST request. The url must start with https. The customer&#39;s web server must use an SSL/TLS certificate whose CA is in the Microsoft list of trusted CAs. Self-signed certificates are not ok. Free certificates from Let&#39;s Encrypt can be used..</param>
         /// <param name="UseSoapInterface">When set to **true**, the notifications are sent to your endpoint as SOAP requests. .</param>
         public EventNotification(List<EnvelopeEvent> EnvelopeEvents = null, string IncludeCertificateOfCompletion = null, string IncludeCertificateWithSoap = null, string IncludeDocumentFields = null, string IncludeDocuments = null, string IncludeEnvelopeVoidReason = null, string IncludeSenderAccountAsCustomField = null, string IncludeTimeZone = null, string LoggingEnabled = null, List<RecipientEvent> RecipientEvents = null, string RequireAcknowledgment = null, string SignMessageWithX509Cert = null, string SoapNameSpace = null, string Url = null, string UseSoapInterface = null)
         {
@@ -89,9 +89,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="includeCertificateOfCompletion", EmitDefaultValue=false)]
         public string IncludeCertificateOfCompletion { get; set; }
         /// <summary>
-        /// When set to **true**, the Connect service will send the DocuSign signedby certificate as part of the SOAP xml. The certificate is included in the XML message as &#x60;wsse:BinarySecurityToken&#x60;.
+        /// When set to **true**, the Connect service will digitally sign the XML data. The signature will be included in the XML message.
         /// </summary>
-        /// <value>When set to **true**, the Connect service will send the DocuSign signedby certificate as part of the SOAP xml. The certificate is included in the XML message as &#x60;wsse:BinarySecurityToken&#x60;.</value>
+        /// <value>When set to **true**, the Connect service will digitally sign the XML data. The signature will be included in the XML message.</value>
         [DataMember(Name="includeCertificateWithSoap", EmitDefaultValue=false)]
         public string IncludeCertificateWithSoap { get; set; }
         /// <summary>
@@ -143,9 +143,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="requireAcknowledgment", EmitDefaultValue=false)]
         public string RequireAcknowledgment { get; set; }
         /// <summary>
-        /// When set to **true**, notification messages are digitally signed with an [X509 certificate](https://trust.docusign.com/en-us/trust-certifications/docusign-public-certificates/). 
+        /// When set to **true**, Mutual TLS will be enabled for notifications. Mutual TLS must be initiated by the listener (the customer&#39;s web server) during the TLS handshake protocol. 
         /// </summary>
-        /// <value>When set to **true**, notification messages are digitally signed with an [X509 certificate](https://trust.docusign.com/en-us/trust-certifications/docusign-public-certificates/). </value>
+        /// <value>When set to **true**, Mutual TLS will be enabled for notifications. Mutual TLS must be initiated by the listener (the customer&#39;s web server) during the TLS handshake protocol. </value>
         [DataMember(Name="signMessageWithX509Cert", EmitDefaultValue=false)]
         public string SignMessageWithX509Cert { get; set; }
         /// <summary>
@@ -155,9 +155,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="soapNameSpace", EmitDefaultValue=false)]
         public string SoapNameSpace { get; set; }
         /// <summary>
-        /// The endpoint to which webhook notification messages are sent via an HTTP/S POST request. For the DocuSign production platform, the url must start with https. For the demo platform, either http or https is ok.
+        /// The endpoint to which webhook notification messages are sent via an HTTPS POST request. The url must start with https. The customer&#39;s web server must use an SSL/TLS certificate whose CA is in the Microsoft list of trusted CAs. Self-signed certificates are not ok. Free certificates from Let&#39;s Encrypt can be used.
         /// </summary>
-        /// <value>The endpoint to which webhook notification messages are sent via an HTTP/S POST request. For the DocuSign production platform, the url must start with https. For the demo platform, either http or https is ok.</value>
+        /// <value>The endpoint to which webhook notification messages are sent via an HTTPS POST request. The url must start with https. The customer&#39;s web server must use an SSL/TLS certificate whose CA is in the Microsoft list of trusted CAs. Self-signed certificates are not ok. Free certificates from Let&#39;s Encrypt can be used.</value>
         [DataMember(Name="url", EmitDefaultValue=false)]
         public string Url { get; set; }
         /// <summary>

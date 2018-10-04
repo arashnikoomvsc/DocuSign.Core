@@ -59,7 +59,7 @@ namespace DocuSign.Core.Model
         /// <param name="SenderName">Name of the envelope sender..</param>
         /// <param name="SentDateTime">The date and time the envelope was sent..</param>
         /// <param name="Shared">When set to **true**, this custom tab is shared..</param>
-        /// <param name="Status">Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later..</param>
+        /// <param name="Status">Item status. &lt;!- - TODO - -&gt;.</param>
         /// <param name="Subject">.</param>
         /// <param name="TemplateId">The unique identifier of the template. If this is not provided, DocuSign will generate a value. .</param>
         /// <param name="Uri">.</param>
@@ -191,9 +191,9 @@ namespace DocuSign.Core.Model
         [DataMember(Name="shared", EmitDefaultValue=false)]
         public string Shared { get; set; }
         /// <summary>
-        /// Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later.
+        /// Item status. &lt;!- - TODO - -&gt;
         /// </summary>
-        /// <value>Indicates the envelope status. Valid values are:  * sent - The envelope is sent to the recipients.  * created - The envelope is saved as a draft and can be modified and sent later.</value>
+        /// <value>Item status. &lt;!- - TODO - -&gt;</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
         /// <summary>
